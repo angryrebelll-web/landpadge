@@ -4270,6 +4270,12 @@
                 const modal = document.getElementById('calculatorModal');
                 const floatingBtn = document.getElementById('floatingCalculateBtn');
                 const mobileStickyBtn = document.querySelector('.mobile-sticky-btn');
+                const calculatorIframe = document.getElementById('calculator-iframe');
+                
+                // Сброс калькулятора при открытии
+                if (calculatorIframe && calculatorIframe.contentWindow && typeof calculatorIframe.contentWindow.resetCalculator === 'function') {
+                    calculatorIframe.contentWindow.resetCalculator();
+                }
                 
                 if (modal) {
                     modal.classList.add('active');
@@ -4293,6 +4299,12 @@
                 const modal = document.getElementById('calculatorModal');
                 const floatingBtn = document.getElementById('floatingCalculateBtn');
                 const mobileStickyBtn = document.querySelector('.mobile-sticky-btn');
+                const calculatorIframe = document.getElementById('calculator-iframe');
+                
+                // Сброс калькулятора при закрытии
+                if (calculatorIframe && calculatorIframe.contentWindow && typeof calculatorIframe.contentWindow.resetCalculator === 'function') {
+                    calculatorIframe.contentWindow.resetCalculator();
+                }
                 
                 if (modal) {
                     modal.classList.remove('active');

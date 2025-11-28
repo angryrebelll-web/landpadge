@@ -420,7 +420,7 @@ const goToStep = (step) => {
     }, 100);
 };
 
-const resetCalculator = () => {
+function resetCalculator() {
     currentStep = 1;
     selectedType = null;
     selectedBrand = null;
@@ -430,15 +430,73 @@ const resetCalculator = () => {
     selectedRiskZones = [];
     totalPrice = 0;
     
-    if (searchBrandInput) searchBrandInput.value = "";
+    // Сброс активных классов шагов
+    document.querySelectorAll('.step-block').forEach(step => {
+        step.classList.remove('visible');
+    });
+    const step1 = document.querySelector('#step1');
+    if (step1) step1.classList.add('visible');
+    
+    // Сброс активных классов элементов
+    document.querySelectorAll('.type-chip, .brand-chip, .model-tile, .package-item, .check').forEach(el => {
+        el.classList.remove('active');
+    });
+    
+    // Сброс чекбоксов и радиокнопок
+    document.querySelectorAll('.check input[type="checkbox"]').forEach(cb => cb.checked = false);
+    document.querySelectorAll('.package-item input[type="radio"]').forEach(rb => rb.checked = false);
+    
+    // Сброс текстовых меток
+    const brandLabel = document.querySelector('#chosenBrand');
+    const modelLabel = document.querySelector('#chosenModel');
+    const classLabel = document.querySelector('#chosenClass');
+    const selectedClassTextEl = document.querySelector('#selectedClass');
+    
+    if (brandLabel) brandLabel.textContent = '—';
+    if (modelLabel) modelLabel.textContent = '—';
+    if (classLabel) classLabel.textContent = '—';
+    if (selectedClassTextEl) selectedClassTextEl.textContent = 'Класс авто: —';
+    
+    // Сброс итоговой цены
+    if (finalPriceElement) finalPriceElement.textContent = '0 ₽';
+    
+    // Сброс индикатора класса
+    if (classIndicator) {
+        classIndicator.textContent = '—';
+        classIndicator.className = 'class-indicator';
+    }
+    
+    // Прокрутка модального окна в начало
+    const modalContent = document.querySelector('.calculator-modal-content');
+    if (modalContent) modalContent.scrollTop = 0;
+    
+    // Сброс поиска
+    if (searchBrandInput) searchBrandInput.value = '';
+    
+    // Сброс чекбоксов полной оклейки
     if (fullGlossCheckbox) fullGlossCheckbox.checked = false;
     if (fullMatteCheckbox) fullMatteCheckbox.checked = false;
     
+    // Перерисовка UI
     renderStep1();
     renderBrands();
     goToStep(1);
     calculateTotal();
-};
+    
+    console.log("%c[RESET] Калькулятор полностью сброшен", "color:#16a085;font-weight:bold");
+}
+
+/* =============================
+   ФУНКЦИИ ОТКРЫТИЯ/ЗАКРЫТИЯ КАЛЬКУЛЯТОРА
+   ============================= */
+
+function openCalculator() {
+    resetCalculator();
+}
+
+function closeCalculator() {
+    resetCalculator();
+}
 
 /* =============================
    МОДАЛЬНОЕ ОКНО
@@ -517,6 +575,14 @@ if (requestForm) {
         }
         
         requestForm.reset();
+        
+        // Сброс калькулятора после отправки формы
+        resetCalculator();
+        
+        // Открытие формы лидов (если функция существует)
+        if (typeof openLeadForm === 'function') {
+            openLeadForm();
+        }
     });
 }
 
@@ -536,3 +602,15 @@ if (document.readyState === 'loading') {
 } else {
     initCalculator();
 }
+
+// Делаем resetCalculator доступной глобально для вызова из родительского окна
+window.resetCalculator = resetCalculator;
+window.openCalculator = openCalculator;
+window.closeCalculator = closeCalculator;
+
+// Обработчик сообщений от родительского окна
+window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resetCalculator') {
+        resetCalculator();
+    }
+});
