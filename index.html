@@ -2574,7 +2574,7 @@
         }
         
         .bonuses-label {
-            color: rgba(22, 132, 145, 0.8);
+            color: #168491;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             font-family: 'Montserrat', sans-serif;
@@ -2582,16 +2582,18 @@
             font-size: 12px;
             margin-bottom: 20px;
             display: block;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
         
         .bonuses-title {
             color: #ffffff;
             font-size: 48px;
-            font-weight: 300;
+            font-weight: 400;
             font-family: 'Montserrat', sans-serif;
             letter-spacing: 0.01em;
             margin-bottom: 24px;
             line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
         }
         
         .bonuses-underline {
@@ -2603,21 +2605,23 @@
         }
         
         .bonus-card {
-            background: rgba(18, 18, 18, 0.6);
+            background: rgba(15, 15, 15, 0.95);
             padding: 40px;
             border-radius: 16px;
-            border: 1px solid rgba(22, 132, 145, 0.15);
+            border: 1px solid rgba(22, 132, 145, 0.3);
             backdrop-filter: blur(10px);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
             cursor: default;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
         
         .bonus-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(22, 132, 145, 0.4);
-            box-shadow: 0 20px 40px rgba(22, 132, 145, 0.15), 0 0 0 1px rgba(22, 132, 145, 0.2);
+            border-color: rgba(22, 132, 145, 0.6);
+            box-shadow: 0 20px 40px rgba(22, 132, 145, 0.25), 0 0 0 1px rgba(22, 132, 145, 0.4);
+            background: rgba(18, 18, 18, 0.98);
         }
         
         .bonus-card:hover .bonus-card-glow {
@@ -2630,7 +2634,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(22, 132, 145, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(22, 132, 145, 0.15) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.4s ease;
             pointer-events: none;
@@ -2640,12 +2644,13 @@
             color: #ffffff;
             font-size: 20px;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            font-weight: 600;
             letter-spacing: 0.01em;
             margin-bottom: 0;
             position: relative;
             z-index: 1;
-            line-height: 1.4;
+            line-height: 1.5;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
         
         .bonuses-grid {
@@ -3522,39 +3527,39 @@
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 bonuses-grid">
-                <div class="bonus-card slide-up" style="background: rgba(18, 18, 18, 0.6); padding: 40px; border-radius: 16px; border: 1px solid rgba(22, 132, 145, 0.15); backdrop-filter: blur(10px); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;">
-                    <div class="bonus-card-glow" style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(22, 132, 145, 0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.4s ease;"></div>
-                    <h3 class="bonus-title" style="color: #ffffff; font-size: 20px; font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: 0.01em; margin-bottom: 0; position: relative; z-index: 1;">Мойка в подарок</h3>
+                <div class="bonus-card slide-up">
+                    <div class="bonus-card-glow"></div>
+                    <h3 class="bonus-title">Мойка в подарок</h3>
                 </div>
                 
-                <div class="bonus-card slide-up" style="animation-delay: 0.1s; background: rgba(18, 18, 18, 0.6); padding: 40px; border-radius: 16px; border: 1px solid rgba(22, 132, 145, 0.15); backdrop-filter: blur(10px); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;">
-                    <div class="bonus-card-glow" style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(22, 132, 145, 0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.4s ease;"></div>
-                    <h3 class="bonus-title" style="color: #ffffff; font-size: 20px; font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: 0.01em; margin-bottom: 0; position: relative; z-index: 1;">Такси в обе стороны в любую точку Москвы и Московской области</h3>
+                <div class="bonus-card slide-up" style="animation-delay: 0.1s;">
+                    <div class="bonus-card-glow"></div>
+                    <h3 class="bonus-title">Такси в обе стороны в любую точку Москвы и Московской области</h3>
                 </div>
                 
-                <div class="bonus-card slide-up" style="animation-delay: 0.2s; background: rgba(18, 18, 18, 0.6); padding: 40px; border-radius: 16px; border: 1px solid rgba(22, 132, 145, 0.15); backdrop-filter: blur(10px); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;">
-                    <div class="bonus-card-glow" style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(22, 132, 145, 0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.4s ease;"></div>
-                    <h3 class="bonus-title" style="color: #ffffff; font-size: 20px; font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: 0.01em; margin-bottom: 0; position: relative; z-index: 1;">Сертификат на керамику</h3>
+                <div class="bonus-card slide-up" style="animation-delay: 0.2s;">
+                    <div class="bonus-card-glow"></div>
+                    <h3 class="bonus-title">Сертификат на керамику</h3>
                 </div>
                 
-                <div class="bonus-card slide-up" style="animation-delay: 0.3s; background: rgba(18, 18, 18, 0.6); padding: 40px; border-radius: 16px; border: 1px solid rgba(22, 132, 145, 0.15); backdrop-filter: blur(10px); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;">
-                    <div class="bonus-card-glow" style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(22, 132, 145, 0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.4s ease;"></div>
-                    <h3 class="bonus-title" style="color: #ffffff; font-size: 20px; font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: 0.01em; margin-bottom: 0; position: relative; z-index: 1;">Антидождь на все стекла</h3>
+                <div class="bonus-card slide-up" style="animation-delay: 0.3s;">
+                    <div class="bonus-card-glow"></div>
+                    <h3 class="bonus-title">Антидождь на все стекла</h3>
                 </div>
                 
-                <div class="bonus-card slide-up" style="animation-delay: 0.4s; background: rgba(18, 18, 18, 0.6); padding: 40px; border-radius: 16px; border: 1px solid rgba(22, 132, 145, 0.15); backdrop-filter: blur(10px); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;">
-                    <div class="bonus-card-glow" style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(22, 132, 145, 0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.4s ease;"></div>
-                    <h3 class="bonus-title" style="color: #ffffff; font-size: 20px; font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: 0.01em; margin-bottom: 0; position: relative; z-index: 1;">Премиальные качественные материалы</h3>
+                <div class="bonus-card slide-up" style="animation-delay: 0.4s;">
+                    <div class="bonus-card-glow"></div>
+                    <h3 class="bonus-title">Премиальные качественные материалы</h3>
                 </div>
                 
-                <div class="bonus-card slide-up" style="animation-delay: 0.5s; background: rgba(18, 18, 18, 0.6); padding: 40px; border-radius: 16px; border: 1px solid rgba(22, 132, 145, 0.15); backdrop-filter: blur(10px); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;">
-                    <div class="bonus-card-glow" style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(22, 132, 145, 0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.4s ease;"></div>
-                    <h3 class="bonus-title" style="color: #ffffff; font-size: 20px; font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: 0.01em; margin-bottom: 0; position: relative; z-index: 1;">Угощаем ароматным кофе</h3>
+                <div class="bonus-card slide-up" style="animation-delay: 0.5s;">
+                    <div class="bonus-card-glow"></div>
+                    <h3 class="bonus-title">Угощаем ароматным кофе</h3>
                 </div>
                 
-                <div class="bonus-card slide-up" style="animation-delay: 0.6s; background: rgba(18, 18, 18, 0.6); padding: 40px; border-radius: 16px; border: 1px solid rgba(22, 132, 145, 0.15); backdrop-filter: blur(10px); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;">
-                    <div class="bonus-card-glow" style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(22, 132, 145, 0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.4s ease;"></div>
-                    <h3 class="bonus-title" style="color: #ffffff; font-size: 20px; font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: 0.01em; margin-bottom: 0; position: relative; z-index: 1;">Бесплатная диагностика ЛКП</h3>
+                <div class="bonus-card slide-up" style="animation-delay: 0.6s;">
+                    <div class="bonus-card-glow"></div>
+                    <h3 class="bonus-title">Бесплатная диагностика ЛКП</h3>
                 </div>
             </div>
         </div>
