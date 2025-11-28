@@ -688,15 +688,26 @@
 
         @media (max-width: 768px) {
             .floating-book-btn {
-                top: 16px;
-                right: 16px;
-                width: 50px;
-                height: 50px;
+                top: auto;
+                bottom: 120px;
+                right: 20px;
+                width: 56px;
+                height: 56px;
+                opacity: 0;
+                transform: translateY(20px);
+                pointer-events: none;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+            
+            .floating-book-btn.visible {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
             }
             
             .floating-book-btn svg {
-                width: 22px;
-                height: 22px;
+                width: 24px;
+                height: 24px;
             }
         }
 
@@ -4788,6 +4799,67 @@
                     originalOpenCalculator();
                 };
             }
+        })();
+        
+        // Плавающая кнопка "Записаться" - появляется при скролле в мобильной версии
+        (function() {
+            const bookBtn = document.getElementById('floatingBookBtn');
+            if (!bookBtn) return;
+            
+            // Проверяем, мобильная ли версия
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile) return;
+            
+            let lastScrollTopBook = 0;
+            let scrollTimeoutBook = null;
+            let bookBtnTicking = false;
+            
+            window.addEventListener('scroll', () => {
+                if (!bookBtnTicking) {
+                    window.requestAnimationFrame(() => {
+                        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                        
+                        // Проверяем, открыто ли модальное окно
+                        const modal = document.getElementById('applicationModal');
+                        if (modal && modal.style.display === 'block') {
+                            bookBtn.classList.remove('visible');
+                            bookBtnTicking = false;
+                            return;
+                        }
+                        
+                        // Показываем кнопку только если прокрутили вниз больше 300px и не в самом низу
+                        if (scrollTop > 300 && scrollTop < scrollHeight - 100) {
+                            if (scrollTop > lastScrollTopBook) {
+                                // Прокрутка вниз - показываем
+                                bookBtn.classList.add('visible');
+                            } else {
+                                // Прокрутка вверх - скрываем
+                                bookBtn.classList.remove('visible');
+                            }
+                        } else {
+                            // В начале или в конце страницы - скрываем
+                            bookBtn.classList.remove('visible');
+                        }
+                        
+                        lastScrollTopBook = scrollTop;
+                        
+                        // Скрываем кнопку через 3 секунды после остановки прокрутки
+                        clearTimeout(scrollTimeoutBook);
+                        scrollTimeoutBook = setTimeout(() => {
+                            bookBtn.classList.remove('visible');
+                        }, 3000);
+                        
+                        bookBtnTicking = false;
+                    });
+                    bookBtnTicking = true;
+                }
+            }, { passive: true });
+            
+            // Скрываем кнопку при клике
+            bookBtn.addEventListener('click', () => {
+                bookBtn.classList.remove('visible');
+            });
         })();
 
         // Проверка загрузки фонового изображения Hero
