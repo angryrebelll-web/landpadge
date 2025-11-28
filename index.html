@@ -5320,6 +5320,42 @@
             window.addEventListener('scroll', handleScroll, { passive: true });
         })();
         
+        // Установка фоновых изображений для мобильных устройств
+        function setMobileBackgrounds() {
+            if (window.innerWidth <= 768) {
+                const advantagesBg = document.querySelector('.advantages-bg');
+                const servicesBg = document.querySelector('.services-bg');
+                
+                if (advantagesBg) {
+                    advantagesBg.style.backgroundImage = "url('https://images.hdqwalls.com/download/mercedes-amg-gt2-pro-2023-5k-td-1080x1920.jpg')";
+                    advantagesBg.style.opacity = '0.85';
+                }
+                
+                if (servicesBg) {
+                    servicesBg.style.backgroundImage = "url('https://images.hdqwalls.com/download/mercedes-amg-gt2-pro-2023-yk-1080x1920.jpg')";
+                    servicesBg.style.opacity = '0.85';
+                }
+            } else {
+                const advantagesBg = document.querySelector('.advantages-bg');
+                const servicesBg = document.querySelector('.services-bg');
+                
+                if (advantagesBg) {
+                    advantagesBg.style.backgroundImage = "url('https://images.hdqwalls.com/download/mercedes-amg-gt2-pro-2023-5k-td-1920x1080.jpg')";
+                    advantagesBg.style.opacity = '0.8';
+                }
+                
+                if (servicesBg) {
+                    servicesBg.style.backgroundImage = "url('https://images.hdqwalls.com/download/mercedes-amg-gt2-pro-2023-yk-1920x1080.jpg')";
+                    servicesBg.style.opacity = '0.8';
+                }
+            }
+        }
+        
+        // Вызываем при загрузке и изменении размера окна
+        document.addEventListener('DOMContentLoaded', setMobileBackgrounds);
+        window.addEventListener('resize', setMobileBackgrounds);
+        window.addEventListener('load', setMobileBackgrounds);
+        
         // Проверка загрузки фонового изображения Hero
         document.addEventListener('DOMContentLoaded', function() {
             const heroImg = document.getElementById('hero-bg-img');
