@@ -4552,7 +4552,7 @@
             transform: translateY(20px) scale(0.9);
             transition: opacity 0.3s ease, transform 0.3s ease;
             pointer-events: none;
-            z-index: 998;
+            z-index: 1001;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -4604,10 +4604,11 @@
         
         @media (max-width: 768px) {
             .floating-calculate-btn {
-                bottom: 20px;
+                bottom: 90px;
                 right: 20px;
                 padding: 14px 20px;
                 font-size: 14px;
+                z-index: 1001;
             }
             
             .floating-calculate-btn span {
@@ -4630,7 +4631,7 @@
                 bottom: 0;
                 left: 0;
                 right: 0;
-                z-index: 999;
+                z-index: 1001;
                 padding: 16px;
                 background: rgba(10, 10, 10, 0.95);
                 backdrop-filter: blur(20px);
