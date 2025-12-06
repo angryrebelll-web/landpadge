@@ -314,7 +314,6 @@ function canProceedToNextStep() {
    ============================= */
 
 function openCalculator() {
-    console.log("%c[OPEN] Открытие калькулятора", "color:#16a085;font-weight:bold");
     resetCalculator();
     
     if (calculatorFullscreen) {
@@ -324,14 +323,33 @@ function openCalculator() {
 }
 
 function closeCalculator() {
-    console.log("%c[CLOSE] Закрытие калькулятора", "color:#16a085;font-weight:bold");
-    
     if (calculatorFullscreen) {
         calculatorFullscreen.classList.remove("active");
+        // Восстанавливаем overflow для body
         document.body.style.overflow = "";
+        document.body.style.overflowX = "";
+        document.body.style.overflowY = "";
     }
     
     resetCalculator();
+    
+    // Возврат на главную страницу при закрытии
+    // Проверяем, что мы не на главной странице (если есть referrer или путь указывает на калькулятор)
+    if (window.location.pathname.includes('/calculator/') || window.location.pathname.includes('/calculator')) {
+        // Небольшая задержка для плавного закрытия, затем возврат
+        setTimeout(() => {
+            try {
+                if (document.referrer && document.referrer.includes(window.location.origin) && !document.referrer.includes('/calculator')) {
+                    window.history.back();
+                } else {
+                    window.location.href = '../';
+                }
+            } catch (e) {
+                // Если history.back() не работает, используем прямой переход
+                window.location.href = '../';
+            }
+        }, 300);
+    }
 }
 
 // Обработчики закрытия
@@ -1636,8 +1654,6 @@ window.resetCalculator = resetCalculator;
 
 // Инициализация
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("%c[INIT] Калькулятор инициализирован", "color:#16a085;font-weight:bold");
-    
     // Синхронизация популярных марок с базой
     syncPopularBrandsWithDatabase();
     
