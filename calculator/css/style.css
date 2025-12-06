@@ -28,10 +28,15 @@ dialog::backdrop,
     -webkit-backdrop-filter: none !important;
 }
 
-/* Восстановление backdrop-filter только для нужных элементов */
+/* ПОЛНОЕ отключение backdrop-filter для калькуляторного overlay */
 .calculator-overlay {
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.calculator-overlay.active {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
 .calculator-overlay:not(.active) {
@@ -102,7 +107,8 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(8px);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     -webkit-backdrop-filter: blur(8px);
     animation: fadeIn 0.3s ease;
 }
@@ -1908,8 +1914,8 @@ body {
     left: 0;
     right: 0;
     background: rgba(11, 15, 15, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     border-top: 1px solid rgba(22, 132, 145, 0.3);
     padding: 20px;
     z-index: 10000;
@@ -2240,7 +2246,8 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(8px);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     animation: fadeIn 0.15s ease-out;
 }
 
