@@ -362,8 +362,27 @@ function closeCalculator() {
     // Сбрасываем калькулятор
     resetCalculator();
     
-    // НЕ делаем переход на другую страницу при закрытии калькулятора
-    // Просто закрываем калькулятор и остаёмся на текущей странице
+    // Возврат на главную страницу при закрытии калькулятора
+    // Проверяем, находимся ли мы на странице калькулятора
+    if (window.location.pathname.includes('/calculator/') || 
+        window.location.pathname.includes('/calculator') ||
+        window.location.pathname.endsWith('/calculator')) {
+        // Небольшая задержка для плавного закрытия, затем возврат
+        setTimeout(() => {
+            try {
+                // Возврат на главную страницу сайта
+                const basePath = window.location.pathname.split('/calculator')[0] || '/';
+                window.location.href = basePath === '/' ? '/' : basePath + '/';
+            } catch (e) {
+                // Если ошибка, пробуем просто вернуться назад
+                try {
+                    window.history.back();
+                } catch (e2) {
+                    window.location.href = '/';
+                }
+            }
+        }, 300);
+    }
 }
 
 // Обработчики закрытия
