@@ -1506,106 +1506,10 @@ if (modelOverlay) {
     });
 }
 
-// Функция закрытия модального окна формы заявки
+// Старая функция закрытия - использует новую универсальную логику
 function closeBookingModal() {
-    if (!bookingModal) return;
-    
-    // 1. Принудительно скрываем модальное окно формы
-    bookingModal.classList.remove("active");
-    bookingModal.style.display = "none";
-    bookingModal.style.opacity = "0";
-    bookingModal.style.visibility = "hidden";
-    bookingModal.style.pointerEvents = "none";
-    bookingModal.style.zIndex = "-1";
-    
-    // 2. Скрываем калькуляторный overlay
-    if (calculatorOverlay) {
-        calculatorOverlay.style.display = "none";
-        calculatorOverlay.style.opacity = "0";
-        calculatorOverlay.style.visibility = "hidden";
-        calculatorOverlay.style.pointerEvents = "none";
-        calculatorOverlay.style.zIndex = "-1";
-        calculatorOverlay.style.filter = "none";
-        calculatorOverlay.style.backdropFilter = "none";
-        calculatorOverlay.style.webkitBackdropFilter = "none";
-    }
-    
-    // 3. Ищем и скрываем глобальный overlay из index.html (если есть)
-    const globalOverlay = document.querySelector(".modal-overlay");
-    if (globalOverlay) {
-        globalOverlay.style.display = "none";
-        globalOverlay.style.opacity = "0";
-        globalOverlay.style.visibility = "hidden";
-        globalOverlay.style.pointerEvents = "none";
-        globalOverlay.style.zIndex = "-1";
-        globalOverlay.style.filter = "none";
-        globalOverlay.style.backdropFilter = "none";
-        globalOverlay.style.webkitBackdropFilter = "none";
-        globalOverlay.classList.remove("active");
-    }
-    
-    // 4. Отключаем все системные backdrop псевдоэлементы
-    // Ищем все dialog элементы и закрываем их
-    const dialogs = document.querySelectorAll("dialog");
-    dialogs.forEach(dialog => {
-        if (dialog.open) {
-            dialog.close();
-        }
-        dialog.style.display = "none";
-        dialog.style.backdropFilter = "none";
-        dialog.style.webkitBackdropFilter = "none";
-    });
-    
-    // Ищем все элементы с role="dialog"
-    const dialogElements = document.querySelectorAll('[role="dialog"], [role="alertdialog"], [role="alert"]');
-    dialogElements.forEach(element => {
-        element.style.display = "none";
-        element.style.backdropFilter = "none";
-        element.style.webkitBackdropFilter = "none";
-        element.removeAttribute("open");
-    });
-    
-    // 5. Убираем blur/filter с body и калькулятора
-    document.body.style.filter = "none";
-    document.body.style.backdropFilter = "none";
-    document.body.style.webkitBackdropFilter = "none";
-    if (calculatorFullscreen) {
-        calculatorFullscreen.style.filter = "none";
-        calculatorFullscreen.style.backdropFilter = "none";
-        calculatorFullscreen.style.webkitBackdropFilter = "none";
-    }
-    
-    // 6. Принудительно отключаем backdrop-filter для всех элементов
-    const allElements = document.querySelectorAll("*");
-    allElements.forEach(element => {
-        if (element.style.backdropFilter || element.style.webkitBackdropFilter) {
-            element.style.backdropFilter = "none";
-            element.style.webkitBackdropFilter = "none";
-        }
-    });
-    
-    // 7. Полностью восстанавливаем body
-    document.body.style.overflow = "auto";
-    document.body.style.overflowX = "auto";
-    document.body.style.overflowY = "auto";
-    document.body.style.height = "auto";
-    document.body.style.position = "static";
-    
-    // 8. Полностью очищаем все inline стили с body
-    document.body.removeAttribute("style");
-    
-    // 9. НЕ делаем переход на другую страницу - форма работает как модалка
-    // Возвращаемся к шагу 4 калькулятора
-    if (calculatorFullscreen) {
-        const calculatorModal = calculatorFullscreen.querySelector(".calculator-modal");
-        if (calculatorModal) {
-            calculatorModal.style.display = "";
-        }
-        // Возвращаемся к последнему шагу (шаг 4 - итог)
-        if (currentStep !== 4) {
-            goToStep(4);
-        }
-    }
+    // Используем универсальное закрытие формы
+    closeRequestForm();
 }
 
 if (bookingModal) {
