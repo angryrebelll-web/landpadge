@@ -4496,18 +4496,30 @@
                 const mobileStickyBtn = document.querySelector('.mobile-sticky-btn');
                 const calculatorIframe = document.getElementById('calculator-iframe');
                 
-                // Перезагружаем iframe для исправления проблемы с повторным открытием
-                if (calculatorIframe) {
-                    const currentSrc = calculatorIframe.src;
-                    // Добавляем timestamp для принудительной перезагрузки
-                    const timestamp = new Date().getTime();
-                    const separator = currentSrc.includes('?') ? '&' : '?';
-                    calculatorIframe.src = currentSrc.split('?')[0] + separator + 'v=' + timestamp;
-                }
-                
                 if (modal) {
                     modal.classList.add('active');
                     document.body.style.overflow = 'hidden';
+                }
+                
+                // Перезагружаем iframe для исправления проблемы с повторным открытием
+                // На мобильных делаем это асинхронно для лучшей производительности
+                if (calculatorIframe) {
+                    const isMobile = window.innerWidth <= 768;
+                    const loadIframe = () => {
+                        const currentSrc = calculatorIframe.src;
+                        const timestamp = new Date().getTime();
+                        const separator = currentSrc.includes('?') ? '&' : '?';
+                        calculatorIframe.src = currentSrc.split('?')[0] + separator + 'v=' + timestamp;
+                    };
+                    
+                    if (isMobile) {
+                        // На мобильных загружаем с небольшой задержкой для плавности
+                        requestAnimationFrame(() => {
+                            setTimeout(loadIframe, 50);
+                        });
+                    } else {
+                        loadIframe();
+                    }
                 }
                 
                 // Скрываем плавающую кнопку "Рассчитать" при открытии калькулятора

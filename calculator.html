@@ -325,19 +325,33 @@
     <!-- Автоматическое открытие калькулятора при загрузке в iframe -->
     <script>
         // Калькулятор автоматически открывается при загрузке в iframe
-        document.addEventListener("DOMContentLoaded", () => {
-            setTimeout(() => {
-                const calc = document.getElementById("calculatorFullscreen");
-                if (calc && !calc.classList.contains("active")) {
-                    if (typeof window.openCalculator === 'function') {
-                        window.openCalculator();
-                    } else {
-                        calc.classList.add("active");
-                        document.body.style.overflow = "hidden";
-                    }
+        // Оптимизация для мобильных - используем requestAnimationFrame
+        const isMobile = window.innerWidth <= 768;
+        const openDelay = isMobile ? 100 : 200;
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener("DOMContentLoaded", () => {
+                requestAnimationFrame(() => {
+                    setTimeout(openCalculator, openDelay);
+                });
+            });
+        } else {
+            requestAnimationFrame(() => {
+                setTimeout(openCalculator, openDelay);
+            });
+        }
+        
+        function openCalculator() {
+            const calc = document.getElementById("calculatorFullscreen");
+            if (calc && !calc.classList.contains("active")) {
+                if (typeof window.openCalculator === 'function') {
+                    window.openCalculator();
+                } else {
+                    calc.classList.add("active");
+                    document.body.style.overflow = "hidden";
                 }
-            }, 200);
-        });
+            }
+        }
     </script>
 </body>
 </html>

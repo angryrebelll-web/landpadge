@@ -54,6 +54,29 @@ body {
     animation: fadeIn 0.3s ease;
 }
 
+/* Оптимизация для мобильных - отключаем backdrop-filter */
+@media (max-width: 768px) {
+    .calculator-overlay {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(0, 0, 0, 0.8);
+    }
+    
+    .calculator-close {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+    
+    /* Упрощаем анимации для мобильных */
+    .calculator-modal {
+        animation: none;
+    }
+    
+    .calculator-overlay {
+        animation: none;
+    }
+}
+
 .calculator-modal {
     position: relative;
     width: 100%;
@@ -82,6 +105,17 @@ body {
     justify-content: center;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+}
+
+/* Оптимизация для мобильных - упрощаем переходы */
+@media (max-width: 768px) {
+    .calculator-close {
+        transition: background 0.2s ease;
+    }
+    
+    .calculator-close:hover {
+        transform: none;
+    }
 }
 
 .calculator-close:hover {
