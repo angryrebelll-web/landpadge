@@ -514,12 +514,35 @@ function syncPopularBrandsWithDatabase() {
         existingBrands.add(car.brand);
     });
     
-    // Проверяем и логируем недостающие марки
+    // Добавляем недостающие марки в базу (без моделей, как указано в требованиях)
     allPopularBrands.forEach(brand => {
         if (!existingBrands.has(brand)) {
-            // Марка отсутствует в базе - это нормально, она просто не будет иметь моделей
-            // Модели не добавляем, как указано в требованиях
-            console.log("%c[SYNC] Марка отсутствует в базе (будет показана, но без моделей):", "color:#16a085", brand);
+            // Определяем тип по первому вхождению марки в popularBrandsByBodyType
+            let defaultBodyType = "sedan";
+            let defaultType = "sedan-small";
+            
+            for (const [bodyType, brands] of Object.entries(popularBrandsByBodyType)) {
+                if (brands.includes(brand)) {
+                    defaultBodyType = bodyType;
+                    // Определяем тип по маппингу
+                    const typeMapping = typeCategoryMapping[bodyType];
+                    if (typeMapping && typeMapping.length > 0) {
+                        defaultType = typeMapping[0];
+                    }
+                    break;
+                }
+            }
+            
+            // Добавляем марку в carDatabaseArray с минимальной структурой (без моделей)
+            // Это позволит марке появиться в списке марок, но при выборе будет показано "модели не найдены"
+            carDatabaseArray.push({
+                brand: brand,
+                model: "", // Пустая модель, как указано в требованиях
+                body: defaultBodyType,
+                type: defaultType
+            });
+            
+            console.log("%c[SYNC] Добавлена марка в базу:", "color:#16a085", brand);
         }
     });
 }
