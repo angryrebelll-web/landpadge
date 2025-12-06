@@ -38,6 +38,10 @@ body {
     height: 100vh;
     z-index: 9999;
     overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -49,6 +53,9 @@ body {
 
 .calculator-fullscreen.active {
     display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .calculator-overlay {
