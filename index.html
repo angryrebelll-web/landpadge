@@ -2164,15 +2164,19 @@
 
             /* Изображения в галерее */
             .gallery-item {
-                overflow: hidden;
+                overflow: hidden !important;
+                aspect-ratio: 4/3 !important;
+                width: 100% !important;
+                margin: 0 !important;
             }
             
             .gallery-item img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-                min-height: 200px;
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                object-position: center !important;
+                min-height: auto !important;
+                display: block !important;
             }
 
             /* Премиальная прокрутка на мобильных */
