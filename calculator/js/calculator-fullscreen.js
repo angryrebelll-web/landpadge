@@ -1711,12 +1711,11 @@ if (requestForm) {
         alert("Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.");
         
         // Закрыть модальное окно формы
-        closeBookingModal();
+        closeRequestForm();
         
         requestForm.reset();
         
-        // Сброс калькулятора после отправки
-        resetCalculator();
+        // НЕ сбрасываем калькулятор - остаёмся на шаге 4
     });
 }
 
@@ -1744,6 +1743,57 @@ document.addEventListener("DOMContentLoaded", () => {
     
     updateNavigationButtons();
     updateStepsIndicator();
+    
+    // Инициализация новой формы заявки
+    const requestCloseBtn = document.getElementById('requestCloseBtn');
+    if (requestCloseBtn) {
+        requestCloseBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            closeRequestForm();
+        });
+    }
+    
+    const requestOverlay = document.querySelector('.request-overlay');
+    if (requestOverlay) {
+        requestOverlay.addEventListener('click', (e) => {
+            if (e.target === requestOverlay) {
+                closeRequestForm();
+            }
+        });
+    }
+    
+    const requestForm = document.getElementById('requestForm');
+    if (requestForm) {
+        requestForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const phone = this.querySelector('[name="phone"]')?.value.trim() || 
+                         document.getElementById('userPhone')?.value.trim() || '';
+            
+            if (!phone || phone.replace(/\D/g, '').length < 10) {
+                alert("Введите корректный номер телефона");
+                const phoneInput = this.querySelector('[name="phone"]') || document.getElementById('userPhone');
+                if (phoneInput) {
+                    phoneInput.focus();
+                    phoneInput.style.borderColor = "#e74c3c";
+                    setTimeout(() => {
+                        if (phoneInput) phoneInput.style.borderColor = "";
+                    }, 3000);
+                }
+                return;
+            }
+            
+            // Здесь можно добавить отправку данных на сервер
+            alert("Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.");
+            
+            // Закрываем форму
+            closeRequestForm();
+            
+            // Сбрасываем форму
+            this.reset();
+        });
+    }
     
     // Автоматическое открытие калькулятора
     setTimeout(() => {
