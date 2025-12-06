@@ -1,0 +1,25 @@
+# Системные файлы Windows
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# Конфигурационные файлы
+mcp-config.json
+
+# Старые версии проекта
+fix-repo/
+propellini-11/
+propellini-final/
+deploy/
+
+# Временные файлы
+*.tmp
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Node modules (если будут)
+node_modules/
+
