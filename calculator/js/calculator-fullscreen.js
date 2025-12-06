@@ -1403,15 +1403,16 @@ ${selectedAdditionalServices.length > 0 ? additionalServicesNames.join(", ") : "
             `;
         }
 
-        // Закрыть калькулятор и открыть форму
-        closeCalculator();
+        // Скрыть калькулятор, но НЕ перекидывать на главную страницу
+        if (calculatorFullscreen) {
+            calculatorFullscreen.classList.remove("active");
+        }
         
-        setTimeout(() => {
-            if (bookingModal) {
-                bookingModal.classList.add("active");
-                document.body.style.overflow = "hidden";
-            }
-        }, 300);
+        // Открыть модальное окно формы
+        if (bookingModal) {
+            bookingModal.classList.add("active");
+            document.body.style.overflow = "hidden";
+        }
     });
 }
 
@@ -1498,6 +1499,7 @@ if (requestForm) {
         // Здесь можно добавить отправку данных на сервер
         alert("Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.");
         
+        // Закрыть модальное окно формы
         if (bookingModal) {
             bookingModal.classList.remove("active");
             document.body.style.overflow = "";
@@ -1507,6 +1509,21 @@ if (requestForm) {
         
         // Сброс калькулятора после отправки
         resetCalculator();
+        
+        // Только после отправки формы закрыть калькулятор и вернуться на главную
+        if (window.location.pathname.includes('/calculator/') || window.location.pathname.includes('/calculator')) {
+            setTimeout(() => {
+                try {
+                    if (document.referrer && document.referrer.includes(window.location.origin) && !document.referrer.includes('/calculator')) {
+                        window.history.back();
+                    } else {
+                        window.location.href = '../';
+                    }
+                } catch (e) {
+                    window.location.href = '../';
+                }
+            }, 500);
+        }
     });
 }
 
