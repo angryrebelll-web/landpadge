@@ -35,6 +35,55 @@ const fullWrapMatte = {
 };
 
 /* ============================
+   ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ
+   ============================ */
+
+// Оклейка цветной виниловой пленкой целиком (без проемов)
+const fullWrapVinyl = {
+    1: 180000,
+    2: 190000,
+    3: 210000,
+    4: 220000,
+    5: 240000
+};
+
+// Оклейка дисплеев автомобиля
+const displayWrap = {
+    1: 15000,
+    2: 15000,
+    3: 15000,
+    4: 15000,
+    5: 15000
+};
+
+// Оклейка глянцевых элементов салона
+const interiorGlossWrap = {
+    1: 5000,
+    2: 5000,
+    3: 5000,
+    4: 5000,
+    5: 5000
+};
+
+// Поэлементная оклейка защитной пленкой
+const elementByElementWrap = {
+    1: 10000,
+    2: 10000,
+    3: 10000,
+    4: 10000,
+    5: 10000
+};
+
+// Снятие пленки с одного элемента (без гарантии)
+const filmRemoval = {
+    1: 5000,
+    2: 5000,
+    3: 5000,
+    4: 5000,
+    5: 5000
+};
+
+/* ============================
    ЗОНЫ РИСКА
    ============================ */
 
@@ -90,49 +139,34 @@ const packages = [
             3: 80000,
             4: 90000,
             5: 95000
-        }
+        },
+        // Зоны, входящие в пакет "Зоны риска"
+        zones: [
+            "Бампер передний",
+            "Капот",
+            "Крылья передние",
+            "Пороги",
+            "Зеркала",
+            "Фары"
+        ]
     },
 
     {
         id: "fullGloss",
         name: "Полная оклейка (глянец)",
-        base: fullWrapGloss
+        base: fullWrapGloss,
+        // Полная оклейка включает все зоны
+        zones: Object.keys(riskZonePrices)
     },
 
     {
         id: "fullMatte",
         name: "Полная оклейка (мат)",
-        base: fullWrapMatte
+        base: fullWrapMatte,
+        // Полная оклейка включает все зоны
+        zones: Object.keys(riskZonePrices)
     }
 ];
 
-/* ============================
-   ФУНКЦИИ РАБОТЫ С ЦЕНАМИ
-   ============================ */
 
-const getPricesByClass = (carClass) => {
-    if (!carClass) return null;
-    
-    return {
-        fullWrapGloss: fullWrapGloss[carClass] || 0,
-        fullWrapMatte: fullWrapMatte[carClass] || 0,
-        riskZone: riskZonePrices,
-        packages: packages.map(pkg => ({
-            ...pkg,
-            price: pkg.base[carClass] || 0
-        }))
-    };
-};
-
-const getPackagePrice = (packageId, carClass) => {
-    if (!packageId || !carClass) return 0;
-    
-    const pkg = packages.find(p => p.id === packageId);
-    return pkg && pkg.base[carClass] ? pkg.base[carClass] : 0;
-};
-
-const getRiskZonePrice = (zoneName, carClass) => {
-    if (!zoneName || !carClass || !riskZonePrices[zoneName]) return 0;
-    return riskZonePrices[zoneName][carClass] || 0;
-};
 
