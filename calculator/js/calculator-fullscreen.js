@@ -1438,13 +1438,14 @@ ${selectedAdditionalServices.length > 0 ? additionalServicesNames.join(", ") : "
             }
             
             if (modal) {
-                // Показываем калькуляторный overlay для формы
+                // Показываем калькуляторный overlay для формы, но делаем его менее тёмным
                 if (calculatorOverlay) {
                     calculatorOverlay.style.display = "block";
-                    calculatorOverlay.style.opacity = "1";
+                    calculatorOverlay.style.opacity = "0.5";
                     calculatorOverlay.style.visibility = "visible";
                     calculatorOverlay.style.pointerEvents = "auto";
                     calculatorOverlay.style.zIndex = "10000";
+                    calculatorOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
                 }
                 
                 // Убеждаемся, что данные обновлены
@@ -1647,16 +1648,41 @@ function closeBookingModal() {
     document.body.removeAttribute("style");
     
     // 9. Всегда возвращаемся на главную страницу после закрытия формы
-    // (так как калькулятор был скрыт при открытии формы)
-    if (window.location.pathname.includes('/calculator/') || window.location.pathname.includes('/calculator')) {
+    // Проверяем, находимся ли мы на странице калькулятора
+    const isCalculatorPage = window.location.pathname.includes('/calculator/') || 
+                             window.location.pathname.includes('/calculator') ||
+                             window.location.pathname.endsWith('/calculator');
+    
+    if (isCalculatorPage) {
         // Небольшая задержка для полного сброса overlay, затем возврат
         setTimeout(() => {
             try {
-                window.location.href = '/';
+                // Возврат на главную страницу сайта
+                const basePath = window.location.pathname.split('/calculator')[0] || '/';
+                window.location.href = basePath === '/' ? '/' : basePath + '/';
             } catch (e) {
-                window.location.href = '/';
+                // Если ошибка, пробуем просто вернуться назад
+                try {
+                    window.history.back();
+                } catch (e2) {
+                    window.location.href = '/';
+                }
             }
-        }, 50);
+        }, 100);
+    } else {
+        // Если форма открыта как модалка внутри калькулятора, возвращаемся к шагу 4
+        // Показываем калькулятор снова
+        if (calculatorFullscreen) {
+            const calculatorModal = calculatorFullscreen.querySelector(".calculator-modal");
+            if (calculatorModal) {
+                calculatorModal.style.display = "";
+            }
+            // Возвращаемся к последнему шагу (шаг 4 - итог)
+            if (currentStep !== 4) {
+                currentStep = 4;
+                updateStepDisplay();
+            }
+        }
     }
 }
 
