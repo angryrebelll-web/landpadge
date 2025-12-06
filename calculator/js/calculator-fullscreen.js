@@ -1486,26 +1486,23 @@ function closeBookingModal() {
         document.body.style.overflowY = "";
         
         // Убираем все inline стили с body, которые могли быть установлены
-        const bodyOverflow = document.body.style.overflow;
-        if (!bodyOverflow || bodyOverflow === "hidden") {
-            document.body.removeAttribute("style");
-        }
+        document.body.removeAttribute("style");
         
-        // Если калькулятор был скрыт, возвращаемся на главную страницу
-        if (calculatorFullscreen && !calculatorFullscreen.classList.contains("active")) {
-            if (window.location.pathname.includes('/calculator/') || window.location.pathname.includes('/calculator')) {
-                setTimeout(() => {
-                    try {
-                        if (document.referrer && document.referrer.includes(window.location.origin) && !document.referrer.includes('/calculator')) {
-                            window.history.back();
-                        } else {
-                            window.location.href = '../';
-                        }
-                    } catch (e) {
+        // Всегда возвращаемся на главную страницу после закрытия формы
+        // (так как калькулятор был скрыт при открытии формы)
+        if (window.location.pathname.includes('/calculator/') || window.location.pathname.includes('/calculator')) {
+            // Небольшая задержка для плавного закрытия, затем возврат
+            setTimeout(() => {
+                try {
+                    if (document.referrer && document.referrer.includes(window.location.origin) && !document.referrer.includes('/calculator')) {
+                        window.history.back();
+                    } else {
                         window.location.href = '../';
                     }
-                }, 300);
-            }
+                } catch (e) {
+                    window.location.href = '../';
+                }
+            }, 200);
         }
     }
 }
