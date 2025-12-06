@@ -80,10 +80,21 @@ body {
     height: 100vh;
     z-index: 9999;
     overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    background: transparent !important;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* КРИТИЧЕСКИ ВАЖНО: Принудительное скрытие когда не активен */
+.calculator-fullscreen:not(.active) {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+    background: transparent !important;
 }
 
 @media (max-width: 768px) {
