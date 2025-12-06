@@ -71,6 +71,18 @@
             -moz-osx-font-smoothing: grayscale !important;
             text-rendering: optimizeLegibility !important;
         }
+        
+        /* Оптимизация для слабых устройств - отключаем анимации при prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
 
         :root {
             /* Основные цвета Propellini */
@@ -1857,6 +1869,25 @@
             .section {
                 padding: 40px 0;
             }
+            
+            /* Оптимизация backdrop-filter для мобильных - уменьшаем blur для производительности */
+            #navbar.scrolled {
+                backdrop-filter: blur(10px) saturate(150%);
+                -webkit-backdrop-filter: blur(10px) saturate(150%);
+            }
+            
+            .modal-content {
+                backdrop-filter: blur(15px) saturate(150%);
+                -webkit-backdrop-filter: blur(15px) saturate(150%);
+            }
+            
+            /* Fallback для устройств без поддержки backdrop-filter */
+            @supports not (backdrop-filter: blur(1px)) {
+                #navbar.scrolled,
+                .modal-content {
+                    background: rgba(18, 18, 18, 0.95) !important;
+                }
+            }
 
             /* Модальное окно на мобильных */
             .modal-content {
@@ -3424,7 +3455,7 @@
                 <!-- Кейс 1 -->
                 <div class="slide-up premium-work-card" style="background: rgba(18, 18, 18, 0.8); border: 1px solid rgba(22, 132, 145, 0.22); border-radius: 12px; overflow: hidden; backdrop-filter: none; transition: all 0.3s ease; position: relative;">
                     <div style="position: relative; height: 300px; overflow: hidden; background: var(--propellini-dark); display: flex; align-items: center; justify-content: center;">
-                        <img src="https://i.pinimg.com/736x/4a/5c/d8/4a5cd87017e900b15aca628fdbd87370.jpg" 
+                        <img src="https://i.pinimg.com/736x/4a/5c/d8/4a5cd87017e900b15aca628fdbd87370.jpg" loading="lazy" decoding="async" 
                              alt="BMW X5 M - Премиум оклейка защитной пленкой" 
                              loading="lazy"
                              decoding="async"
@@ -3897,42 +3928,42 @@
                 <!-- Изображение 1 - Зона ожидания с кожаными креслами Chesterfield и дисками -->
                 <div class="slide-up">
                     <div class="gallery-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #1a1a1a;">
-                        <img src="https://propellini.ru/wp-content/uploads/2025/09/image_20_.webp" alt="Зона ожидания с кожаными креслами Chesterfield и дисками в витринах" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="https://propellini.ru/wp-content/uploads/2025/09/image_20_.webp" alt="Зона ожидания с кожаными креслами Chesterfield и дисками в витринах" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
                 
                 <!-- Изображение 2 - Салон с видом на автомобили через стекло -->
                 <div class="slide-up" style="animation-delay: 0.1s;">
                     <div class="gallery-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #1a1a1a;">
-                        <img src="https://propellini.ru/wp-content/uploads/2025/09/image_23_.webp" alt="Салон с темными кожаными креслами и видом на автомобили через стеклянную перегородку" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="https://propellini.ru/wp-content/uploads/2025/09/image_23_.webp" alt="Салон с темными кожаными креслами и видом на автомобили через стеклянную перегородку" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
                 
                 <!-- Изображение 3 - Зона отдыха с телевизором и креслами -->
                 <div class="slide-up" style="animation-delay: 0.2s;">
                     <div class="gallery-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #1a1a1a;">
-                        <img src="https://propellini.ru/wp-content/uploads/2025/09/image_22_.webp" alt="Зона отдыха с кожаными креслами, телевизором и дисками на стене" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="https://propellini.ru/wp-content/uploads/2025/09/image_22_.webp" alt="Зона отдыха с кожаными креслами, телевизором и дисками на стене" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
                 
                 <!-- Изображение 4 - Ресепшн с кофемашиной и винохолодильником -->
                 <div class="slide-up" style="animation-delay: 0.3s;">
                     <div class="gallery-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #1a1a1a;">
-                        <img src="https://propellini.ru/wp-content/uploads/2025/09/image2-1.png" alt="Ресепшн с кофемашиной, винохолодильником и темным интерьером" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="https://propellini.ru/wp-content/uploads/2025/09/image2-1.png" alt="Ресепшн с кофемашиной, винохолодильником и темным интерьером" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
                 
                 <!-- Изображение 5 - Ванная комната -->
                 <div class="slide-up" style="animation-delay: 0.4s;">
                     <div class="gallery-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #1a1a1a;">
-                        <img src="https://propellini.ru/wp-content/uploads/2025/09/5a7627dc3f7e0cf22e40e354b42f9b253f529b88.png" alt="Ванная комната с темными стенами и подсветкой зеркала" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="https://propellini.ru/wp-content/uploads/2025/09/5a7627dc3f7e0cf22e40e354b42f9b253f529b88.png" alt="Ванная комната с темными стенами и подсветкой зеркала" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
                 
                 <!-- Изображение 6 - Логотип Propellini на стене -->
                 <div class="slide-up" style="animation-delay: 0.5s;">
                     <div class="gallery-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #1a1a1a;">
-                        <img src="https://propellini.ru/wp-content/uploads/2025/09/image_19_.webp" alt="Логотип Propellini на темной стене с подсветкой" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="https://propellini.ru/wp-content/uploads/2025/09/image_19_.webp" alt="Логотип Propellini на темной стене с подсветкой" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -4948,7 +4979,12 @@
                 });
 
                 filmsScroll.addEventListener('scroll', updateFilmsProgress, { passive: true });
-                window.addEventListener('resize', updateFilmsProgress);
+                // Debounce resize для производительности на мобильных
+                let filmsResizeTimeout;
+                window.addEventListener('resize', () => {
+                    clearTimeout(filmsResizeTimeout);
+                    filmsResizeTimeout = setTimeout(updateFilmsProgress, 150);
+                }, { passive: true });
                 setTimeout(updateFilmsProgress, 300);
 
                 // Autoplay
@@ -5380,9 +5416,16 @@
             }
         }
         
+        // Debounce функция для оптимизации resize событий (критично для мобильных)
+        let resizeTimeout;
+        function debounceResize(callback, delay = 150) {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(callback, delay);
+        }
+        
         // Вызываем при загрузке и изменении размера окна
         document.addEventListener('DOMContentLoaded', setMobileBackgrounds);
-        window.addEventListener('resize', setMobileBackgrounds);
+        window.addEventListener('resize', () => debounceResize(setMobileBackgrounds), { passive: true });
         window.addEventListener('load', setMobileBackgrounds);
         
         // Проверка загрузки фонового изображения Hero
