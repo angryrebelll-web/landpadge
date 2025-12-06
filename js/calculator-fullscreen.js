@@ -88,6 +88,7 @@ const summaryAdditionalServicesValue = document.getElementById("summaryAdditiona
    ============================= */
 
 function resetCalculator() {
+    console.log("%c[RESET] Сброс калькулятора", "color:#16a085;font-weight:bold");
     
     // Сброс переменных
     currentStep = 1;
@@ -164,6 +165,7 @@ function resetCalculator() {
     // Перерисовка брендов
     renderBrands();
     
+    console.log("%c[RESET] Калькулятор полностью сброшен", "color:#16a085;font-weight:bold");
 }
 
 /* =============================
@@ -312,6 +314,7 @@ function canProceedToNextStep() {
    ============================= */
 
 function openCalculator() {
+    console.log("%c[OPEN] Открытие калькулятора", "color:#16a085;font-weight:bold");
     resetCalculator();
     
     if (calculatorFullscreen) {
@@ -321,6 +324,7 @@ function openCalculator() {
 }
 
 function closeCalculator() {
+    console.log("%c[CLOSE] Закрытие калькулятора", "color:#16a085;font-weight:bold");
     
     if (calculatorFullscreen) {
         calculatorFullscreen.classList.remove("active");
@@ -384,6 +388,7 @@ if (carTypeSelect) {
         selectedModel = null;
         selectedClass = null;
         
+        console.log("%c[TYPE] Выбран тип:", "color:#16a085", type);
         
         // Обновляем список брендов с фильтрацией по типу
         renderBrands();
@@ -544,10 +549,12 @@ function openModelModal(brand) {
     
     // Проверяем, что тип выбран
     if (!selectedType) {
+        console.error("%c[ERROR] Тип автомобиля не выбран!", "color:#e74c3c");
         alert("Пожалуйста, сначала выберите тип автомобиля");
         return;
     }
     
+    console.log("%c[MODAL] Открываем модальное окно моделей:", "color:#16a085", {
         brand: brand,
         selectedType: selectedType,
         allowedTypes: typeCategoryMapping[selectedType] || []
@@ -586,6 +593,7 @@ function renderModelsModal(brand) {
 
     // КРИТИЧЕСКАЯ ПРОВЕРКА: selectedType должен быть установлен
     if (!selectedType) {
+        console.error("%c[ERROR] selectedType не установлен в renderModelsModal!", "color:#e74c3c", {
             selectedType: selectedType,
             brand: brand
         });
@@ -605,11 +613,13 @@ function renderModelsModal(brand) {
     let allowedTypes = [];
     if (selectedType && typeCategoryMapping[selectedType]) {
         allowedTypes = typeCategoryMapping[selectedType];
+        console.log("%c[MODELS] Фильтрация моделей:", "color:#16a085", {
             selectedType: selectedType,
             allowedTypes: allowedTypes,
             brand: brand
         });
     } else {
+        console.error("%c[ERROR] Тип не найден в маппинге:", "color:#e74c3c", {
             selectedType: selectedType,
             availableTypes: Object.keys(typeCategoryMapping)
         });
@@ -627,6 +637,7 @@ function renderModelsModal(brand) {
         const modelsMap = new Map();
         
         if (allowedTypes.length === 0) {
+            console.error("%c[ERROR] Не удалось определить разрешенные типы!", "color:#e74c3c", {
                 selectedType: selectedType
             });
             targetList.innerHTML = `
@@ -645,6 +656,7 @@ function renderModelsModal(brand) {
             // СТРОГАЯ проверка: тип модели ДОЛЖЕН быть в списке разрешенных типов
             if (!allowedTypes.includes(car.type)) {
                 // Пропускаем эту модель - она не соответствует выбранному типу
+                console.log("%c[FILTER] Пропущена модель (не соответствует типу):", "color:#e67e22", {
                     model: car.model,
                     type: car.type,
                     allowedTypes: allowedTypes
@@ -657,6 +669,7 @@ function renderModelsModal(brand) {
             if (!modelsMap.has(car.model)) {
                 // Модель еще не добавлена - добавляем
                 modelsMap.set(car.model, car);
+                console.log("%c[FILTER] Добавлена модель:", "color:#27ae60", {
                     model: car.model,
                     type: car.type
                 });
@@ -666,6 +679,7 @@ function renderModelsModal(brand) {
                 
                 // КРИТИЧЕСКАЯ ПРОВЕРКА: если существующая модель НЕ соответствует типу, заменяем её
                 if (!allowedTypes.includes(existing.type)) {
+                    console.warn("%c[FILTER] Заменена модель (существующая не соответствует типу):", "color:#f39c12", {
                         model: car.model,
                         oldType: existing.type,
                         newType: car.type
@@ -673,6 +687,7 @@ function renderModelsModal(brand) {
                     modelsMap.set(car.model, car);
                 } else {
                     // Обе модели соответствуют типу - оставляем первую (обе правильные)
+                    console.log("%c[FILTER] Модель уже есть (обе соответствуют типу):", "color:#3498db", {
                         model: car.model,
                         existingType: existing.type,
                         newType: car.type
@@ -686,6 +701,7 @@ function renderModelsModal(brand) {
             .filter(car => {
                 // Дополнительная проверка - на всякий случай
                 if (!allowedTypes.includes(car.type)) {
+                    console.error("%c[ERROR] Обнаружена модель, не соответствующая типу после фильтрации!", "color:#e74c3c", {
                         model: car.model,
                         type: car.type,
                         selectedType: selectedType,
@@ -696,6 +712,7 @@ function renderModelsModal(brand) {
                 }
                 // Дополнительная проверка: убеждаемся, что тип модели действительно соответствует выбранному типу
                 if (car.type && !typeCategoryMapping[selectedType]?.includes(car.type)) {
+                    console.error("%c[ERROR] Тип модели не найден в маппинге для выбранного типа!", "color:#e74c3c", {
                         model: car.model,
                         carType: car.type,
                         selectedType: selectedType,
@@ -714,6 +731,7 @@ function renderModelsModal(brand) {
         // Если моделей очень мало (меньше 2), проверяем, может быть есть модели в смежных категориях
         // Но все равно показываем только те, что соответствуют выбранному типу
         if (availableModels.length < 2) {
+            console.warn("%c[WARNING] Мало моделей для выбранного типа:", "color:#f39c12", {
                 filtered: availableModels.length,
                 brand: brand,
                 selectedType: selectedType,
@@ -725,6 +743,7 @@ function renderModelsModal(brand) {
             // Но не показываем модели других категорий (minivan, pickup и т.д.)
         }
         
+        console.log("%c[MODELS] Отфильтрованные модели:", "color:#16a085", {
             total: availableModels.length,
             selectedType: selectedType,
             brand: brand,
@@ -773,6 +792,7 @@ function renderModelsModal(brand) {
         div.onclick = () => {
             // Убеждаемся, что марка совпадает
             if (selectedBrand !== brand) {
+                console.warn("%c[WARNING] Несоответствие марки:", "color:#e74c3c", {
                     selectedBrand: selectedBrand,
                     chipBrand: brand
                 });
@@ -792,6 +812,7 @@ function renderModelsModal(brand) {
 function selectModelUI(div) {
     // КРИТИЧЕСКАЯ ПРОВЕРКА: selectedType должен быть установлен
     if (!selectedType) {
+        console.error("%c[ERROR] selectedType не установлен в selectModelUI!", "color:#e74c3c");
         alert("Ошибка: тип автомобиля не выбран. Пожалуйста, вернитесь к выбору типа.");
         return;
     }
@@ -801,6 +822,7 @@ function selectModelUI(div) {
     const allowedTypes = typeCategoryMapping[selectedType] || [];
     
     if (modelType && !allowedTypes.includes(modelType)) {
+        console.error("%c[ERROR] Выбранная модель не соответствует типу авто!", "color:#e74c3c", {
             model: div.dataset.model,
             modelType: modelType,
             selectedType: selectedType,
@@ -838,6 +860,7 @@ function selectModelUI(div) {
     
     // Убеждаемся, что марка совпадает
     if (chipBrand && chipBrand !== selectedBrand) {
+        console.warn("%c[WARNING] Несоответствие марки в dataset:", "color:#e74c3c", {
             selectedBrand: selectedBrand,
             chipBrand: chipBrand
         });
@@ -881,6 +904,11 @@ function selectModelUI(div) {
             if (selectedType && typeCategoryMapping[selectedType]) {
                 const allowedTypes = typeCategoryMapping[selectedType];
                 if (!allowedTypes.includes(car.type)) {
+                    console.warn("%c[WARNING] Тип модели не соответствует выбранному типу авто:", "color:#e74c3c", {
+                        selectedType: selectedType,
+                        modelType: car.type,
+                        allowedTypes: allowedTypes
+                    });
                     // Ищем правильную запись с учетом типа
                     const correctCar = carDatabaseArray.find(c => 
                         c.brand === selectedBrand && 
@@ -909,12 +937,27 @@ function selectModelUI(div) {
     
     // Проверяем, что все данные совпадают
     if (car) {
+        console.log("%c[MODEL] Выбрана модель:", "color:#16a085", {
+            brand: selectedBrand,
+            model: selectedModel,
+            type: car.type,
+            class: selectedClass,
+            selectedType: selectedType,
+            car: car
+        });
+        
         // Дополнительная проверка соответствия
         if (car.brand !== selectedBrand || car.model !== selectedModel) {
-            // Данные не совпадают - используем найденную запись
-            selectedBrand = car.brand;
-            selectedModel = car.model;
+            console.error("%c[ERROR] Несоответствие данных:", "color:#e74c3c", {
+                expected: { brand: selectedBrand, model: selectedModel },
+                actual: { brand: car.brand, model: car.model }
+            });
         }
+    } else {
+        console.warn("%c[WARNING] Автомобиль не найден в базе:", "color:#e74c3c", {
+            brand: selectedBrand,
+            model: selectedModel
+        });
     }
 
     if (selectedClassText) {
@@ -935,8 +978,10 @@ function selectModelUI(div) {
             goToStep(3);
         }, 300);
     } else {
-        // Класс не определен - показываем предупреждение
-        alert("Не удалось определить класс автомобиля. Пожалуйста, выберите другую модель.");
+        console.warn("%c[WARNING] Не удалось определить класс для:", "color:#e74c3c", {
+            brand: selectedBrand,
+            model: selectedModel
+        });
     }
 }
 
@@ -1440,6 +1485,7 @@ if (requestForm) {
         }
 
         // Здесь можно добавить отправку данных на сервер
+        console.log("Отправка формы:", {
             name: userName,
             phone: userPhone,
             email: userEmail,
@@ -1479,6 +1525,7 @@ window.resetCalculator = resetCalculator;
 
 // Инициализация
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("%c[INIT] Калькулятор инициализирован", "color:#16a085;font-weight:bold");
     
     // Инициализация популярных марок
     renderPopularBrands();
