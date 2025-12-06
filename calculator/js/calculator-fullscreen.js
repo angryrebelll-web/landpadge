@@ -1505,7 +1505,27 @@ if (bookingModal) {
         bookingOverlay.addEventListener("click", (e) => {
             if (e.target === bookingOverlay) {
                 bookingModal.classList.remove("active");
+                // Восстанавливаем overflow для body
                 document.body.style.overflow = "";
+                document.body.style.overflowX = "";
+                document.body.style.overflowY = "";
+                
+                // Если калькулятор был скрыт, возвращаемся на главную страницу
+                if (calculatorFullscreen && !calculatorFullscreen.classList.contains("active")) {
+                    if (window.location.pathname.includes('/calculator/') || window.location.pathname.includes('/calculator')) {
+                        setTimeout(() => {
+                            try {
+                                if (document.referrer && document.referrer.includes(window.location.origin) && !document.referrer.includes('/calculator')) {
+                                    window.history.back();
+                                } else {
+                                    window.location.href = '../';
+                                }
+                            } catch (e) {
+                                window.location.href = '../';
+                            }
+                        }, 300);
+                    }
+                }
             }
         });
     }
