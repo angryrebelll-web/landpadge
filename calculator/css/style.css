@@ -2358,6 +2358,15 @@ body {
         opacity: 0 !important;
         visibility: hidden !important;
         pointer-events: none !important;
+        z-index: -1 !important;
+    }
+    
+    .booking-modal:not(.active) .booking-overlay {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        z-index: -1 !important;
     }
     
     .booking-modal.active {
@@ -2365,6 +2374,16 @@ body {
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
+    }
+    
+    /* Обеспечиваем доступность полей на мобильных */
+    .booking-modal.active .form-group input,
+    .booking-modal.active .form-group textarea {
+        pointer-events: auto !important;
+        -webkit-user-select: text !important;
+        user-select: text !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: rgba(22, 132, 145, 0.3) !important;
     }
 }
 
@@ -2377,6 +2396,18 @@ body {
     background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(8px);
     animation: fadeIn 0.15s ease-out;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+/* CSS-защита: принудительное скрытие overlay когда модальное окно неактивно */
+.booking-modal:not(.active) .booking-overlay,
+.booking-modal:not(.active) {
+    pointer-events: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    z-index: -1 !important;
+    display: none !important;
 }
 
 .booking-content {
@@ -2458,6 +2489,11 @@ body {
     border-radius: 12px;
     border: 2px solid rgba(255, 255, 255, 0.1);
     background: var(--propellini-dark-secondary);
+    /* Обеспечиваем доступность полей */
+    pointer-events: auto !important;
+    -webkit-user-select: text !important;
+    user-select: text !important;
+    touch-action: manipulation;
     color: var(--propellini-text);
     font-size: 16px;
     outline: none;

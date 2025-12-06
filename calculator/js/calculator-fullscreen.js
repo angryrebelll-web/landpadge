@@ -1447,6 +1447,41 @@ ${selectedAdditionalServices.length > 0 ? additionalServicesNames.join(", ") : "
                 
                 modal.classList.add("active");
                 document.body.style.overflow = "hidden";
+                
+                // Убеждаемся, что поля формы доступны для ввода
+                const userNameInput = document.getElementById("userName");
+                const userPhoneInput = document.getElementById("userPhone");
+                const userEmailInput = document.getElementById("userEmail");
+                const userCommentInput = document.getElementById("userComment");
+                
+                // Убираем блокировки с полей
+                if (userNameInput) {
+                    userNameInput.disabled = false;
+                    userNameInput.readOnly = false;
+                    userNameInput.style.pointerEvents = "auto";
+                }
+                if (userPhoneInput) {
+                    userPhoneInput.disabled = false;
+                    userPhoneInput.readOnly = false;
+                    userPhoneInput.style.pointerEvents = "auto";
+                }
+                if (userEmailInput) {
+                    userEmailInput.disabled = false;
+                    userEmailInput.readOnly = false;
+                    userEmailInput.style.pointerEvents = "auto";
+                }
+                if (userCommentInput) {
+                    userCommentInput.disabled = false;
+                    userCommentInput.readOnly = false;
+                    userCommentInput.style.pointerEvents = "auto";
+                }
+                
+                // Фокус на первое поле после небольшой задержки
+                setTimeout(() => {
+                    if (userNameInput) {
+                        userNameInput.focus();
+                    }
+                }, 200);
             } else {
                 // Если модальное окно не найдено, показываем alert
                 alert("Ошибка: модальное окно не найдено. Пожалуйста, обновите страницу.");
@@ -1470,40 +1505,64 @@ if (modelOverlay) {
 
 // Функция закрытия модального окна формы заявки
 function closeBookingModal() {
-    if (bookingModal) {
-        // Принудительно скрываем модальное окно
-        bookingModal.classList.remove("active");
-        
-        // Принудительно убираем все стили, которые могут оставить серый фон
-        bookingModal.style.display = "none";
-        bookingModal.style.opacity = "0";
-        bookingModal.style.visibility = "hidden";
-        bookingModal.style.pointerEvents = "none";
-        
-        // Восстанавливаем overflow для body
-        document.body.style.overflow = "";
-        document.body.style.overflowX = "";
-        document.body.style.overflowY = "";
-        
-        // Убираем все inline стили с body, которые могли быть установлены
+    if (!bookingModal) return;
+    
+    // 1. Принудительно скрываем overlay
+    const bookingOverlay = bookingModal.querySelector(".booking-overlay");
+    if (bookingOverlay) {
+        bookingOverlay.style.display = "none";
+        bookingOverlay.style.opacity = "0";
+        bookingOverlay.style.visibility = "hidden";
+        bookingOverlay.style.pointerEvents = "none";
+        bookingOverlay.style.zIndex = "-1";
+        bookingOverlay.classList.remove("active");
+    }
+    
+    // 2. Принудительно скрываем модальное окно
+    bookingModal.classList.remove("active");
+    bookingModal.style.display = "none";
+    bookingModal.style.opacity = "0";
+    bookingModal.style.visibility = "hidden";
+    bookingModal.style.pointerEvents = "none";
+    bookingModal.style.zIndex = "-1";
+    
+    // 3. Полностью восстанавливаем body
+    document.body.style.overflow = "auto";
+    document.body.style.overflowX = "auto";
+    document.body.style.overflowY = "auto";
+    document.body.style.height = "auto";
+    document.body.style.position = "static";
+    
+    // 4. Убираем все inline стили с body, которые могли быть установлены
+    // Сохраняем только важные стили, если они были установлены ранее
+    const bodyStyle = document.body.getAttribute("style");
+    if (bodyStyle) {
+        // Удаляем только overflow-связанные стили
+        document.body.style.removeProperty("overflow");
+        document.body.style.removeProperty("overflow-x");
+        document.body.style.removeProperty("overflow-y");
+        document.body.style.removeProperty("height");
+        document.body.style.removeProperty("position");
+    }
+    
+    // 5. Если других важных стилей нет, полностью очищаем
+    const remainingStyles = document.body.getAttribute("style");
+    if (!remainingStyles || remainingStyles.trim() === "") {
         document.body.removeAttribute("style");
-        
-        // Всегда возвращаемся на главную страницу после закрытия формы
-        // (так как калькулятор был скрыт при открытии формы)
-        if (window.location.pathname.includes('/calculator/') || window.location.pathname.includes('/calculator')) {
-            // Небольшая задержка для плавного закрытия, затем возврат
-            setTimeout(() => {
-                try {
-                    if (document.referrer && document.referrer.includes(window.location.origin) && !document.referrer.includes('/calculator')) {
-                        window.history.back();
-                    } else {
-                        window.location.href = '../';
-                    }
-                } catch (e) {
-                    window.location.href = '../';
-                }
-            }, 200);
-        }
+    }
+    
+    // 6. Всегда возвращаемся на главную страницу после закрытия формы
+    // (так как калькулятор был скрыт при открытии формы)
+    if (window.location.pathname.includes('/calculator/') || window.location.pathname.includes('/calculator')) {
+        // Небольшая задержка для плавного закрытия, затем возврат
+        setTimeout(() => {
+            try {
+                // Всегда переходим на главную страницу
+                window.location.href = '../';
+            } catch (e) {
+                window.location.href = '../';
+            }
+        }, 200);
     }
 }
 
