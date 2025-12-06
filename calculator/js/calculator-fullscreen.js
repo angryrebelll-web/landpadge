@@ -362,26 +362,42 @@ function closeCalculator() {
     // Сбрасываем калькулятор
     resetCalculator();
     
+    // КРИТИЧЕСКИ ВАЖНО: Принудительно скрываем ВСЕ элементы перед редиректом
+    // Это предотвращает появление серого экрана
+    const allOverlays = document.querySelectorAll('.calculator-overlay, .request-overlay, .model-overlay, .modal-overlay');
+    allOverlays.forEach(overlay => {
+        overlay.style.display = 'none';
+        overlay.style.opacity = '0';
+        overlay.style.visibility = 'hidden';
+        overlay.style.pointerEvents = 'none';
+        overlay.style.zIndex = '-1';
+        overlay.classList.remove('active');
+    });
+    
+    // Принудительно скрываем body background и все возможные блокирующие элементы
+    document.body.style.background = '';
+    document.body.style.backgroundColor = '';
+    document.documentElement.style.background = '';
+    document.documentElement.style.backgroundColor = '';
+    
     // Возврат на главную страницу при закрытии калькулятора
     // Проверяем, находимся ли мы на странице калькулятора
     if (window.location.pathname.includes('/calculator/') || 
         window.location.pathname.includes('/calculator') ||
         window.location.pathname.endsWith('/calculator')) {
-        // Небольшая задержка для плавного закрытия, затем возврат
-        setTimeout(() => {
+        // НЕМЕДЛЕННЫЙ возврат без задержки, чтобы избежать серого экрана
+        try {
+            // Возврат на главную страницу сайта
+            const basePath = window.location.pathname.split('/calculator')[0] || '/';
+            window.location.href = basePath === '/' ? '/' : basePath + '/';
+        } catch (e) {
+            // Если ошибка, пробуем просто вернуться назад
             try {
-                // Возврат на главную страницу сайта
-                const basePath = window.location.pathname.split('/calculator')[0] || '/';
-                window.location.href = basePath === '/' ? '/' : basePath + '/';
-            } catch (e) {
-                // Если ошибка, пробуем просто вернуться назад
-                try {
-                    window.history.back();
-                } catch (e2) {
-                    window.location.href = '/';
-                }
+                window.history.back();
+            } catch (e2) {
+                window.location.href = '/';
             }
-        }, 300);
+        }
     }
 }
 

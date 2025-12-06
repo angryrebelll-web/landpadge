@@ -114,6 +114,17 @@ body {
     opacity: 0.5;
 }
 
+/* КРИТИЧЕСКИ ВАЖНО: Принудительное скрытие overlay когда калькулятор закрыт */
+.calculator-fullscreen:not(.active) .calculator-overlay,
+.calculator-fullscreen[style*="display: none"] .calculator-overlay {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+    background: transparent !important;
+}
+
 .calculator-modal {
     position: relative;
     width: 100%;
