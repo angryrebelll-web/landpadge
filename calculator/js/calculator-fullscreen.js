@@ -1413,14 +1413,45 @@ ${selectedAdditionalServices.length > 0 ? additionalServicesNames.join(", ") : "
         setTimeout(() => {
             // Перепроверяем наличие модального окна
             const modal = document.getElementById("bookingModal");
+            const summaryDataEl = document.getElementById("summaryData");
+            
             if (modal) {
+                // Убеждаемся, что данные обновлены
+                if (summaryDataEl && !summaryDataEl.textContent.trim()) {
+                    // Если данные не были обновлены, обновляем их сейчас
+                    const serviceNamesMap = {
+                        "fullVinyl": "Полная оклейка виниловой пленкой",
+                        "displayWrap": "Оклейка дисплеев автомобиля",
+                        "interiorGloss": "Оклейка глянцевых элементов салона",
+                        "elementByElement": "Поэлементная оклейка защитной пленкой",
+                        "filmRemoval": "Снятие пленки с одного элемента"
+                    };
+                    const additionalServicesNames = selectedAdditionalServices.map(id => serviceNamesMap[id] || id);
+                    
+                    summaryDataEl.textContent = `
+Марка: ${selectedBrand || "—"}
+Модель: ${selectedModel || "—"}
+Класс: ${selectedClass || "—"}
+
+Пакет: ${selectedPackage ? selectedPackage.name : "—"}
+
+Зоны риска:
+${selectedRiskZones.length > 0 ? selectedRiskZones.join(", ") : "—"}
+
+Дополнительные услуги:
+${selectedAdditionalServices.length > 0 ? additionalServicesNames.join(", ") : "—"}
+
+ИТОГО: ${totalPrice.toLocaleString("ru-RU")} ₽
+                    `;
+                }
+                
                 modal.classList.add("active");
                 document.body.style.overflow = "hidden";
             } else {
                 // Если модальное окно не найдено, показываем alert
                 alert("Ошибка: модальное окно не найдено. Пожалуйста, обновите страницу.");
             }
-        }, 100);
+        }, 150);
     });
 }
 
