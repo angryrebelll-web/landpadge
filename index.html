@@ -21,13 +21,8 @@
             font-style: normal;
             font-weight: 400;
             font-display: swap;
-<<<<<<< HEAD
-            src: url('fonts/Unbounded-Regular.woff2') format('woff2'),
-                 url('fonts/Unbounded-Regular.ttf') format('truetype');
-=======
             src: url('./fonts/Unbounded-Regular.woff2') format('woff2'),
                  url('./fonts/Unbounded-Regular.ttf') format('truetype');
->>>>>>> master
         }
         
         @font-face {
@@ -35,13 +30,8 @@
             font-style: normal;
             font-weight: 500;
             font-display: swap;
-<<<<<<< HEAD
-            src: url('fonts/Unbounded-Medium.woff2') format('woff2'),
-                 url('fonts/Unbounded-Medium.ttf') format('truetype');
-=======
             src: url('./fonts/Unbounded-Medium.woff2') format('woff2'),
                  url('./fonts/Unbounded-Medium.ttf') format('truetype');
->>>>>>> master
         }
         
         @font-face {
@@ -49,13 +39,8 @@
             font-style: normal;
             font-weight: 600;
             font-display: swap;
-<<<<<<< HEAD
-            src: url('fonts/Unbounded-SemiBold.woff2') format('woff2'),
-                 url('fonts/Unbounded-SemiBold.ttf') format('truetype');
-=======
             src: url('./fonts/Unbounded-SemiBold.woff2') format('woff2'),
                  url('./fonts/Unbounded-SemiBold.ttf') format('truetype');
->>>>>>> master
         }
         
         @font-face {
@@ -63,13 +48,8 @@
             font-style: normal;
             font-weight: 700;
             font-display: swap;
-<<<<<<< HEAD
-            src: url('fonts/Unbounded-Bold.woff2') format('woff2'),
-                 url('fonts/Unbounded-Bold.ttf') format('truetype');
-=======
             src: url('./fonts/Unbounded-Bold.woff2') format('woff2'),
                  url('./fonts/Unbounded-Bold.ttf') format('truetype');
->>>>>>> master
         }
         
         * {
@@ -78,8 +58,6 @@
             box-sizing: border-box;
         }
         
-<<<<<<< HEAD
-=======
         /* Предотвращение горизонтальной прокрутки глобально */
         html, body {
             overflow-x: hidden;
@@ -87,15 +65,12 @@
             max-width: 100vw;
         }
         
->>>>>>> master
         /* Глобальное сглаживание текста */
         html, body {
             -webkit-font-smoothing: antialiased !important;
             -moz-osx-font-smoothing: grayscale !important;
             text-rendering: optimizeLegibility !important;
         }
-<<<<<<< HEAD
-=======
         
         /* Оптимизация для слабых устройств - отключаем анимации при prefers-reduced-motion */
         @media (prefers-reduced-motion: reduce) {
@@ -108,7 +83,6 @@
                 scroll-behavior: auto !important;
             }
         }
->>>>>>> master
 
         :root {
             /* Основные цвета Propellini */
@@ -116,40 +90,16 @@
             --propellini-primary-dark: #126d77;
             --propellini-primary-light: #1aa5b5;
             --propellini-neon: #168491;
-<<<<<<< HEAD
-            --propellini-neon-glow: rgba(22, 132, 145, 0.25);
-            
-            /* Темные фоны - ultra-premium */
-            --propellini-dark: #0f0f0f;
-            --propellini-dark-secondary: #151515;
-=======
             --propellini-neon-glow: rgba(22, 132, 145, 0.4);
             
             /* Темные фоны */
             --propellini-dark: #0a0a0a;
             --propellini-dark-secondary: #111111;
->>>>>>> master
             --propellini-dark-tertiary: #1a1a1a;
             
             /* Текст */
             --propellini-text: #ffffff;
             --propellini-text-secondary: #e0e0e0;
-<<<<<<< HEAD
-            --propellini-text-muted: #b0b0b0;
-            
-            /* Стеклянные карточки - более мягкие */
-            --propellini-glass-bg: rgba(18, 18, 18, 0.65);
-            --propellini-glass-border: rgba(22, 132, 145, 0.15);
-            --propellini-glass-blur: blur(16px);
-            
-            /* Тени - более реалистичные, менее контрастные */
-            --propellini-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.15);
-            --propellini-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(0, 0, 0, 0.2);
-            --propellini-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
-            --propellini-shadow-neon: 0 0 12px rgba(22, 132, 145, 0.35), 0 0 24px rgba(22, 132, 145, 0.2);
-            
-            /* Отступы (8-point grid) с вариациями */
-=======
             --propellini-text-muted: #808080;
             
             /* Стеклянные карточки */
@@ -164,7 +114,6 @@
             --propellini-shadow-neon: 0 0 20px rgba(22, 132, 145, 0.6), 0 0 40px rgba(22, 132, 145, 0.4);
             
             /* Отступы (8-point grid) */
->>>>>>> master
             --spacing-xs: 4px;
             --spacing-sm: 8px;
             --spacing-md: 16px;
@@ -173,34 +122,20 @@
             --spacing-2xl: 48px;
             --spacing-3xl: 64px;
             
-<<<<<<< HEAD
-            /* Радиусы - более мягкие, с вариациями */
-            --radius-sm: 6px;
-            --radius-md: 10px;
-            --radius-lg: 14px;
-            --radius-xl: 20px;
-=======
             /* Радиусы */
             --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 16px;
             --radius-xl: 24px;
->>>>>>> master
         }
 
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 80px;
-<<<<<<< HEAD
-            /* Smooth scroll inertia */
-            -webkit-overflow-scrolling: touch;
-            overscroll-behavior-y: contain;
-=======
             overflow-x: hidden;
             width: 100%;
             max-width: 100vw;
             position: relative;
->>>>>>> master
         }
 
         body {
@@ -208,12 +143,6 @@
             color: var(--propellini-text);
             overflow-x: hidden;
             scroll-behavior: smooth;
-<<<<<<< HEAD
-            /* GPU acceleration */
-            transform: translateZ(0);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-=======
             width: 100%;
             max-width: 100vw;
             position: relative;
@@ -227,7 +156,6 @@
         img, video, iframe, embed, object {
             max-width: 100%;
             height: auto;
->>>>>>> master
         }
 
         /* Блики для заголовков секций */
@@ -314,19 +242,11 @@
             z-index: 2;
         }
 
-<<<<<<< HEAD
-        /* Базовая типографика Propellini - адаптивная с clamp() */
-        /* Hero заголовок использует Unbounded Regular */
-        h1 {
-            font-size: clamp(32px, 5vw, 60px);
-            line-height: clamp(36px, 5.2vw, 60px);
-=======
         /* Базовая типографика Propellini - точная настройка как в Figma */
         /* Hero заголовок использует Unbounded Regular, как показано в Figma */
         h1 {
             font-size: 60px;
             line-height: 60px;
->>>>>>> master
             font-weight: 400;
             letter-spacing: 0;
             font-family: 'Unbounded', sans-serif;
@@ -338,13 +258,8 @@
         .hero-title {
             font-family: 'Unbounded', sans-serif !important;
             font-weight: 400 !important;
-<<<<<<< HEAD
-            font-size: clamp(32px, 5vw, 60px) !important;
-            line-height: clamp(36px, 5.2vw, 60px) !important;
-=======
             font-size: 60px !important;
             line-height: 60px !important;
->>>>>>> master
             letter-spacing: 0 !important;
             -webkit-font-smoothing: antialiased !important;
             -moz-osx-font-smoothing: grayscale !important;
@@ -352,13 +267,8 @@
         }
 
         h2 {
-<<<<<<< HEAD
-            font-size: clamp(24px, 3.5vw, 32px);
-            line-height: clamp(28px, 4vw, 38px);
-=======
             font-size: 32px;
             line-height: 1.18;
->>>>>>> master
             font-weight: 100;
             letter-spacing: 0.01em;
             font-family: 'Montserrat', sans-serif;
@@ -369,13 +279,8 @@
         }
 
         h3 {
-<<<<<<< HEAD
-            font-size: clamp(20px, 2.8vw, 28px);
-            line-height: clamp(24px, 3.3vw, 33px);
-=======
             font-size: 28px;
             line-height: 1.18;
->>>>>>> master
             font-weight: 100;
             letter-spacing: 0.01em;
             font-family: 'Montserrat', sans-serif;
@@ -386,13 +291,8 @@
         }
 
         h4 {
-<<<<<<< HEAD
-            font-size: clamp(18px, 2.2vw, 22px);
-            line-height: clamp(22px, 2.6vw, 26px);
-=======
             font-size: 22px;
             line-height: 1.18;
->>>>>>> master
             font-weight: 100;
             letter-spacing: 0.01em;
             font-family: 'Montserrat', sans-serif;
@@ -403,13 +303,8 @@
         }
 
         p {
-<<<<<<< HEAD
-            font-size: clamp(14px, 1.8vw, 16px);
-            line-height: clamp(20px, 2.5vw, 26px);
-=======
             font-size: 16px;
             line-height: 1.6;
->>>>>>> master
             font-weight: 400;
             letter-spacing: 0.002em;
             font-family: 'Roboto', sans-serif;
@@ -578,8 +473,6 @@
             z-index: 0;
         }
 
-<<<<<<< HEAD
-=======
         /* Фон блока "Кто мы" */
         .about-bg {
             background-image: url('https://images.hdqwalls.com/download/mercedes-amg-gt63-the-beast-unleashed-yh-1920x1080.jpg');
@@ -652,7 +545,6 @@
             }
         }
         
->>>>>>> master
         .hero-bg {
             position: absolute;
             top: 0;
@@ -662,142 +554,15 @@
             z-index: 0;
             overflow: hidden;
             background: #0a0a0a;
-<<<<<<< HEAD
-            background-image: url('images/hero-desktop.webp');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-
-        /* Стили для фоновых изображений секций */
-        .section-bg {
-            transition: background-image 0.3s ease;
-=======
             background-image: url('https://images.hdqwalls.com/download/mercedes-amg-gt-63-pro-4matic-motorsport-collectors-edition-0j-1920x1080.jpg');
->>>>>>> master
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
         }
-<<<<<<< HEAD
-
-        /* Адаптивные фоны - премиальная оптимизация */
-        /* Десктоп версии (1024px и выше) */
-        @media (min-width: 1024px) {
-            .hero-bg {
-                background-image: url('images/hero-desktop.webp');
-                background-attachment: fixed;
-                background-size: cover;
-            }
-            
-            .section-bg {
-                background-size: cover;
-                background-position: center center;
-            }
-        }
-
-        /* Планшет версии (768px - 1023px) */
-        @media (min-width: 768px) and (max-width: 1023px) {
-            .hero-bg {
-                background-image: url('images/hero-desktop.webp');
-                background-attachment: scroll;
-                background-size: cover;
-            }
-            
-            .section-bg {
-                background-size: cover;
-                background-position: center center;
-            }
-        }
-
-        /* Мобильные версии (до 767px) - оптимизированные изображения */
-        @media (max-width: 767px) {
-            .hero-bg {
-                background-image: url('images/hero-mobile.webp');
-                background-attachment: scroll;
-                background-size: cover;
-                background-position: center center;
-            }
-            
-            #about .section-bg,
-            #studio .section-bg {
-                background-image: url('images/studio-mobile.webp');
-                background-size: cover;
-                background-position: center center;
-            }
-            
-            #advantages .section-bg {
-                background-image: url('images/advantages-mobile.webp');
-                background-size: cover;
-                background-position: center center;
-            }
-            
-            #services .section-bg {
-                background-image: url('images/services-mobile.webp');
-                background-size: cover;
-                background-position: center center;
-            }
-            
-            #process .section-bg {
-                background-image: url('images/process1-mobile.webp');
-                background-size: cover;
-                background-position: center center;
-            }
-            
-            #stats .section-bg {
-                background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1170&h=2532&fit=crop');
-                background-size: cover;
-                background-position: center center;
-            }
-            
-            #promo .section-bg {
-                background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1170&h=2532&fit=crop');
-                background-size: cover;
-                background-position: center center;
-            }
-            
-            #calculator .section-bg {
-                background-image: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1170&h=2532&fit=crop');
-                background-size: cover;
-                background-position: center center;
-            }
-            
-            #films .section-bg {
-                background-image: url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1170&h=2532&fit=crop');
-                background-size: cover;
-                background-position: center center;
-            }
-            
-            #reviews .section-bg {
-                background-image: url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1170&h=2532&fit=crop');
-                background-size: cover;
-                background-position: center center;
-            }
-            
-            #contacts .section-bg {
-                background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1170&h=2532&fit=crop');
-                background-size: cover;
-                background-position: center center;
-            }
-        }
-
-        /* Маленькие мобильные (до 480px) */
-        @media (max-width: 480px) {
-            .hero-bg {
-                background-size: cover;
-                background-position: center center;
-            }
-            
-            .section-bg {
-                background-size: cover;
-                background-position: center center;
-=======
         
         @media (max-width: 1024px) {
             .hero-bg {
                 background-image: url('https://images.hdqwalls.com/download/mercedes-amg-gt2-pro-0o-1080x1920.jpg');
->>>>>>> master
             }
         }
 
@@ -815,11 +580,7 @@
             height: 100%;
             object-fit: cover;
             object-position: center center;
-<<<<<<< HEAD
-            filter: blur(1px) !important;
-=======
             filter: none !important;
->>>>>>> master
             image-rendering: auto;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -829,60 +590,19 @@
             left: 0;
         }
 
-<<<<<<< HEAD
-        /* Градиентный overlay для читаемости - менее контрастный */
-=======
         /* Мягкий градиентный overlay для мобильных */
->>>>>>> master
         .hero-bg::after {
             content: "";
             position: absolute;
             inset: 0;
-<<<<<<< HEAD
-            background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
-=======
             background: rgba(0, 0, 0, 0.45);
->>>>>>> master
             z-index: 1;
             pointer-events: none;
         }
 
-<<<<<<< HEAD
-        /* Overlay для секций - более мягкий */
-        .section-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
-            pointer-events: none;
-        }
-
-        /* Адаптивные overlay для мобильных */
-        @media (max-width: 767px) {
-            .hero-bg::after {
-                background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
-            }
-            
-            .section-overlay {
-                background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-bg::after {
-                background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.75));
-            }
-            
-            .section-overlay {
-                background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.75));
-=======
         @media (min-width: 1025px) {
             .hero-bg::after {
                 background: rgba(0, 0, 0, 0.3);
->>>>>>> master
             }
         }
 
@@ -891,45 +611,6 @@
                 object-position: center center;
             }
             
-<<<<<<< HEAD
-            .hero-bg {
-                background-attachment: scroll;
-            }
-        }
-
-        /* Адаптивные стили для секций с фонами */
-        @media (min-width: 1024px) {
-            .section-bg {
-                background-attachment: fixed;
-            }
-        }
-
-        @media (max-width: 1023px) {
-            .section-bg {
-                background-attachment: scroll;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .section {
-                min-height: auto;
-            }
-            
-            #about .section-bg,
-            #advantages .section-bg,
-            #services .section-bg {
-                min-height: 500px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            #about .section-bg,
-            #advantages .section-bg,
-            #services .section-bg {
-                min-height: 400px;
-                background-size: cover;
-                background-position: center center;
-=======
             /* Уменьшаем затемнение фона Hero в мобильной версии */
             .hero-bg::after {
                 background: rgba(0, 0, 0, 0.25) !important;
@@ -937,7 +618,6 @@
             
             .hero-overlay {
                 background: linear-gradient(180deg, rgba(10, 10, 10, 0.15) 0%, rgba(10, 10, 10, 0.45) 100%) !important;
->>>>>>> master
             }
         }
 
@@ -963,16 +643,6 @@
             padding: 120px 20px 80px;
             will-change: transform;
         }
-<<<<<<< HEAD
-
-        /* Параллакс эффект для секций - multi-layer */
-        .parallax-section {
-            position: relative;
-            overflow: hidden;
-            /* GPU acceleration */
-            transform: translateZ(0);
-            will-change: scroll-position;
-=======
         
         @media (min-width: 769px) {
             .hero-content {
@@ -998,7 +668,6 @@
         .parallax-section {
             position: relative;
             overflow: hidden;
->>>>>>> master
         }
 
         .parallax-bg {
@@ -1011,91 +680,26 @@
             background-position: center;
             will-change: transform;
             transform: translateZ(0);
-<<<<<<< HEAD
-            /* GPU acceleration */
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-        }
-
-        /* Multi-layer параллакс для Hero - премиальный */
-        .hero-bg-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 120%;
-            will-change: transform;
-            transform: translateZ(0);
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .hero-bg-layer-1 {
-            z-index: 0;
-            opacity: 1;
-            transform: translateZ(0);
-        }
-
-        .hero-bg-layer-2 {
-            z-index: -1;
-            opacity: 0.7;
-            filter: blur(1px);
-            transform: translateZ(0) scale(1.05);
-        }
-
-        .hero-bg-layer-3 {
-            z-index: -2;
-            opacity: 0.4;
-            filter: blur(3px);
-            transform: translateZ(0) scale(1.1);
-        }
-
-        /* Параллакс для других секций */
-        .parallax-bg-slow {
-            will-change: transform;
-            transform: translateZ(0);
-            backface-visibility: hidden;
-        }
-
-        /* Навигация с премиальными эффектами */
-=======
         }
 
         /* Навигация в цвет кнопок (бирюзовый) */
->>>>>>> master
         .nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-<<<<<<< HEAD
-            background: rgba(10, 10, 10, 0.7);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(22, 132, 145, 0.1);
-=======
             background: var(--propellini-primary);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border-bottom: 1px solid rgba(22, 132, 145, 0.3);
             box-shadow: 0 2px 10px rgba(22, 132, 145, 0.3);
->>>>>>> master
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
                         background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
                         box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             transform: translateY(0);
             will-change: transform;
         }
-<<<<<<< HEAD
-
-        .nav.scrolled {
-            background: rgba(10, 10, 10, 0.95);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(22, 132, 145, 0.1);
-=======
         
         /* Логотип - белый на бирюзовом фоне */
         .propellini-logo {
@@ -1127,7 +731,6 @@
         .nav.scrolled {
             background: var(--propellini-primary);
             box-shadow: 0 4px 20px rgba(22, 132, 145, 0.4);
->>>>>>> master
             backdrop-filter: blur(30px) saturate(180%);
             -webkit-backdrop-filter: blur(30px) saturate(180%);
         }
@@ -1181,11 +784,7 @@
 
         /* Логотип Propellini */
         .propellini-logo {
-<<<<<<< HEAD
-            height: 49px;
-=======
             height: 32px;
->>>>>>> master
             width: auto;
             object-fit: contain;
             flex-shrink: 0;
@@ -1232,17 +831,6 @@
 
         @media (max-width: 768px) {
             .floating-book-btn {
-<<<<<<< HEAD
-                top: 16px;
-                right: 16px;
-                width: 50px;
-                height: 50px;
-            }
-            
-            .floating-book-btn svg {
-                width: 22px;
-                height: 22px;
-=======
                 top: auto;
                 bottom: 120px;
                 right: 20px;
@@ -1263,7 +851,6 @@
             .floating-book-btn svg {
                 width: 24px;
                 height: 24px;
->>>>>>> master
             }
         }
 
@@ -1302,11 +889,7 @@
             
             /* Навигация на мобильных */
             .nav {
-<<<<<<< HEAD
-                padding: 12px 0 !important;
-=======
                 padding: 6px 0 !important;
->>>>>>> master
             }
             
             .nav .max-w-7xl {
@@ -1316,11 +899,7 @@
             
             /* Логотип и название на мобильных */
             .propellini-logo {
-<<<<<<< HEAD
-                height: 32px !important;
-=======
                 height: 24px !important;
->>>>>>> master
             }
             
             /* Контейнер логотипа и названия */
@@ -1431,8 +1010,6 @@
             position: relative;
             overflow: hidden;
         }
-<<<<<<< HEAD
-=======
         
         /* Hero акция - компактный стиль для десктопа */
         .hero-offer {
@@ -1455,7 +1032,6 @@
                 height: 32px !important;
             }
         }
->>>>>>> master
 
         .offer-card-shimmer::before {
             content: '';
@@ -1527,34 +1103,12 @@
 
         .btn-primary:hover {
             background: var(--propellini-primary-light);
-<<<<<<< HEAD
-            box-shadow: 0 0 20px rgba(22, 132, 145, 0.5), 0 0 40px rgba(22, 132, 145, 0.3), 0 4px 16px rgba(0, 0, 0, 0.3);
-=======
             box-shadow: var(--propellini-shadow-neon);
->>>>>>> master
             transform: translateY(-2px);
         }
         
         .btn-primary:active {
             transform: translateY(0);
-<<<<<<< HEAD
-            box-shadow: 0 0 10px rgba(22, 132, 145, 0.4);
-        }
-
-        /* Hover-glow эффект для всех кнопок в цвете #168491 */
-        .btn-primary,
-        .price-card-shimmer,
-        .offer-card-shimmer,
-        button[class*="btn"] {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .btn-primary:hover,
-        .price-card-shimmer:hover,
-        .offer-card-shimmer:hover {
-            box-shadow: 0 0 20px rgba(22, 132, 145, 0.5), 0 0 40px rgba(22, 132, 145, 0.3), 0 4px 16px rgba(0, 0, 0, 0.3);
-=======
->>>>>>> master
         }
 
         /* Карточки цен как кнопки */
@@ -1673,44 +1227,6 @@
             border-color: rgba(22, 132, 145, 0.5);
             box-shadow: var(--propellini-shadow-neon);
         }
-<<<<<<< HEAD
-
-        /* Glow hover эффект для UTP карточек */
-        .utp-card {
-            position: relative;
-        }
-
-        .utp-card::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: var(--radius-lg);
-            padding: 2px;
-            background: linear-gradient(135deg, rgba(22, 132, 145, 0.4), rgba(22, 132, 145, 0.1));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-
-        .utp-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: rgba(22, 132, 145, 0.4);
-            box-shadow: 0 0 30px rgba(22, 132, 145, 0.4), 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-
-        .utp-card:hover::before {
-            opacity: 1;
-        }
-
-        .utp-card:hover > div:first-child {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(22, 132, 145, 0.5);
-        }
-=======
->>>>>>> master
         
         .service-card > *,
         .premium-benefit-card > *,
@@ -1962,50 +1478,10 @@
             transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-<<<<<<< HEAD
-        /* Премиальные scroll эффекты */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-left {
-            opacity: 0;
-            transform: translateX(-40px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-right {
-            opacity: 0;
-            transform: translateX(40px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-scale {
-            opacity: 0;
-            transform: scale(0.95);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-up.visible,
-        .fade-left.visible,
-        .fade-right.visible,
-        .fade-scale.visible {
-            opacity: 1;
-            transform: translateY(0) translateX(0) scale(1);
-        }
-
-        .slide-up {
-            opacity: 0;
-            transform: translateY(30px) scale(0.98);
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-=======
         .slide-up {
             opacity: 0;
             transform: translateY(30px) scale(0.98);
             transition: opacity 0.3s ease-out, transform 0.3s ease-out;
->>>>>>> master
         }
 
         .slide-in-left {
@@ -2196,10 +1672,7 @@
             line-height: 1.8;
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
-<<<<<<< HEAD
-=======
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
->>>>>>> master
         }
 
         /* Форма */
@@ -2267,45 +1740,16 @@
         .mobile-menu {
             display: none;
             position: fixed;
-<<<<<<< HEAD
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(30px);
-            border-bottom: 1px solid rgba(22, 132, 145, 0.2);
-=======
             top: 55px;
             left: 0;
             right: 0;
             background: var(--propellini-primary);
             backdrop-filter: blur(30px);
             border-bottom: 1px solid rgba(22, 132, 145, 0.3);
->>>>>>> master
             padding: 20px;
             z-index: 999;
             max-height: calc(100vh - 70px);
             overflow-y: auto;
-<<<<<<< HEAD
-        }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        .mobile-menu a {
-            display: block;
-            padding: 16px;
-            color: var(--propellini-text);
-            text-decoration: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu a:hover {
-            color: var(--propellini-primary);
-            padding-left: 24px;
-=======
             box-shadow: 0 4px 20px rgba(22, 132, 145, 0.3);
         }
         
@@ -2326,7 +1770,6 @@
             color: rgba(255, 255, 255, 0.95);
             padding-left: 24px;
             background: rgba(255, 255, 255, 0.1);
->>>>>>> master
         }
 
         /* Модальное окно */
@@ -2345,15 +1788,12 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-<<<<<<< HEAD
-=======
         
         #calculatorModal.modal-overlay {
             align-items: stretch !important;
             justify-content: stretch !important;
             padding: 0 !important;
         }
->>>>>>> master
 
         .modal-overlay.active {
             display: flex;
@@ -2374,11 +1814,6 @@
             transition: transform 0.3s ease;
         }
 
-<<<<<<< HEAD
-
-        .modal-overlay.active .modal-content {
-            transform: scale(1);
-=======
         .calculator-modal-content {
             max-width: 100vw !important;
             width: 100vw !important;
@@ -2429,7 +1864,6 @@
         .modal-overlay.active .calculator-modal-content {
             transform: none !important;
             scale: 1 !important;
->>>>>>> master
         }
 
         .modal-close {
@@ -2478,8 +1912,6 @@
             .section {
                 padding: 40px 0;
             }
-<<<<<<< HEAD
-=======
             
             /* Оптимизация backdrop-filter для мобильных - уменьшаем blur для производительности */
             #navbar.scrolled {
@@ -2499,7 +1931,6 @@
                     background: rgba(18, 18, 18, 0.95) !important;
                 }
             }
->>>>>>> master
 
             /* Модальное окно на мобильных */
             .modal-content {
@@ -2510,8 +1941,6 @@
                 max-height: 85vh;
             }
 
-<<<<<<< HEAD
-=======
             .calculator-modal-content {
                 width: 100vw !important;
                 max-width: 100vw !important;
@@ -2549,7 +1978,6 @@
                 align-items: stretch !important;
                 justify-content: stretch !important;
             }
->>>>>>> master
 
             .modal-title {
                 font-size: 22px;
@@ -2811,21 +2239,16 @@
                 scroll-snap-type: y mandatory;
                 -webkit-overflow-scrolling: touch;
                 scroll-padding-top: 70px;
-<<<<<<< HEAD
-=======
                 overflow-x: hidden !important;
                 width: 100% !important;
                 max-width: 100vw !important;
                 position: relative;
->>>>>>> master
             }
 
             body {
                 -webkit-overflow-scrolling: touch;
                 scroll-behavior: smooth;
                 overscroll-behavior-y: contain;
-<<<<<<< HEAD
-=======
                 overflow-x: hidden !important;
                 width: 100% !important;
                 max-width: 100vw !important;
@@ -2855,7 +2278,6 @@
             img, video, iframe, embed, object, picture {
                 max-width: 100% !important;
                 height: auto !important;
->>>>>>> master
             }
 
             /* Каждая секция прилипает при прокрутке */
@@ -2971,8 +2393,6 @@
                 object-fit: cover !important;
                 object-position: center center !important;
             }
-<<<<<<< HEAD
-=======
             
             /* Оптимизация загрузки мобильного фона */
             .hero-bg picture source[media*="max-width: 600px"] {
@@ -2986,7 +2406,6 @@
                 -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
             }
->>>>>>> master
 
             /* Калькулятор iframe */
             iframe {
@@ -3040,19 +2459,6 @@
                 font-size: 20px !important;
             }
 
-<<<<<<< HEAD
-            /* Hero акция на мобильных */
-            .hero-offer {
-                padding: 16px 20px !important;
-                margin: 0 16px 2rem 16px !important;
-            }
-
-            .hero-offer p {
-                font-size: 16px !important;
-            }
-
-            /* Кнопки - крупнее, жирнее, ярче с glass effect */
-=======
             /* Hero акция на мобильных - компактная версия */
             .hero-offer {
                 padding: 12px 16px !important;
@@ -3073,59 +2479,12 @@
             }
 
             /* Кнопки - крупнее, жирнее, ярче */
->>>>>>> master
             .btn-primary {
                 padding: 18px 32px;
                 font-size: 18px;
                 font-family: 'Roboto', sans-serif;
                 font-weight: 500;
                 min-height: 56px;
-<<<<<<< HEAD
-                background: rgba(22, 132, 145, 0.85);
-                backdrop-filter: blur(20px) saturate(180%);
-                -webkit-backdrop-filter: blur(20px) saturate(180%);
-                color: #fff;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                border-radius: 12px;
-                box-shadow: 0 4px 16px rgba(22, 132, 145, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-                transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-                position: relative;
-                overflow: hidden;
-            }
-            
-            .btn-primary::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-                transition: left 0.5s ease;
-                z-index: 1;
-            }
-            
-            .btn-primary:hover {
-                background: rgba(22, 132, 145, 0.95);
-                border-color: rgba(255, 255, 255, 0.3);
-                box-shadow: 0 6px 24px rgba(22, 132, 145, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-                transform: translateY(-2px);
-            }
-            
-            .btn-primary:hover::before {
-                left: 100%;
-            }
-            
-            .btn-primary > * {
-                position: relative;
-                z-index: 2;
-            }
-            
-            .btn-primary:active {
-                transform: scale(0.95) translateY(0);
-                box-shadow: 0 2px 8px rgba(22, 132, 145, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2);
-                background: rgba(22, 132, 145, 0.9);
-=======
                 background: #168491;
                 color: #fff;
                 border: none;
@@ -3135,7 +2494,6 @@
             
             .btn-primary:active {
                 transform: scale(0.98);
->>>>>>> master
             }
 
             /* Отступы */
@@ -3163,11 +2521,6 @@
                 font-size: 14px;
             }
 
-<<<<<<< HEAD
-            /* Навигация */
-            .nav {
-                padding: 12px 16px;
-=======
             /* Навигация - бирюзовый цвет для мобильной версии */
             .nav {
                 padding: 6px 16px;
@@ -3201,7 +2554,6 @@
             /* Кнопка меню белая на бирюзовом фоне */
             .mobile-menu-btn span {
                 background: #ffffff !important;
->>>>>>> master
             }
 
             .nav > div {
@@ -3318,19 +2670,11 @@
             }
 
             .mobile-menu {
-<<<<<<< HEAD
-                top: 60px;
-            }
-
-            .nav {
-                padding: 10px 12px;
-=======
                 top: 55px;
             }
 
             .nav {
                 padding: 6px 12px;
->>>>>>> master
             }
 
             .hero-content {
@@ -3360,11 +2704,7 @@
             }
 
             .service-card p {
-<<<<<<< HEAD
-                font-size: 15px;
-=======
                 font-size: 13px;
->>>>>>> master
             }
         }
 
@@ -3460,74 +2800,6 @@
             border-radius: 999px;
             transition: width 0.2s ease;
         }
-<<<<<<< HEAD
-
-        .calc-btn {
-            font-size: 20px;
-            padding: 24px 64px;
-            font-weight: 500;
-            font-family: 'Roboto', sans-serif;
-            border-radius: 12px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(22, 132, 145, 0.4);
-            text-decoration: none;
-            display: inline-block;
-            background: var(--propellini-primary);
-            color: #fff;
-            transition: all 0.3s ease;
-        }
-
-        .calc-btn:hover {
-            background: var(--propellini-primary-light);
-            box-shadow: 0 0 40px rgba(22, 132, 145, 0.6);
-            transform: translateY(-2px);
-        }
-
-        .bonus-section {
-            background: #0c1115;
-            padding: 90px 0;
-        }
-
-        .bonus-section h2 {
-            text-align: center;
-            color: #fff;
-            font-size: 34px;
-            margin-bottom: 10px;
-        }
-
-        .bonus-section h3 {
-            text-align: center;
-            color: rgba(255,255,255,0.7);
-            font-size: 20px;
-            margin-bottom: 40px;
-        }
-
-        .bonus-items {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-        }
-
-        .bonus-card {
-            width: 320px;
-            padding: 25px;
-            border-radius: 14px;
-            background: rgba(26, 34, 38, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(22,132,145,0.35);
-            color: #fff;
-            font-size: 18px;
-            text-align: center;
-            box-shadow: 0 0 18px rgba(22,132,145,0.25);
-            transition: 0.3s ease;
-        }
-
-        .bonus-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 0 28px rgba(22,132,145,0.6);
-=======
         
         /* ===============================
            ПРЕМИАЛЬНЫЙ БЛОК БОНУСОВ
@@ -3800,18 +3072,13 @@
             .stats-bg-mobile {
                 display: none !important;
             }
->>>>>>> master
         }
     </style>
 </head>
 <body>
     <!-- Навигация -->
     <nav class="nav" id="navbar">
-<<<<<<< HEAD
-        <div class="max-w-7xl mx-auto px-6 py-4">
-=======
         <div class="max-w-7xl mx-auto px-6 py-1">
->>>>>>> master
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <a href="#hero" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
@@ -3822,21 +3089,12 @@
                     </a>
                 </div>
                 <div class="hidden md:flex items-center gap-8">
-<<<<<<< HEAD
-                    <a href="#utp" class="nav-link text-sm hover:text-[var(--propellini-primary)] transition tracking-wide">О нас</a>
-                    <a href="#services" class="nav-link text-sm hover:text-[var(--propellini-primary)] transition tracking-wide">Пакеты</a>
-                    <a href="calculator/index.html" class="nav-link text-sm hover:text-[var(--propellini-primary)] transition tracking-wide">Калькулятор</a>
-                    <a href="#films" class="nav-link text-sm hover:text-[var(--propellini-primary)] transition tracking-wide">Пленки</a>
-                    <a href="#gallery" class="nav-link text-sm hover:text-[var(--propellini-primary)] transition tracking-wide">Портфолио</a>
-                    <a href="#studio" class="nav-link text-sm hover:text-[var(--propellini-primary)] transition tracking-wide">Студия</a>
-=======
                     <a href="#services" class="nav-link text-sm hover:text-[var(--propellini-primary)] transition tracking-wide">Услуги</a>
                     <a href="#calculator" class="nav-link text-sm hover:text-[var(--propellini-primary)] transition tracking-wide">Калькулятор</a>
                     <a href="#gallery" class="nav-link text-sm hover:text-[var(--propellini-primary)] transition tracking-wide">Работы</a>
                     <a href="#films" class="nav-link text-sm hover:text-[var(--propellini-primary)] transition tracking-wide">Пленки</a>
                     <a href="#offers" class="nav-link text-sm hover:text-[var(--propellini-primary)] transition tracking-wide">Бонусы</a>
                     <a href="#showroom" class="nav-link text-sm hover:text-[var(--propellini-primary)] transition tracking-wide">Салон</a>
->>>>>>> master
                     <a href="#contacts" class="nav-link text-sm hover:text-[var(--propellini-primary)] transition tracking-wide">Контакты</a>
                 </div>
                 <div class="flex items-center gap-4">
@@ -3849,21 +3107,12 @@
             </div>
         </div>
         <div class="mobile-menu" id="mobileMenu">
-<<<<<<< HEAD
-            <a href="#utp">О нас</a>
-            <a href="#services">Пакеты</a>
-            <a href="calculator/index.html">Калькулятор</a>
-            <a href="#films">Пленки</a>
-            <a href="#gallery">Портфолио</a>
-            <a href="#studio">Студия</a>
-=======
             <a href="#services">Услуги</a>
             <a href="#calculator">Калькулятор</a>
             <a href="#gallery">Работы</a>
             <a href="#films">Пленки</a>
             <a href="#offers">Бонусы</a>
             <a href="#showroom">Салон</a>
->>>>>>> master
             <a href="#contacts">Контакты</a>
             <button class="btn-primary btn-shimmer w-full mt-4" onclick="window.openModal()" style="text-decoration: none; display: block; text-align: center; border: none; cursor: pointer; width: 100%;">Записаться</button>
         </div>
@@ -3884,24 +3133,6 @@
         <!-- Параллакс фон с picture для разных разрешений -->
         <div class="hero-bg" id="hero-bg">
             <picture>
-<<<<<<< HEAD
-                <!-- Мобильная версия: 1100px ширина -->
-                <source srcset="images/hero-mobile.webp" media="(max-width: 600px)" type="image/webp">
-                <!-- Планшетная версия: 1600px ширина -->
-                <source srcset="images/hero-tablet.webp" media="(max-width: 1024px)" type="image/webp">
-                <!-- Десктопная версия: 2500px ширина -->
-                <source srcset="images/hero-desktop.webp" type="image/webp">
-                <!-- Fallback JPG -->
-                <img id="hero-bg-img" 
-                     src="images/hero-desktop.jpg" 
-                     alt="Propellini - Профессиональная оклейка защитной пленкой в Москве" 
-                     loading="lazy" 
-                     decoding="async"
-                     sizes="100vw"
-                     style="width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; top: 0; left: 0;"
-                     onload="this.style.opacity='1';"
-                     onerror="this.onerror=null; this.src='images/hero-desktop.webp';">
-=======
                 <!-- Мобильная версия: Mercedes AMG GT2 -->
                 <source srcset="https://images.hdqwalls.com/download/mercedes-amg-gt2-pro-0o-1080x1920.jpg" media="(max-width: 600px)" type="image/jpeg">
                 <!-- Планшетная версия: 1600px ширина -->
@@ -3919,7 +3150,6 @@
                      style="width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.5s ease;"
                      onload="this.style.opacity='1';"
                      onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/-CEsaoVY_QU/hqdefault.jpg';">
->>>>>>> master
             </picture>
         </div>
         <div class="hero-overlay"></div>
@@ -3933,35 +3163,6 @@
                 
                 <!-- Цены - появляются вторыми -->
                 <div class="hero-prices" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); margin-bottom: 2rem; display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;">
-<<<<<<< HEAD
-                    <button class="price-card-shimmer" onclick="window.openModal()" style="background: var(--propellini-primary); border: 1px solid rgba(22, 132, 145, 0.5); border-radius: 12px; padding: 20px 32px; position: relative; min-width: 200px;">
-                        <div style="position: relative; z-index: 2; font-family: 'Roboto', sans-serif; font-size: 14px; color: rgba(255, 255, 255, 0.9); margin-bottom: 8px;">Оклейка зон риска</div>
-                        <div style="position: relative; z-index: 2; font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 800; color: white;">от 25 000 ₽</div>
-                    </button>
-                    <button class="price-card-shimmer" onclick="window.openModal()" style="background: var(--propellini-primary); border: 1px solid rgba(22, 132, 145, 0.5); border-radius: 12px; padding: 20px 32px; position: relative; min-width: 200px;">
-                        <div style="position: relative; z-index: 2; font-family: 'Roboto', sans-serif; font-size: 14px; color: rgba(255, 255, 255, 0.9); margin-bottom: 8px;">Полная оклейка кузова</div>
-                        <div style="position: relative; z-index: 2; font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 800; color: white;">от 180 000 ₽</div>
-                    </button>
-                </div>
-                
-                <!-- Акция - появляется третьей, более заметная -->
-                <div class="hero-offer offer-card-shimmer" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); margin-bottom: 2rem; background: linear-gradient(135deg, rgba(22, 132, 145, 0.2), rgba(22, 132, 145, 0.1)); border: 2px solid rgba(22, 132, 145, 0.4); border-radius: 16px; padding: 20px 32px; backdrop-filter: none; box-shadow: 0 8px 32px rgba(22, 132, 145, 0.3); position: relative;">
-                    <p class="text-xl md:text-2xl" style="position: relative; z-index: 2; color: var(--propellini-text); font-weight: 800; letter-spacing: 0.01em; font-family: 'Montserrat', sans-serif; margin: 0; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
-                            <!-- Коробка подарка -->
-                            <rect x="5" y="10" width="14" height="10" rx="1" fill="#168491" stroke="#126d77" stroke-width="1.5"/>
-                            <!-- Крышка коробки -->
-                            <rect x="5" y="8" width="14" height="3" rx="1" fill="#168491" stroke="#126d77" stroke-width="1.5"/>
-                            <!-- Лента вертикальная -->
-                            <rect x="11.5" y="8" width="1" height="12" fill="#168491"/>
-                            <!-- Бант верхний -->
-                            <path d="M9 8C9 6.5 10.5 6 12 6C13.5 6 15 6.5 15 8C15 9.5 13.5 10 12 10C10.5 10 9 9.5 9 8Z" fill="#168491"/>
-                            <!-- Хвостики банта -->
-                            <path d="M9 8L8 10" stroke="#168491" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M15 8L16 10" stroke="#168491" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                        <span>Акция месяца: получите скидку <span style="color: var(--propellini-primary); font-size: 1.2em;">10%</span> на мойку 2-х авто</span>
-=======
                     <button class="price-card-shimmer" onclick="window.openModal()" style="background: var(--propellini-primary); border: 1px solid rgba(22, 132, 145, 0.5); border-radius: 8px; padding: 12px 20px; position: relative; min-width: 140px;">
                         <div style="position: relative; z-index: 2; font-family: 'Roboto', sans-serif; font-size: 11px; color: rgba(255, 255, 255, 0.9); margin-bottom: 4px;">Оклейка зон риска</div>
                         <div style="position: relative; z-index: 2; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; color: white;">от 25 000 ₽</div>
@@ -3984,33 +3185,15 @@
                             <path d="M15 8L16 10" stroke="#168491" stroke-width="1.5" stroke-linecap="round"/>
                         </svg>
                         <span>При полной оклейке кузова <span style="color: var(--propellini-primary); font-weight: 800;">тонировка</span> или <span style="color: var(--propellini-primary); font-weight: 800;">эвакуатор</span> в подарок</span>
->>>>>>> master
                     </p>
                 </div>
                 
                 <!-- Кнопка - появляется последней, более анимированная -->
-<<<<<<< HEAD
-                <button class="btn-primary btn-shimmer hero-btn-animated" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Roboto', sans-serif; font-size: 18px; padding: 18px 48px; font-weight: 500;">Получить скидку</button>
-=======
                 <button class="btn-primary btn-shimmer hero-btn-animated" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Roboto', sans-serif; font-size: 15px; padding: 12px 32px; font-weight: 500;">Получить скидку</button>
->>>>>>> master
             </div>
         </div>
     </section>
 
-<<<<<<< HEAD
-    <!-- 2. UTP - 6 карточек с glow hover -->
-    <section class="section" id="utp" style="position: relative; background: var(--propellini-dark); padding-top: 100px; padding-bottom: 100px; overflow: hidden;">
-        <div class="max-w-7xl mx-auto px-6" style="position: relative; z-index: 2;">
-            <div class="text-center mb-16 fade-up">
-                <h2 class="section-title" style="font-size: clamp(28px, 4vw, 42px); margin-bottom: 16px;">Почему Propellini</h2>
-                <p class="section-subtitle" style="color: var(--propellini-text-secondary); font-size: clamp(16px, 2vw, 18px); max-width: 600px; margin: 0 auto;">Премиальное качество и профессионализм в каждой детали</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="fade-up premium-benefit-card utp-card" style="background: var(--propellini-glass-bg); border: 1px solid var(--propellini-glass-border); padding: 40px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); text-align: center; position: relative; overflow: hidden;">
-                    <div style="width: 72px; height: 72px; background: linear-gradient(135deg, rgba(22, 132, 145, 0.25), rgba(22, 132, 145, 0.1)); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; border: 1px solid rgba(22, 132, 145, 0.2); transition: all 0.4s ease;">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--propellini-primary)" stroke-width="2">
-=======
     <!-- УТП блоки -->
     <section class="section stats-section" style="position: relative; background: var(--propellini-dark-secondary); padding-top: 80px; padding-bottom: 80px; overflow: hidden;">
         <!-- Фоновое изображение для мобильной версии -->
@@ -4023,20 +3206,10 @@
                 <div class="slide-up premium-benefit-card" style="background: rgba(18, 18, 18, 0.8); border: 1px solid rgba(22, 132, 145, 0.22); padding: 32px; border-radius: 12px; backdrop-filter: none; transition: all 0.3s ease; text-align: center;">
                     <div style="width: 64px; height: 64px; background: linear-gradient(135deg, rgba(22, 132, 145, 0.3), rgba(22, 132, 145, 0.1)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 1px solid rgba(22, 132, 145, 0.3);">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--propellini-primary)" stroke-width="2">
->>>>>>> master
                             <path d="M12 2L2 7l10 5 10-5-10-5z"/>
                             <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
                         </svg>
                     </div>
-<<<<<<< HEAD
-                    <h3 style="font-size: clamp(28px, 3vw, 36px); font-weight: 800; color: var(--propellini-primary); margin-bottom: 12px; font-family: 'Montserrat', sans-serif;">12+</h3>
-                    <p style="color: var(--propellini-text-secondary); font-size: clamp(14px, 1.8vw, 16px); font-family: 'Roboto', sans-serif; line-height: 1.7; font-weight: 400;">лет опыта в оклейке защитной пленкой</p>
-                </div>
-                
-                <div class="fade-up premium-benefit-card utp-card" style="animation-delay: 0.1s; background: var(--propellini-glass-bg); border: 1px solid var(--propellini-glass-border); padding: 40px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); text-align: center; position: relative; overflow: hidden;">
-                    <div style="width: 72px; height: 72px; background: linear-gradient(135deg, rgba(22, 132, 145, 0.25), rgba(22, 132, 145, 0.1)); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; border: 1px solid rgba(22, 132, 145, 0.2); transition: all 0.4s ease;">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--propellini-primary)" stroke-width="2">
-=======
                     <h3 style="font-size: 32px; font-weight: 800; color: var(--propellini-primary); margin-bottom: 8px; font-family: 'Montserrat', sans-serif;">12+</h3>
                     <p style="color: var(--propellini-text-secondary); font-size: 14px; font-family: 'Roboto', sans-serif; line-height: 1.6;">лет опыта в оклейке защитной пленкой</p>
                 </div>
@@ -4044,7 +3217,6 @@
                 <div class="slide-up premium-benefit-card" style="animation-delay: 0.1s; background: rgba(18, 18, 18, 0.8); border: 1px solid rgba(22, 132, 145, 0.22); padding: 32px; border-radius: 12px; backdrop-filter: none; transition: all 0.3s ease; text-align: center;">
                     <div style="width: 64px; height: 64px; background: linear-gradient(135deg, rgba(22, 132, 145, 0.3), rgba(22, 132, 145, 0.1)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 1px solid rgba(22, 132, 145, 0.3);">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--propellini-primary)" stroke-width="2">
->>>>>>> master
                             <path d="M9 12l2 2 4-4"/>
                             <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
                             <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
@@ -4052,15 +3224,6 @@
                             <path d="M12 3c0 1-1 3-3 3S6 4 6 3 7 0 9 0s3 2 3 3"/>
                         </svg>
                     </div>
-<<<<<<< HEAD
-                    <h3 style="font-size: clamp(28px, 3vw, 36px); font-weight: 800; color: var(--propellini-primary); margin-bottom: 12px; font-family: 'Montserrat', sans-serif;">300+</h3>
-                    <p style="color: var(--propellini-text-secondary); font-size: clamp(14px, 1.8vw, 16px); font-family: 'Roboto', sans-serif; line-height: 1.7; font-weight: 400;">автомобилей оклеиваем ежегодно</p>
-                </div>
-                
-                <div class="fade-up premium-benefit-card utp-card" style="animation-delay: 0.2s; background: var(--propellini-glass-bg); border: 1px solid var(--propellini-glass-border); padding: 40px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); text-align: center; position: relative; overflow: hidden;">
-                    <div style="width: 72px; height: 72px; background: linear-gradient(135deg, rgba(22, 132, 145, 0.25), rgba(22, 132, 145, 0.1)); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; border: 1px solid rgba(22, 132, 145, 0.2); transition: all 0.4s ease;">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--propellini-primary)" stroke-width="2">
-=======
                     <h3 style="font-size: 32px; font-weight: 800; color: var(--propellini-primary); margin-bottom: 8px; font-family: 'Montserrat', sans-serif;">300+</h3>
                     <p style="color: var(--propellini-text-secondary); font-size: 14px; font-family: 'Roboto', sans-serif; line-height: 1.6;">автомобилей оклеиваем ежегодно</p>
                 </div>
@@ -4068,21 +3231,11 @@
                 <div class="slide-up premium-benefit-card" style="animation-delay: 0.2s; background: rgba(18, 18, 18, 0.8); border: 1px solid rgba(22, 132, 145, 0.22); padding: 32px; border-radius: 12px; backdrop-filter: none; transition: all 0.3s ease; text-align: center;">
                     <div style="width: 64px; height: 64px; background: linear-gradient(135deg, rgba(22, 132, 145, 0.3), rgba(22, 132, 145, 0.1)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 1px solid rgba(22, 132, 145, 0.3);">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--propellini-primary)" stroke-width="2">
->>>>>>> master
                             <path d="M12 2L2 7l10 5 10-5-10-5z"/>
                             <path d="M2 17l10 5 10-5"/>
                             <path d="M2 12l10 5 10-5"/>
                         </svg>
                     </div>
-<<<<<<< HEAD
-                    <h3 style="font-size: clamp(28px, 3vw, 36px); font-weight: 800; color: var(--propellini-primary); margin-bottom: 12px; font-family: 'Montserrat', sans-serif;">10</h3>
-                    <p style="color: var(--propellini-text-secondary); font-size: clamp(14px, 1.8vw, 16px); font-family: 'Roboto', sans-serif; line-height: 1.7; font-weight: 400;">лет гарантии на пленку премиум-класса</p>
-                </div>
-                
-                <div class="fade-up premium-benefit-card utp-card" style="animation-delay: 0.3s; background: var(--propellini-glass-bg); border: 1px solid var(--propellini-glass-border); padding: 40px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); text-align: center; position: relative; overflow: hidden;">
-                    <div style="width: 72px; height: 72px; background: linear-gradient(135deg, rgba(22, 132, 145, 0.25), rgba(22, 132, 145, 0.1)); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; border: 1px solid rgba(22, 132, 145, 0.2); transition: all 0.4s ease;">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--propellini-primary)" stroke-width="2">
-=======
                     <h3 style="font-size: 32px; font-weight: 800; color: var(--propellini-primary); margin-bottom: 8px; font-family: 'Montserrat', sans-serif;">10</h3>
                     <p style="color: var(--propellini-text-secondary); font-size: 14px; font-family: 'Roboto', sans-serif; line-height: 1.6;">лет гарантии на пленку премиум-класса</p>
                 </div>
@@ -4090,68 +3243,27 @@
                 <div class="slide-up premium-benefit-card" style="animation-delay: 0.3s; background: rgba(18, 18, 18, 0.8); border: 1px solid rgba(22, 132, 145, 0.22); padding: 32px; border-radius: 12px; backdrop-filter: none; transition: all 0.3s ease; text-align: center;">
                     <div style="width: 64px; height: 64px; background: linear-gradient(135deg, rgba(22, 132, 145, 0.3), rgba(22, 132, 145, 0.1)); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 1px solid rgba(22, 132, 145, 0.3);">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--propellini-primary)" stroke-width="2">
->>>>>>> master
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                             <circle cx="9" cy="7" r="4"/>
                             <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
                         </svg>
                     </div>
-<<<<<<< HEAD
-                    <h3 style="font-size: clamp(28px, 3vw, 36px); font-weight: 800; color: var(--propellini-primary); margin-bottom: 12px; font-family: 'Montserrat', sans-serif;">100%</h3>
-                    <p style="color: var(--propellini-text-secondary); font-size: clamp(14px, 1.8vw, 16px); font-family: 'Roboto', sans-serif; line-height: 1.7; font-weight: 400;">сертифицированные мастера с обучением</p>
-                </div>
-                
-                <!-- Дополнительные UTP карточки для 6 элементов -->
-                <div class="fade-up premium-benefit-card utp-card" style="animation-delay: 0.4s; background: var(--propellini-glass-bg); border: 1px solid var(--propellini-glass-border); padding: 40px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); text-align: center; position: relative; overflow: hidden;">
-                    <div style="width: 72px; height: 72px; background: linear-gradient(135deg, rgba(22, 132, 145, 0.25), rgba(22, 132, 145, 0.1)); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; border: 1px solid rgba(22, 132, 145, 0.2); transition: all 0.4s ease;">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--propellini-primary)" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <h3 style="font-size: clamp(28px, 3vw, 36px); font-weight: 800; color: var(--propellini-primary); margin-bottom: 12px; font-family: 'Montserrat', sans-serif;">5 лет</h3>
-                    <p style="color: var(--propellini-text-secondary); font-size: clamp(14px, 1.8vw, 16px); font-family: 'Roboto', sans-serif; line-height: 1.7; font-weight: 400;">гарантия на все виды работ</p>
-                </div>
-                
-                <div class="fade-up premium-benefit-card utp-card" style="animation-delay: 0.5s; background: var(--propellini-glass-bg); border: 1px solid var(--propellini-glass-border); padding: 40px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); text-align: center; position: relative; overflow: hidden;">
-                    <div style="width: 72px; height: 72px; background: linear-gradient(135deg, rgba(22, 132, 145, 0.25), rgba(22, 132, 145, 0.1)); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; border: 1px solid rgba(22, 132, 145, 0.2); transition: all 0.4s ease;">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--propellini-primary)" stroke-width="2">
-                            <path d="M9 11l3 3L22 4"/>
-                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-                        </svg>
-                    </div>
-                    <h3 style="font-size: clamp(28px, 3vw, 36px); font-weight: 800; color: var(--propellini-primary); margin-bottom: 12px; font-family: 'Montserrat', sans-serif;">24/7</h3>
-                    <p style="color: var(--propellini-text-secondary); font-size: clamp(14px, 1.8vw, 16px); font-family: 'Roboto', sans-serif; line-height: 1.7; font-weight: 400;">поддержка и консультации</p>
-=======
                     <h3 style="font-size: 32px; font-weight: 800; color: var(--propellini-primary); margin-bottom: 8px; font-family: 'Montserrat', sans-serif;">100%</h3>
                     <p style="color: var(--propellini-text-secondary); font-size: 14px; font-family: 'Roboto', sans-serif; line-height: 1.6;">сертифицированные мастера с обучением</p>
->>>>>>> master
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Акция: Скидка 50% на броню лобового стекла -->
-<<<<<<< HEAD
-    <section class="section" id="promo" style="position: relative; background: var(--propellini-dark); padding-top: 60px; padding-bottom: 60px; overflow: hidden;">
-        <!-- Фоновое изображение -->
-        <div class="section-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2560'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll;"></div>
-        <!-- Overlay градиент для читаемости -->
-        <div class="section-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8));"></div>
-        <div class="max-w-7xl mx-auto px-6" style="position: relative; z-index: 2;">
-=======
     <section class="section" style="background: var(--propellini-dark); padding-top: 60px; padding-bottom: 60px;">
         <div class="max-w-7xl mx-auto px-6">
->>>>>>> master
             <div class="slide-up">
                 <div class="offer-card-shimmer" style="background: rgba(18, 18, 18, 0.8); border: 2px solid rgba(22, 132, 145, 0.4); border-radius: 16px; padding: 40px; backdrop-filter: blur(18px); box-shadow: 0 12px 40px rgba(22, 132, 145, 0.2); position: relative; text-align: center;">
                     <h2 style="font-size: 28px; font-weight: 800; color: var(--propellini-text); margin-bottom: 20px; font-family: 'Montserrat', sans-serif; letter-spacing: 0.02em; line-height: 1.4;">
                         Скидка <span style="color: var(--propellini-primary); font-size: 1.3em;">50%</span> на броню лобового стекла<br>при полной оклейке кузова
                     </h2>
-<<<<<<< HEAD
-                    <p style="color: var(--propellini-text-secondary); font-size: 16px; margin-bottom: 24px; font-family: 'Roboto', sans-serif; line-height: 1.7; font-weight: 400;">
-=======
                     <p style="color: var(--propellini-text-secondary); font-size: 16px; margin-bottom: 24px; font-family: 'Roboto', sans-serif; line-height: 1.6;">
->>>>>>> master
                         Защитите лобовое стекло премиальной бронепленкой со скидкой при заказе полной оклейки кузова
                     </p>
                     <button class="btn-primary btn-shimmer" onclick="window.openModal()" style="font-size: 16px; padding: 14px 32px; font-weight: 500; font-family: 'Roboto', sans-serif; border-radius: 12px;">
@@ -4162,28 +3274,6 @@
         </div>
     </section>
 
-<<<<<<< HEAD
-    <!-- 3. О Propellini - bokeh background + parallax -->
-    <section class="section parallax-section" id="about" style="position: relative; background: var(--propellini-dark-secondary); padding-top: 120px; padding-bottom: 120px; overflow: hidden;">
-        <!-- Bokeh background с параллаксом -->
-        <div class="section-bg parallax-bg-slow" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/studio-desktop.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll; filter: blur(2px);"></div>
-        <!-- Overlay градиент для читаемости -->
-        <div class="section-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.65));"></div>
-        
-        <div class="max-w-7xl mx-auto px-6" style="position: relative; z-index: 2;">
-            <div class="grid md:grid-cols-12 gap-12 items-start">
-                <!-- Заголовок слева -->
-                <div class="md:col-span-4 fade-left">
-                    <h2 class="section-title" style="font-size: clamp(32px, 4vw, 48px); color: var(--propellini-text); letter-spacing: 0.02em; font-family: 'Montserrat', sans-serif; font-weight: 800; margin-bottom: 24px;">О Propellini</h2>
-                    <p class="text-lg" style="color: var(--propellini-text-secondary); line-height: 1.8; font-family: 'Roboto', sans-serif; font-weight: 400;">
-                        Премиальная студия оклейки защитной пленкой в Москве
-                    </p>
-                </div>
-                
-                <!-- Контент справа -->
-                <div class="md:col-span-8 fade-right">
-                    <h3 class="text-3xl md:text-4xl font-bold mb-12" style="color: var(--propellini-text); line-height: 1.3; font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 0.02em;">
-=======
     <!-- Кто мы -->
     <section class="section" id="about" style="position: relative; background: var(--propellini-dark-secondary); overflow: hidden;">
         <!-- Фоновое изображение -->
@@ -4201,18 +3291,13 @@
                 <!-- Контент справа -->
                 <div class="md:col-span-9 slide-up" style="animation-delay: 0.2s;">
                     <h3 class="text-3xl md:text-4xl font-bold mb-8" style="color: var(--propellini-text); line-height: 1.3; font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 0.02em;">
->>>>>>> master
                         Профессиональная оклейка защитной пленкой, где автомобили превращаются в произведения искусства
                     </h3>
                     
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="about-text-column" data-image="https://propellini.ru/wp-content/uploads/elementor/thumbs/5a7627dc3f7e0cf22e40e354b42f9b253f529b88-rdsi126ozf8elgspm19jxbam2t421wp16fzhuumiwg.png" style="border: 1px solid rgba(22, 132, 145, 0.22); border-radius: 12px; padding: 30px; background: rgba(18, 18, 18, 0.7); backdrop-filter: none; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; min-height: 200px;">
                             <div class="column-text-content" style="position: relative; z-index: 2; transition: opacity 0.3s ease;">
-<<<<<<< HEAD
-                            <p class="text-lg mb-0" style="color: var(--propellini-text-secondary); line-height: 1.8; font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 17px;">
-=======
                             <p class="text-lg mb-0" style="color: var(--propellini-text-secondary); line-height: 1.8; font-family: 'Roboto', sans-serif;">
->>>>>>> master
                                 Наша команда состоит из опытных мастеров, для которых каждый автомобиль — это больше, чем просто средство передвижения. Мы предлагаем услуги, которые возвращают вашему автомобилю идеальный внешний вид, защищают его от внешних воздействий и подчёркивают его уникальный стиль.
                             </p>
                         </div>
@@ -4222,11 +3307,7 @@
                         </div>
                         <div class="about-text-column" data-image="https://propellini.ru/wp-content/uploads/2025/08/image1.png" style="border: 1px solid rgba(22, 132, 145, 0.22); border-radius: 12px; padding: 30px; background: rgba(18, 18, 18, 0.7); backdrop-filter: none; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; min-height: 200px;">
                             <div class="column-text-content" style="position: relative; z-index: 2; transition: opacity 0.3s ease;">
-<<<<<<< HEAD
-                            <p class="text-lg mb-0" style="color: var(--propellini-text-secondary); line-height: 1.8; font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 17px;">
-=======
                             <p class="text-lg mb-0" style="color: var(--propellini-text-secondary); line-height: 1.8; font-family: 'Roboto', sans-serif;">
->>>>>>> master
                                 Наша цель — предоставить вашему автомобилю безупречный вид и защиту на долгие годы. Мы используем только проверенные материалы и современное оборудование, чтобы гарантировать безупречное качество услуг на каждом этапе работы.
                             </p>
                             </div>
@@ -4243,15 +3324,9 @@
     <!-- Преимущества -->
     <section class="section" id="advantages" style="position: relative; background: var(--propellini-dark-secondary); overflow: hidden;">
         <!-- Фоновое изображение -->
-<<<<<<< HEAD
-        <div class="section-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/advantages-desktop.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll;"></div>
-        <!-- Overlay градиент для читаемости -->
-        <div class="section-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8));"></div>
-=======
         <div class="advantages-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('https://images.hdqwalls.com/download/mercedes-amg-gt2-pro-2023-5k-td-1920x1080.jpg'); background-size: cover !important; background-position: center !important; background-repeat: no-repeat !important; background-attachment: scroll; opacity: 0.8;"></div>
         <!-- Затемнение для читаемости -->
         <div class="advantages-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(135deg, rgba(17, 17, 17, 0.4) 0%, rgba(17, 17, 17, 0.3) 100%);"></div>
->>>>>>> master
         
         <div class="max-w-7xl mx-auto px-6" style="position: relative; z-index: 2;">
             <div class="grid md:grid-cols-12 gap-8 items-start">
@@ -4270,11 +3345,7 @@
                         <!-- Карточка 1 -->
                         <div class="advantage-card slide-up" style="background: rgba(18, 18, 18, 0.8); border: 1px solid rgba(22, 132, 145, 0.22); padding: 30px; border-radius: 12px; transition: all 0.3s ease; backdrop-filter: none;">
                             <h4 class="text-xl font-bold mb-3" style="color: var(--propellini-text); font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 0.01em;">Мастерство в деталях</h4>
-<<<<<<< HEAD
-                            <p class="mb-0" style="color: var(--propellini-text-secondary); line-height: 1.7; font-size: 16px; font-family: 'Roboto', sans-serif; font-weight: 400;">
-=======
                             <p class="mb-0" style="color: var(--propellini-text-secondary); line-height: 1.6; font-size: 16px; font-family: 'Roboto', sans-serif;">
->>>>>>> master
                                 Каждая услуга выполняется с филигранной точностью, чтобы ваш автомобиль выглядел безупречно. Уделяем внимание мельчайшим нюансам, которые другие могут упустить
                             </p>
                         </div>
@@ -4282,11 +3353,7 @@
                         <!-- Карточка 2 -->
                         <div class="advantage-card slide-up" style="animation-delay: 0.1s; background: rgba(18, 18, 18, 0.8); border: 1px solid rgba(22, 132, 145, 0.22); padding: 30px; border-radius: 12px; transition: all 0.3s ease; backdrop-filter: none;">
                             <h4 class="text-xl font-bold mb-3" style="color: var(--propellini-text); font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 0.01em;">Современные технологии</h4>
-<<<<<<< HEAD
-                            <p class="mb-0" style="color: var(--propellini-text-secondary); line-height: 1.7; font-size: 16px; font-family: 'Roboto', sans-serif; font-weight: 400;">
-=======
                             <p class="mb-0" style="color: var(--propellini-text-secondary); line-height: 1.6; font-size: 16px; font-family: 'Roboto', sans-serif;">
->>>>>>> master
                                 Мы используем передовые материалы и оборудование, включая нанопокрытия, которые обеспечивают долговременную защиту и сохраняют идеальный внешний вид вашего автомобиля
                             </p>
                         </div>
@@ -4294,11 +3361,7 @@
                         <!-- Карточка 3 -->
                         <div class="advantage-card slide-up" style="animation-delay: 0.2s; background: rgba(18, 18, 18, 0.8); border: 1px solid rgba(22, 132, 145, 0.22); padding: 30px; border-radius: 12px; transition: all 0.3s ease; backdrop-filter: none;">
                             <h4 class="text-xl font-bold mb-3" style="color: var(--propellini-text); font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 0.01em;">Индивидуальный подход</h4>
-<<<<<<< HEAD
-                            <p class="mb-0" style="color: var(--propellini-text-secondary); line-height: 1.7; font-size: 16px; font-family: 'Roboto', sans-serif; font-weight: 400;">
-=======
                             <p class="mb-0" style="color: var(--propellini-text-secondary); line-height: 1.6; font-size: 16px; font-family: 'Roboto', sans-serif;">
->>>>>>> master
                                 Каждый автомобиль уникален, как и его владелец, поэтому мы подбираем решения, которые идеально подходят для вашего автомобиля и ваших пожеланий
                             </p>
                         </div>
@@ -4306,11 +3369,7 @@
                         <!-- Карточка 4 -->
                         <div class="advantage-card slide-up" style="animation-delay: 0.3s; background: rgba(18, 18, 18, 0.8); border: 1px solid rgba(22, 132, 145, 0.22); padding: 30px; border-radius: 12px; transition: all 0.3s ease; backdrop-filter: none;">
                             <h4 class="text-xl font-bold mb-3" style="color: var(--propellini-text); font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 0.01em;">Клиентоориентированный сервис</h4>
-<<<<<<< HEAD
-                            <p class="mb-0" style="color: var(--propellini-text-secondary); line-height: 1.7; font-size: 16px; font-family: 'Roboto', sans-serif; font-weight: 400;">
-=======
                             <p class="mb-0" style="color: var(--propellini-text-secondary); line-height: 1.6; font-size: 16px; font-family: 'Roboto', sans-serif;">
->>>>>>> master
                                 Наша цель — превзойти ваши ожидания. Удобное расписание, прозрачное ценообразование и внимание к каждому клиенту — это наш стандарт
                             </p>
                         </div>
@@ -4320,95 +3379,6 @@
         </div>
     </section>
 
-<<<<<<< HEAD
-    <!-- 4. Service Packages - Base / Premium / Lux / Risk Zones -->
-    <section class="section" id="services" style="position: relative; background: var(--propellini-dark); padding-top: 120px; padding-bottom: 120px; overflow: hidden;">
-        <div class="max-w-7xl mx-auto px-6" style="position: relative; z-index: 2;">
-            <div class="text-center mb-16 fade-up">
-                <h2 class="section-title" style="font-size: clamp(36px, 5vw, 52px); margin-bottom: 16px;">Пакеты услуг</h2>
-                <p class="section-subtitle" style="color: var(--propellini-text-secondary); font-size: clamp(16px, 2vw, 20px); max-width: 700px; margin: 0 auto;">
-                    Выберите оптимальный вариант защиты для вашего автомобиля
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Risk Zones -->
-                <div class="fade-up service-card" style="animation-delay: 0.1s; background: var(--propellini-glass-bg); border: 1px solid var(--propellini-glass-border); padding: 40px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; position: relative; overflow: hidden;">
-                    <div style="width: 64px; height: 64px; background: linear-gradient(135deg, rgba(22, 132, 145, 0.3), rgba(22, 132, 145, 0.1)); border-radius: var(--radius-md); margin-bottom: 24px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(22, 132, 145, 0.3);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--propellini-primary)" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4" style="color: var(--propellini-text); font-family: 'Montserrat', sans-serif; font-weight: 800;">Зоны риска</h3>
-                    <p class="mb-6" style="color: var(--propellini-text-secondary); line-height: 1.7; font-size: 16px; font-family: 'Roboto', sans-serif; flex-grow: 1;">
-                        Защита наиболее уязвимых зон: капот, бамперы, пороги, зеркала
-                    </p>
-                    <div class="mb-6">
-                        <div class="text-3xl font-bold mb-2" style="color: var(--propellini-primary); font-family: 'Montserrat', sans-serif;">от 25 000 ₽</div>
-                        <div class="text-sm" style="color: var(--propellini-text-muted);">Срок: 1-2 дня</div>
-                    </div>
-                    <button class="btn-primary btn-shimmer" style="width: 100%; padding: 14px; font-weight: 500; margin-top: auto;">Выбрать</button>
-                </div>
-
-                <!-- Base -->
-                <div class="fade-up service-card" style="animation-delay: 0.2s; background: var(--propellini-glass-bg); border: 2px solid rgba(22, 132, 145, 0.4); padding: 40px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; position: relative; overflow: hidden;">
-                    <div style="position: absolute; top: 16px; right: 16px; background: var(--propellini-primary); color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; font-family: 'Roboto', sans-serif;">БАЗОВЫЙ</div>
-                    <div style="width: 64px; height: 64px; background: linear-gradient(135deg, rgba(22, 132, 145, 0.4), rgba(22, 132, 145, 0.2)); border-radius: var(--radius-md); margin-bottom: 24px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(22, 132, 145, 0.4);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--propellini-primary)" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <path d="M9 9h6v6H9z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4" style="color: var(--propellini-text); font-family: 'Montserrat', sans-serif; font-weight: 800;">Base</h3>
-                    <p class="mb-6" style="color: var(--propellini-text-secondary); line-height: 1.7; font-size: 16px; font-family: 'Roboto', sans-serif; flex-grow: 1;">
-                        Полная оклейка кузова стандартной защитной пленкой
-                    </p>
-                    <div class="mb-6">
-                        <div class="text-3xl font-bold mb-2" style="color: var(--propellini-primary); font-family: 'Montserrat', sans-serif;">от 120 000 ₽</div>
-                        <div class="text-sm" style="color: var(--propellini-text-muted);">Срок: 3-5 дней</div>
-                    </div>
-                    <button class="btn-primary btn-shimmer" style="width: 100%; padding: 14px; font-weight: 500; margin-top: auto;">Выбрать</button>
-                </div>
-
-                <!-- Premium -->
-                <div class="fade-up service-card" style="animation-delay: 0.3s; background: var(--propellini-glass-bg); border: 2px solid rgba(22, 132, 145, 0.5); padding: 40px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; position: relative; overflow: hidden; box-shadow: 0 0 30px rgba(22, 132, 145, 0.2);">
-                    <div style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, var(--propellini-primary), var(--propellini-primary-light)); color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; font-family: 'Roboto', sans-serif;">ПРЕМИУМ</div>
-                    <div style="width: 64px; height: 64px; background: linear-gradient(135deg, rgba(22, 132, 145, 0.5), rgba(22, 132, 145, 0.3)); border-radius: var(--radius-md); margin-bottom: 24px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(22, 132, 145, 0.5);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--propellini-primary)" stroke-width="2">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5"/>
-                            <path d="M2 12l10 5 10-5"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4" style="color: var(--propellini-text); font-family: 'Montserrat', sans-serif; font-weight: 800;">Premium</h3>
-                    <p class="mb-6" style="color: var(--propellini-text-secondary); line-height: 1.7; font-size: 16px; font-family: 'Roboto', sans-serif; flex-grow: 1;">
-                        Премиальная полиуретановая пленка с выбором глянца или мата
-                    </p>
-                    <div class="mb-6">
-                        <div class="text-3xl font-bold mb-2" style="color: var(--propellini-primary); font-family: 'Montserrat', sans-serif;">от 180 000 ₽</div>
-                        <div class="text-sm" style="color: var(--propellini-text-muted);">Срок: 5-7 дней</div>
-                    </div>
-                    <button class="btn-primary btn-shimmer" style="width: 100%; padding: 14px; font-weight: 500; margin-top: auto;">Выбрать</button>
-                </div>
-
-                <!-- Lux -->
-                <div class="fade-up service-card" style="animation-delay: 0.4s; background: var(--propellini-glass-bg); border: 2px solid rgba(22, 132, 145, 0.6); padding: 40px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; position: relative; overflow: hidden; box-shadow: 0 0 40px rgba(22, 132, 145, 0.3);">
-                    <div style="position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, var(--propellini-primary-light), var(--propellini-primary)); color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; font-family: 'Roboto', sans-serif;">LUX</div>
-                    <div style="width: 64px; height: 64px; background: linear-gradient(135deg, rgba(22, 132, 145, 0.6), rgba(22, 132, 145, 0.4)); border-radius: var(--radius-md); margin-bottom: 24px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(22, 132, 145, 0.6);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--propellini-primary)" stroke-width="2">
-                            <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-13l2.5 2.5L15 8m5 5l2.5 2.5L20 20m-7-7l2.5 2.5L15 15"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4" style="color: var(--propellini-text); font-family: 'Montserrat', sans-serif; font-weight: 800;">Lux</h3>
-                    <p class="mb-6" style="color: var(--propellini-text-secondary); line-height: 1.7; font-size: 16px; font-family: 'Roboto', sans-serif; flex-grow: 1;">
-                        Максимальная защита бронепленкой для премиальных автомобилей
-                    </p>
-                    <div class="mb-6">
-                        <div class="text-3xl font-bold mb-2" style="color: var(--propellini-primary); font-family: 'Montserrat', sans-serif;">от 280 000 ₽</div>
-                        <div class="text-sm" style="color: var(--propellini-text-muted);">Срок: 7-10 дней</div>
-                    </div>
-                    <button class="btn-primary btn-shimmer" style="width: 100%; padding: 14px; font-weight: 500; margin-top: auto;">Выбрать</button>
-=======
     <!-- Услуги -->
     <section class="section" id="services" style="position: relative; overflow: hidden; background: var(--propellini-dark-secondary);">
         <!-- Фоновое изображение -->
@@ -4502,21 +3472,14 @@
                             <button class="btn-primary btn-shimmer" style="padding: 12px 24px; font-size: 12px; width: 100%; margin-top: auto;">Заказать</button>
                         </div>
                     </div>
->>>>>>> master
                 </div>
             </div>
         </div>
     </section>
 
-<<<<<<< HEAD
-    <!-- 5. Calculator - полностью тёмный, без фонов -->
-    <section class="section" id="calculator" style="position: relative; background: var(--propellini-dark-secondary); padding-top: 100px; padding-bottom: 100px; margin-bottom: 0; overflow: hidden;">
-        <div class="max-w-7xl mx-auto px-6" style="position: relative; z-index: 2;">
-=======
     <!-- Калькулятор -->
     <section class="section" id="calculator" style="background: var(--propellini-dark-secondary); padding-bottom: 80px; margin-bottom: 0;">
         <div class="max-w-7xl mx-auto px-6">
->>>>>>> master
             <div class="text-center mb-16 slide-up">
                 <h2 class="section-title">Калькулятор стоимости</h2>
                 <p class="section-subtitle max-w-3xl mx-auto mb-12">
@@ -4524,9 +3487,6 @@
                 </p>
             </div>
             <div class="slide-up" style="animation-delay: 0.2s; text-align: center;">
-<<<<<<< HEAD
-                <a href="calculator/index.html" class="calc-btn">Рассчитать</a>
-=======
                 <button 
                     id="openCalculatorBtn" 
                     class="btn-primary btn-shimmer" 
@@ -4541,7 +3501,6 @@
                         Открыть калькулятор
                     </span>
                 </button>
->>>>>>> master
                 <p style="color: var(--propellini-text-secondary); margin-top: 24px; font-size: 16px; font-family: 'Roboto', sans-serif;">
                     Быстрый расчет стоимости в несколько кликов
                 </p>
@@ -4563,11 +3522,7 @@
                 <!-- Кейс 1 -->
                 <div class="slide-up premium-work-card" style="background: rgba(18, 18, 18, 0.8); border: 1px solid rgba(22, 132, 145, 0.22); border-radius: 12px; overflow: hidden; backdrop-filter: none; transition: all 0.3s ease; position: relative;">
                     <div style="position: relative; height: 300px; overflow: hidden; background: var(--propellini-dark); display: flex; align-items: center; justify-content: center;">
-<<<<<<< HEAD
-                        <img src="https://i.pinimg.com/736x/4a/5c/d8/4a5cd87017e900b15aca628fdbd87370.jpg" 
-=======
                         <img src="https://i.pinimg.com/736x/4a/5c/d8/4a5cd87017e900b15aca628fdbd87370.jpg" loading="lazy" decoding="async" 
->>>>>>> master
                              alt="BMW X5 M - Премиум оклейка защитной пленкой" 
                              loading="lazy"
                              decoding="async"
@@ -4582,21 +3537,6 @@
                             </div>
                             <div style="text-align: right;">
                                 <div style="font-size: 24px; font-weight: 800; letter-spacing: 0.02em; color: var(--propellini-primary); font-family: 'Montserrat', sans-serif; line-height: 1.4;">250 000 ₽</div>
-<<<<<<< HEAD
-                                <div style="font-size: 13px; color: var(--propellini-text-secondary); font-family: 'Roboto', sans-serif; font-weight: 400;">Срок: 3 дня</div>
-                            </div>
-                        </div>
-                        <div style="margin-bottom: 20px;">
-                            <p style="color: var(--propellini-text-secondary); margin-bottom: 12px; font-size: 15px; font-family: 'Roboto', sans-serif; font-weight: 400;"><strong style="color: var(--propellini-text); font-weight: 500;">Выполнено:</strong></p>
-                            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                <span style="padding: 6px 12px; background: rgba(22, 132, 145, 0.1); border: 1px solid rgba(22, 132, 145, 0.3); border-radius: 6px; font-size: 13px; color: var(--propellini-primary); font-family: 'Roboto', sans-serif; font-weight: 400;">Полная оклейка PPF</span>
-                                <span style="padding: 6px 12px; background: rgba(22, 132, 145, 0.1); border: 1px solid rgba(22, 132, 145, 0.3); border-radius: 6px; font-size: 13px; color: var(--propellini-primary); font-family: 'Roboto', sans-serif; font-weight: 400;">Керамика</span>
-                                <span style="padding: 6px 12px; background: rgba(22, 132, 145, 0.1); border: 1px solid rgba(22, 132, 145, 0.3); border-radius: 6px; font-size: 13px; color: var(--propellini-primary); font-family: 'Roboto', sans-serif; font-weight: 400;">Зоны риска</span>
-                            </div>
-                        </div>
-                        <div style="display: flex; flex-direction: column; gap: 12px;">
-                            <button class="btn-primary" onclick="window.openModal()" style="width: 100%; padding: 14px; font-size: 15px; font-family: 'Roboto', sans-serif; font-weight: 500; line-height: 1.6;">Записаться на оклейку</button>
-=======
                                 <div style="font-size: 12px; color: var(--propellini-text-secondary); font-family: 'Roboto', sans-serif;">Срок: 3 дня</div>
                             </div>
                         </div>
@@ -4610,7 +3550,6 @@
                         </div>
                         <div style="display: flex; flex-direction: column; gap: 12px;">
                             <button class="btn-primary" onclick="window.openModal()" style="width: 100%; padding: 14px; font-size: 14px; font-family: 'Roboto', sans-serif; font-weight: 400; line-height: 1.5;">Записаться на оклейку</button>
->>>>>>> master
                         </div>
                     </div>
                 </div>
@@ -4633,23 +3572,14 @@
                             </div>
                             <div style="text-align: right;">
                                 <div style="font-size: 24px; font-weight: 800; letter-spacing: 0.02em; color: var(--propellini-primary); font-family: 'Montserrat', sans-serif; line-height: 1.4;">320 000 ₽</div>
-<<<<<<< HEAD
-                                <div style="font-size: 13px; color: var(--propellini-text-secondary); font-weight: 400;">Срок: 4 дня</div>
-=======
                                 <div style="font-size: 12px; color: var(--propellini-text-secondary);">Срок: 4 дня</div>
->>>>>>> master
                             </div>
                         </div>
                         <div style="margin-bottom: 20px;">
                             <p style="color: var(--propellini-text-secondary); margin-bottom: 12px; font-size: 14px; font-weight: 400; line-height: 1.5;"><span style="color: var(--propellini-text); font-weight: 400;">Выполнено:</span></p>
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-<<<<<<< HEAD
-                                <span style="padding: 6px 12px; background: rgba(22, 132, 145, 0.1); border: 1px solid rgba(22, 132, 145, 0.3); border-radius: 6px; font-size: 13px; color: var(--propellini-primary); font-weight: 400;">Полная оклейка матовая</span>
-                                <span style="padding: 6px 12px; background: rgba(22, 132, 145, 0.1); border: 1px solid rgba(22, 132, 145, 0.3); border-radius: 6px; font-size: 13px; color: var(--propellini-primary); font-weight: 400;">Керамика</span>
-=======
                                 <span style="padding: 6px 12px; background: rgba(22, 132, 145, 0.1); border: 1px solid rgba(22, 132, 145, 0.3); border-radius: 6px; font-size: 12px; color: var(--propellini-primary);">Полная оклейка матовая</span>
                                 <span style="padding: 6px 12px; background: rgba(22, 132, 145, 0.1); border: 1px solid rgba(22, 132, 145, 0.3); border-radius: 6px; font-size: 12px; color: var(--propellini-primary);">Керамика</span>
->>>>>>> master
                             </div>
                         </div>
                         <div style="display: flex; flex-direction: column; gap: 12px;">
@@ -4676,23 +3606,14 @@
                             </div>
                             <div style="text-align: right;">
                                 <div style="font-size: 24px; font-weight: 800; letter-spacing: 0.02em; color: var(--propellini-primary); font-family: 'Montserrat', sans-serif; line-height: 1.4;">280 000 ₽</div>
-<<<<<<< HEAD
-                                <div style="font-size: 13px; color: var(--propellini-text-secondary); font-weight: 400;">Срок: 3 дня</div>
-=======
                                 <div style="font-size: 12px; color: var(--propellini-text-secondary);">Срок: 3 дня</div>
->>>>>>> master
                             </div>
                         </div>
                         <div style="margin-bottom: 20px;">
                             <p style="color: var(--propellini-text-secondary); margin-bottom: 12px; font-size: 14px; font-weight: 400; line-height: 1.5;"><span style="color: var(--propellini-text); font-weight: 400;">Выполнено:</span></p>
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-<<<<<<< HEAD
-                                <span style="padding: 6px 12px; background: rgba(22, 132, 145, 0.1); border: 1px solid rgba(22, 132, 145, 0.3); border-radius: 6px; font-size: 13px; color: var(--propellini-primary); font-weight: 400;">Полная оклейка PPF</span>
-                                <span style="padding: 6px 12px; background: rgba(22, 132, 145, 0.1); border: 1px solid rgba(22, 132, 145, 0.3); border-radius: 6px; font-size: 13px; color: var(--propellini-primary); font-weight: 400;">Зоны риска</span>
-=======
                                 <span style="padding: 6px 12px; background: rgba(22, 132, 145, 0.1); border: 1px solid rgba(22, 132, 145, 0.3); border-radius: 6px; font-size: 12px; color: var(--propellini-primary);">Полная оклейка PPF</span>
                                 <span style="padding: 6px 12px; background: rgba(22, 132, 145, 0.1); border: 1px solid rgba(22, 132, 145, 0.3); border-radius: 6px; font-size: 12px; color: var(--propellini-primary);">Зоны риска</span>
->>>>>>> master
                             </div>
                         </div>
                         <div style="display: flex; flex-direction: column; gap: 12px;">
@@ -4719,23 +3640,14 @@
                             </div>
                             <div style="text-align: right;">
                                 <div style="font-size: 24px; font-weight: 800; letter-spacing: 0.02em; color: var(--propellini-primary); font-family: 'Montserrat', sans-serif; line-height: 1.4;">295 000 ₽</div>
-<<<<<<< HEAD
-                                <div style="font-size: 13px; color: var(--propellini-text-secondary); font-weight: 400;">Срок: 4 дня</div>
-=======
                                 <div style="font-size: 12px; color: var(--propellini-text-secondary);">Срок: 4 дня</div>
->>>>>>> master
                             </div>
                         </div>
                         <div style="margin-bottom: 20px;">
                             <p style="color: var(--propellini-text-secondary); margin-bottom: 12px; font-size: 14px; font-weight: 400; line-height: 1.5;"><span style="color: var(--propellini-text); font-weight: 400;">Выполнено:</span></p>
                             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-<<<<<<< HEAD
-                                <span style="padding: 6px 12px; background: rgba(22, 132, 145, 0.1); border: 1px solid rgba(22, 132, 145, 0.3); border-radius: 6px; font-size: 13px; color: var(--propellini-primary); font-weight: 400;">Полная оклейка глянцевая</span>
-                                <span style="padding: 6px 12px; background: rgba(22, 132, 145, 0.1); border: 1px solid rgba(22, 132, 145, 0.3); border-radius: 6px; font-size: 13px; color: var(--propellini-primary); font-weight: 400;">Керамика</span>
-=======
                                 <span style="padding: 6px 12px; background: rgba(22, 132, 145, 0.1); border: 1px solid rgba(22, 132, 145, 0.3); border-radius: 6px; font-size: 12px; color: var(--propellini-primary);">Полная оклейка глянцевая</span>
                                 <span style="padding: 6px 12px; background: rgba(22, 132, 145, 0.1); border: 1px solid rgba(22, 132, 145, 0.3); border-radius: 6px; font-size: 12px; color: var(--propellini-primary);">Керамика</span>
->>>>>>> master
                             </div>
                         </div>
                         <div style="display: flex; flex-direction: column; gap: 12px;">
@@ -4747,54 +3659,15 @@
         </div>
     </section>
 
-<<<<<<< HEAD
-    <!-- 9. Teaser Video - cinematic, darkened 60% -->
-    <section class="section parallax-section" id="teaser-video" style="position: relative; background: var(--propellini-dark); padding-top: 0; padding-bottom: 0; overflow: hidden; min-height: 80vh;">
-        <div class="video-container" style="position: relative; width: 100%; height: 80vh; overflow: hidden;">
-            <!-- Видео фон -->
-            <video autoplay muted loop playsinline style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 100%; min-height: 100%; width: auto; height: auto; object-fit: cover; z-index: 0;">
-                <source src="videos/teaser.mp4" type="video/mp4">
-                <!-- Fallback изображение -->
-                <img src="images/teaser-fallback.webp" alt="Propellini" style="width: 100%; height: 100%; object-fit: cover;">
-            </video>
-            <!-- Затемнение 60% -->
-            <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
-            <!-- Контент поверх видео -->
-            <div class="max-w-7xl mx-auto px-6" style="position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: center;">
-                <div class="text-center fade-scale" style="max-width: 800px;">
-                    <h2 class="section-title" style="font-size: clamp(36px, 5vw, 56px); margin-bottom: 24px; color: var(--propellini-text);">Propellini в действии</h2>
-                    <p class="text-xl mb-8" style="color: var(--propellini-text-secondary); font-size: clamp(18px, 2.5vw, 24px); line-height: 1.6; font-family: 'Roboto', sans-serif;">
-                        Посмотрите, как мы превращаем автомобили в произведения искусства
-                    </p>
-                    <button class="btn-primary btn-shimmer" onclick="document.getElementById('teaser-video')?.querySelector('video')?.play()" style="padding: 18px 48px; font-size: 18px; font-weight: 500; border-radius: 12px;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; margin-right: 12px; vertical-align: middle;">
-                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                        </svg>
-                        Смотреть видео
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. Portfolio - gallery with slow parallax photo blocks -->
-    <section class="section" id="gallery" style="background: var(--propellini-dark-secondary); padding-top: 120px; padding-bottom: 120px;">
-=======
     <!-- Галерея работ -->
     <section class="section" id="gallery" style="background: var(--propellini-dark-secondary); padding-top: 80px;">
->>>>>>> master
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-16 slide-up" style="text-align: center;">
                 <!-- "PROPELLINI" по центру -->
                 <h2 class="section-title" style="margin-bottom: 12px; font-size: 28px; font-weight: 400; letter-spacing: 0.02em; color: var(--propellini-text); font-family: 'Unbounded', sans-serif; text-transform: uppercase; text-align: center;">PROPELLINI</h2>
                 <!-- "наши примеры работ" под PROPELLINI по центру -->
-<<<<<<< HEAD
-                <p class="text-xl" style="color: var(--propellini-text-secondary); font-size: 16px; font-weight: 400; line-height: 1.7; font-family: 'Roboto', sans-serif; margin: 0 0 16px 0; text-align: center;">наши примеры работ</p>
-                <p class="mt-6 max-w-3xl mx-auto" style="color: var(--propellini-text-secondary); line-height: 1.8; font-size: 15px; font-weight: 400; font-family: 'Roboto', sans-serif;">
-=======
                 <p class="text-xl" style="color: var(--propellini-text-secondary); font-size: 14px; font-weight: 400; line-height: 1.6; font-family: 'Roboto', sans-serif; margin: 0 0 16px 0; text-align: center;">наши примеры работ</p>
                 <p class="mt-6 max-w-3xl mx-auto" style="color: var(--propellini-text-secondary); line-height: 1.8; font-size: 14px; font-weight: 400; font-family: 'Roboto', sans-serif;">
->>>>>>> master
                     На фото представлены проекты с несколькими вариантами пленок – глянцевая антигравийная пленка, 
                     сатиновая антигравийная пленка, матовая антигравийная пленка, виниловая цветная пленка, пленка хамелеон.
                 </p>
@@ -4806,11 +3679,7 @@
                     <div class="gallery-overlay">
                         <div>
                             <div class="font-semibold mb-1">Глянцевая антигравийная пленка</div>
-<<<<<<< HEAD
-                            <div class="text-sm" style="color: rgba(255,255,255,0.8);">Профессиональная оклейка</div>
-=======
                             <div class="text-sm" style="color: rgba(255,255,255,0.95);">Профессиональная оклейка</div>
->>>>>>> master
                         </div>
                     </div>
                 </div>
@@ -4819,11 +3688,7 @@
                     <div class="gallery-overlay">
                         <div>
                             <div class="font-semibold mb-1">Сатиновая антигравийная пленка</div>
-<<<<<<< HEAD
-                            <div class="text-sm" style="color: rgba(255,255,255,0.8);">Премиум защита кузова</div>
-=======
                             <div class="text-sm" style="color: rgba(255,255,255,0.95);">Премиум защита кузова</div>
->>>>>>> master
                         </div>
                     </div>
                 </div>
@@ -4832,11 +3697,7 @@
                     <div class="gallery-overlay">
                         <div>
                             <div class="font-semibold mb-1">Матовая антигравийная пленка</div>
-<<<<<<< HEAD
-                            <div class="text-sm" style="color: rgba(255,255,255,0.8);">Стильная защита</div>
-=======
                             <div class="text-sm" style="color: rgba(255,255,255,0.95);">Стильная защита</div>
->>>>>>> master
                         </div>
                     </div>
                 </div>
@@ -4845,11 +3706,7 @@
                     <div class="gallery-overlay">
                         <div>
                             <div class="font-semibold mb-1">Виниловая цветная пленка</div>
-<<<<<<< HEAD
-                            <div class="text-sm" style="color: rgba(255,255,255,0.8);">Индивидуальный дизайн</div>
-=======
                             <div class="text-sm" style="color: rgba(255,255,255,0.95);">Индивидуальный дизайн</div>
->>>>>>> master
                         </div>
                     </div>
                 </div>
@@ -4858,11 +3715,7 @@
                     <div class="gallery-overlay">
                         <div>
                             <div class="font-semibold mb-1">Пленка хамелеон</div>
-<<<<<<< HEAD
-                            <div class="text-sm" style="color: rgba(255,255,255,0.8);">Эффект перелива цветов</div>
-=======
                             <div class="text-sm" style="color: rgba(255,255,255,0.95);">Эффект перелива цветов</div>
->>>>>>> master
                         </div>
                     </div>
                 </div>
@@ -4871,11 +3724,7 @@
                     <div class="gallery-overlay">
                         <div>
                             <div class="font-semibold mb-1">Премиум оклейка</div>
-<<<<<<< HEAD
-                            <div class="text-sm" style="color: rgba(255,255,255,0.8);">Высокое качество работ</div>
-=======
                             <div class="text-sm" style="color: rgba(255,255,255,0.95);">Высокое качество работ</div>
->>>>>>> master
                         </div>
                     </div>
                 </div>
@@ -4883,96 +3732,6 @@
         </div>
     </section>
 
-<<<<<<< HEAD
-    <!-- 7. Process - 6 шагов с reveal animation -->
-    <section class="section parallax-section" id="process" style="position: relative; background: var(--propellini-dark); padding-top: 120px; padding-bottom: 120px; overflow: hidden;">
-        <!-- Фоновое изображение с scroll-switch эффектом -->
-        <div class="section-bg parallax-bg-slow" id="process-bg-1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/process1-desktop.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll; opacity: 1; transition: opacity 0.8s ease;"></div>
-        <div class="section-bg parallax-bg-slow" id="process-bg-2" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/process2-desktop.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll; opacity: 0; transition: opacity 0.8s ease;"></div>
-        <!-- Overlay градиент -->
-        <div class="section-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6));"></div>
-        
-        <div class="max-w-7xl mx-auto px-6" style="position: relative; z-index: 2;">
-            <div class="text-center mb-20 fade-up">
-                <h2 class="section-title" style="font-size: clamp(36px, 5vw, 52px); margin-bottom: 16px;">Процесс оклейки</h2>
-                <p class="section-subtitle" style="color: var(--propellini-text-secondary); font-size: clamp(16px, 2vw, 20px); max-width: 700px; margin: 0 auto;">
-                    От консультации до готового результата — 6 простых шагов
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Шаг 1 -->
-                <div class="fade-scale process-step" data-step="1" style="animation-delay: 0.1s; background: var(--propellini-glass-bg); border: 1px solid var(--propellini-glass-border); padding: 32px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;">
-                    <div style="width: 56px; height: 56px; background: linear-gradient(135deg, var(--propellini-primary), var(--propellini-primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 24px; font-weight: 800; color: white; font-family: 'Montserrat', sans-serif;">1</div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--propellini-text); font-family: 'Montserrat', sans-serif; font-weight: 800;">Консультация</h3>
-                    <p style="color: var(--propellini-text-secondary); line-height: 1.7; font-size: 16px; font-family: 'Roboto', sans-serif;">
-                        Обсуждение ваших потребностей и выбор оптимального решения
-                    </p>
-                </div>
-                
-                <!-- Шаг 2 -->
-                <div class="fade-scale process-step" data-step="2" style="animation-delay: 0.2s; background: var(--propellini-glass-bg); border: 1px solid var(--propellini-glass-border); padding: 32px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;">
-                    <div style="width: 56px; height: 56px; background: linear-gradient(135deg, var(--propellini-primary), var(--propellini-primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 24px; font-weight: 800; color: white; font-family: 'Montserrat', sans-serif;">2</div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--propellini-text); font-family: 'Montserrat', sans-serif; font-weight: 800;">Осмотр</h3>
-                    <p style="color: var(--propellini-text-secondary); line-height: 1.7; font-size: 16px; font-family: 'Roboto', sans-serif;">
-                        Детальный осмотр автомобиля и подготовка к оклейке
-                    </p>
-                </div>
-                
-                <!-- Шаг 3 -->
-                <div class="fade-scale process-step" data-step="3" style="animation-delay: 0.3s; background: var(--propellini-glass-bg); border: 1px solid var(--propellini-glass-border); padding: 32px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;">
-                    <div style="width: 56px; height: 56px; background: linear-gradient(135deg, var(--propellini-primary), var(--propellini-primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 24px; font-weight: 800; color: white; font-family: 'Montserrat', sans-serif;">3</div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--propellini-text); font-family: 'Montserrat', sans-serif; font-weight: 800;">Подготовка</h3>
-                    <p style="color: var(--propellini-text-secondary); line-height: 1.7; font-size: 16px; font-family: 'Roboto', sans-serif;">
-                        Мойка, обезжиривание и подготовка поверхностей
-                    </p>
-                </div>
-                
-                <!-- Шаг 4 -->
-                <div class="fade-scale process-step" data-step="4" style="animation-delay: 0.4s; background: var(--propellini-glass-bg); border: 1px solid var(--propellini-glass-border); padding: 32px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;">
-                    <div style="width: 56px; height: 56px; background: linear-gradient(135deg, var(--propellini-primary), var(--propellini-primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 24px; font-weight: 800; color: white; font-family: 'Montserrat', sans-serif;">4</div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--propellini-text); font-family: 'Montserrat', sans-serif; font-weight: 800;">Оклейка</h3>
-                    <p style="color: var(--propellini-text-secondary); line-height: 1.7; font-size: 16px; font-family: 'Roboto', sans-serif;">
-                        Профессиональная оклейка с точностью до миллиметра
-                    </p>
-                </div>
-                
-                <!-- Шаг 5 -->
-                <div class="fade-scale process-step" data-step="5" style="animation-delay: 0.5s; background: var(--propellini-glass-bg); border: 1px solid var(--propellini-glass-border); padding: 32px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;">
-                    <div style="width: 56px; height: 56px; background: linear-gradient(135deg, var(--propellini-primary), var(--propellini-primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 24px; font-weight: 800; color: white; font-family: 'Montserrat', sans-serif;">5</div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--propellini-text); font-family: 'Montserrat', sans-serif; font-weight: 800;">Сушка</h3>
-                    <p style="color: var(--propellini-text-secondary); line-height: 1.7; font-size: 16px; font-family: 'Roboto', sans-serif;">
-                        Контрольная сушка и проверка качества
-                    </p>
-                </div>
-                
-                <!-- Шаг 6 -->
-                <div class="fade-scale process-step" data-step="6" style="animation-delay: 0.6s; background: var(--propellini-glass-bg); border: 1px solid var(--propellini-glass-border); padding: 32px; border-radius: var(--radius-lg); backdrop-filter: var(--propellini-glass-blur); -webkit-backdrop-filter: var(--propellini-glass-blur); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;">
-                    <div style="width: 56px; height: 56px; background: linear-gradient(135deg, var(--propellini-primary), var(--propellini-primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 24px; font-weight: 800; color: white; font-family: 'Montserrat', sans-serif;">6</div>
-                    <h3 class="text-xl font-bold mb-3" style="color: var(--propellini-text); font-family: 'Montserrat', sans-serif; font-weight: 800;">Готово</h3>
-                    <p style="color: var(--propellini-text-secondary); line-height: 1.7; font-size: 16px; font-family: 'Roboto', sans-serif;">
-                        Финальный осмотр и передача автомобиля
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Виды пленок -->
-    <section class="section" id="films" style="position: relative; background: var(--propellini-dark-secondary); overflow: hidden;">
-        <!-- Фоновое изображение -->
-        <div class="section-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=2560'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll;"></div>
-        <!-- Overlay градиент для читаемости -->
-        <div class="section-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8));"></div>
-        <div class="max-w-7xl mx-auto px-6" style="position: relative; z-index: 2;">
-            <div class="text-center mb-16 slide-up">
-                <h2 class="section-title">Виды пленок</h2>
-                <p class="text-xl mb-4" style="color: var(--propellini-text-secondary); font-size: 16px; font-weight: 400; line-height: 1.7;">
-                    Премиальные плёнки: защита и стиль в одном решении
-                </p>
-                <div class="decorative-line mx-auto"></div>
-                <p class="mt-6 max-w-3xl mx-auto" style="color: var(--propellini-text-secondary); line-height: 1.8; font-size: 15px; font-weight: 400;">
-=======
     <!-- Виды пленок -->
     <section class="section" id="films" style="background: var(--propellini-dark-secondary);">
         <div class="max-w-7xl mx-auto px-6">
@@ -4983,7 +3742,6 @@
                 </p>
                 <div class="decorative-line mx-auto"></div>
                 <p class="mt-6 max-w-3xl mx-auto" style="color: var(--propellini-text-secondary); line-height: 1.8;">
->>>>>>> master
                     Доступны различные варианты пленок, чтобы вы могли выбрать оптимальную
                 </p>
             </div>
@@ -4991,24 +3749,6 @@
             <!-- Бренды пленок -->
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
                 <div class="text-center slide-up" style="display: flex; align-items: center; justify-content: center; min-height: 80px;">
-<<<<<<< HEAD
-                    <img src="quantum.svg" alt="Quantum" style="max-width: 100%; height: auto; max-height: 60px; object-fit: contain;">
-                </div>
-                <div class="text-center slide-up" style="animation-delay: 0.1s; display: flex; align-items: center; justify-content: center; min-height: 80px;">
-                    <img src="llumar.svg" alt="LLumar" style="max-width: 100%; height: auto; max-height: 60px; object-fit: contain;">
-                </div>
-                <div class="text-center slide-up" style="animation-delay: 0.2s; display: flex; align-items: center; justify-content: center; min-height: 80px;">
-                    <img src="spectroll.svg" alt="Spectroll" style="max-width: 100%; height: auto; max-height: 60px; object-fit: contain;">
-                </div>
-                <div class="text-center slide-up" style="animation-delay: 0.3s; display: flex; align-items: center; justify-content: center; min-height: 80px;">
-                    <img src="monoppf.svg" alt="MonoPPF" style="max-width: 100%; height: auto; max-height: 60px; object-fit: contain;">
-                </div>
-                <div class="text-center slide-up" style="animation-delay: 0.4s; display: flex; align-items: center; justify-content: center; min-height: 80px;">
-                    <img src="stek.svg" alt="STEK" style="max-width: 100%; height: auto; max-height: 60px; object-fit: contain;">
-                </div>
-                <div class="text-center slide-up" style="animation-delay: 0.5s; display: flex; align-items: center; justify-content: center; min-height: 80px;">
-                    <img src="formulaone.svg" alt="Formula One" style="max-width: 100%; height: auto; max-height: 60px; object-fit: contain;">
-=======
                     <img src="./quantum.svg" alt="Quantum" style="max-width: 100%; height: auto; max-height: 60px; object-fit: contain;">
                 </div>
                 <div class="text-center slide-up" style="animation-delay: 0.1s; display: flex; align-items: center; justify-content: center; min-height: 80px;">
@@ -5025,17 +3765,12 @@
                 </div>
                 <div class="text-center slide-up" style="animation-delay: 0.5s; display: flex; align-items: center; justify-content: center; min-height: 80px;">
                     <img src="./formulaone.svg" alt="Formula One" style="max-width: 100%; height: auto; max-height: 60px; object-fit: contain;">
->>>>>>> master
                 </div>
             </div>
 
             <!-- Преимущества пленок с премиальным горизонтальным скроллом -->
             <div class="slide-up films-scroll-wrapper" style="animation-delay: 0.6s;">
-<<<<<<< HEAD
-                 <p class="text-center mb-8" style="color: var(--propellini-text-secondary); font-size: 15px; font-weight: 400; line-height: 1.7;">
-=======
                  <p class="text-center mb-8" style="color: var(--propellini-text-secondary);">
->>>>>>> master
                      Каждая из представленных пленок обладает уникальными характеристиками:
                  </p>
                  <!-- Кнопки прокрутки -->
@@ -5127,43 +3862,6 @@
          </div>
      </section>
 
-<<<<<<< HEAD
-    <!-- Акции -->
-    <section class="section" id="offers" style="background: #f8f9fa; color: #0a0a0a;">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-8 slide-up">
-                <div class="text-sm mb-2" style="color: #000000 !important; text-transform: uppercase; letter-spacing: 0.02em; font-family: 'Montserrat', sans-serif; font-weight: 900; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;">Бонусы</div>
-                <h2 class="text-3xl mb-4" style="color: #000000 !important; font-weight: 900; font-family: 'Montserrat', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;">Забота о клиентах - наш приоритет</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="slide-up" style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
-                    <h3 class="text-lg mb-2" style="color: #000000 !important; font-family: 'Montserrat', sans-serif; font-weight: 900; letter-spacing: 0.01em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;">Мойка в подарок</h3>
-                </div>
-                
-                <div class="slide-up" style="animation-delay: 0.1s; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
-                    <h3 class="text-lg mb-2" style="color: #000000 !important; font-family: 'Montserrat', sans-serif; font-weight: 900; letter-spacing: 0.01em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;">Такси в обе стороны в любую точку Москвы и Московской области</h3>
-                </div>
-                
-                <div class="slide-up" style="animation-delay: 0.2s; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
-                    <h3 class="text-lg mb-2" style="color: #000000 !important; font-family: 'Montserrat', sans-serif; font-weight: 900; letter-spacing: 0.01em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;">Сертификат на керамику</h3>
-                </div>
-                
-                <div class="slide-up" style="animation-delay: 0.3s; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
-                    <h3 class="text-lg mb-2" style="color: #000000 !important; font-family: 'Montserrat', sans-serif; font-weight: 900; letter-spacing: 0.01em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;">Антидождь на все стекла</h3>
-                </div>
-                
-                <div class="slide-up" style="animation-delay: 0.4s; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
-                    <h3 class="text-lg mb-2" style="color: #000000 !important; font-family: 'Montserrat', sans-serif; font-weight: 900; letter-spacing: 0.01em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;">Премиальные качественные материалы</h3>
-                </div>
-                
-                <div class="slide-up" style="animation-delay: 0.5s; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
-                    <h3 class="text-lg mb-2" style="color: #000000 !important; font-family: 'Montserrat', sans-serif; font-weight: 900; letter-spacing: 0.01em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;">Угощаем ароматным кофе</h3>
-                </div>
-                
-                <div class="slide-up" style="animation-delay: 0.6s; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
-                    <h3 class="text-lg mb-2" style="color: #000000 !important; font-family: 'Montserrat', sans-serif; font-weight: 900; letter-spacing: 0.01em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;">Бесплатная диагностика ЛКП</h3>
-=======
     <!-- Бонусы - Премиальный блок -->
     <section class="section bonuses-premium" id="offers" style="position: relative; overflow: hidden;">
         <!-- Фон с градиентом и шумом -->
@@ -5212,24 +3910,14 @@
                 <div class="bonus-card slide-up" style="animation-delay: 0.6s;">
                     <div class="bonus-card-glow"></div>
                     <h3 class="bonus-title">Бесплатная диагностика ЛКП</h3>
->>>>>>> master
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Отзывы -->
-<<<<<<< HEAD
-    <section class="section" id="reviews" style="position: relative; background: var(--propellini-dark-secondary); padding-top: 80px; padding-bottom: 80px; overflow: hidden;">
-        <!-- Фоновое изображение -->
-        <div class="section-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=2560'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll;"></div>
-        <!-- Overlay градиент для читаемости -->
-        <div class="section-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8));"></div>
-        <div class="max-w-7xl mx-auto px-6" style="position: relative; z-index: 2;">
-=======
     <section class="section" id="reviews" style="background: var(--propellini-dark-secondary); padding-top: 80px; padding-bottom: 80px;">
         <div class="max-w-7xl mx-auto px-6">
->>>>>>> master
             <div class="text-center mb-16 slide-up">
                 <h2 class="section-title">Отзывы клиентов</h2>
                 <p class="section-subtitle max-w-3xl mx-auto">
@@ -5240,15 +3928,6 @@
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Отзыв 1 -->
                 <a href="https://yandex.ru/maps/?text=Propellini+Москва+Авиационная+79" target="_blank" rel="noopener noreferrer" class="review-card-link" style="text-decoration: none; display: block;">
-<<<<<<< HEAD
-                    <div class="slide-up review-card" style="background: rgba(18, 18, 18, 0.8); border: 1px solid rgba(22, 132, 145, 0.22); padding: 30px; border-radius: 12px; backdrop-filter: none; cursor: pointer; transition: all 0.3s ease; position: relative;">
-                    <div class="mb-4" style="color: var(--propellini-primary); font-size: 24px;">★★★★★</div>
-                    <p style="color: var(--propellini-text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 15px; font-weight: 400;">
-                        Отличная работа! Мастера очень внимательные, все сделали качественно и в срок. Автомобиль выглядит как новый.
-                    </p>
-                    <div style="color: var(--propellini-text); font-weight: 600;">Александр М.</div>
-                        <div style="color: var(--propellini-text-secondary); font-size: 15px; margin-bottom: 12px; font-weight: 400;">BMW 5 Series</div>
-=======
                     <div class="slide-up review-card" style="background: rgba(18, 18, 18, 0.9); border: 1px solid rgba(22, 132, 145, 0.22); padding: 30px; border-radius: 12px; backdrop-filter: none; cursor: pointer; transition: all 0.3s ease; position: relative;">
                     <div class="mb-4" style="color: var(--propellini-primary); font-size: 24px;">★★★★★</div>
                     <p style="color: #e8e8e8; line-height: 1.8; margin-bottom: 20px; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);">
@@ -5256,7 +3935,6 @@
                     </p>
                     <div style="color: #ffffff; font-weight: 600;">Александр М.</div>
                         <div style="color: #e0e0e0; font-size: 14px; margin-bottom: 12px;">BMW 5 Series</div>
->>>>>>> master
                         <div class="review-link-text" style="color: var(--propellini-primary); font-size: 13px; display: flex; align-items: center; gap: 6px; margin-top: 12px; opacity: 0.7; transition: opacity 0.3s ease;">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
                                 <path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -5270,19 +3948,11 @@
                 <a href="https://yandex.ru/maps/?text=Propellini+Москва+Авиационная+79" target="_blank" rel="noopener noreferrer" class="review-card-link" style="text-decoration: none; display: block;">
                     <div class="slide-up review-card" style="animation-delay: 0.1s; background: rgba(18, 18, 18, 0.8); border: 1px solid rgba(22, 132, 145, 0.22); padding: 30px; border-radius: 12px; backdrop-filter: none; cursor: pointer; transition: all 0.3s ease; position: relative;">
                     <div class="mb-4" style="color: var(--propellini-primary); font-size: 24px;">★★★★★</div>
-<<<<<<< HEAD
-                    <p style="color: var(--propellini-text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 15px; font-weight: 400;">
-                        Профессиональный подход, качественные материалы. Рекомендую всем, кто ценит свой автомобиль.
-                    </p>
-                    <div style="color: var(--propellini-text); font-weight: 600;">Мария К.</div>
-                        <div style="color: var(--propellini-text-secondary); font-size: 15px; margin-bottom: 12px; font-weight: 400;">Mercedes-Benz E-Class</div>
-=======
                     <p style="color: var(--propellini-text-secondary); line-height: 1.8; margin-bottom: 20px;">
                         Профессиональный подход, качественные материалы. Рекомендую всем, кто ценит свой автомобиль.
                     </p>
                     <div style="color: var(--propellini-text); font-weight: 600;">Мария К.</div>
                         <div style="color: var(--propellini-text-secondary); font-size: 14px; margin-bottom: 12px;">Mercedes-Benz E-Class</div>
->>>>>>> master
                         <div class="review-link-text" style="color: var(--propellini-primary); font-size: 13px; display: flex; align-items: center; gap: 6px; margin-top: 12px; opacity: 0.7; transition: opacity 0.3s ease;">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
                                 <path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -5296,19 +3966,11 @@
                 <a href="https://yandex.ru/maps/?text=Propellini+Москва+Авиационная+79" target="_blank" rel="noopener noreferrer" class="review-card-link" style="text-decoration: none; display: block;">
                     <div class="slide-up review-card" style="animation-delay: 0.2s; background: rgba(18, 18, 18, 0.8); border: 1px solid rgba(22, 132, 145, 0.22); padding: 30px; border-radius: 12px; backdrop-filter: none; cursor: pointer; transition: all 0.3s ease; position: relative;">
                     <div class="mb-4" style="color: var(--propellini-primary); font-size: 24px;">★★★★★</div>
-<<<<<<< HEAD
-                    <p style="color: var(--propellini-text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 15px; font-weight: 400;">
-                        Оклеили весь кузов матовой пленкой. Результат превзошел ожидания! Спасибо команде Propellini.
-                    </p>
-                    <div style="color: var(--propellini-text); font-weight: 600;">Дмитрий В.</div>
-                        <div style="color: var(--propellini-text-secondary); font-size: 15px; margin-bottom: 12px; font-weight: 400;">Porsche 911</div>
-=======
                     <p style="color: var(--propellini-text-secondary); line-height: 1.8; margin-bottom: 20px;">
                         Оклеили весь кузов матовой пленкой. Результат превзошел ожидания! Спасибо команде Propellini.
                     </p>
                     <div style="color: var(--propellini-text); font-weight: 600;">Дмитрий В.</div>
                         <div style="color: var(--propellini-text-secondary); font-size: 14px; margin-bottom: 12px;">Porsche 911</div>
->>>>>>> master
                         <div class="review-link-text" style="color: var(--propellini-primary); font-size: 13px; display: flex; align-items: center; gap: 6px; margin-top: 12px; opacity: 0.7; transition: opacity 0.3s ease;">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
                                 <path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -5322,93 +3984,53 @@
     </section>
 
     <!-- Комфортная зона ожидания -->
-<<<<<<< HEAD
-    <!-- 11. Studio - inside box parallax layers -->
-    <section class="section parallax-section" id="studio" style="position: relative; background: var(--propellini-dark-secondary); padding-top: 120px; padding-bottom: 120px; overflow: hidden;">
-        <!-- Фоновое изображение с параллаксом -->
-        <div class="section-bg parallax-bg-slow" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/studio-desktop.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll;"></div>
-        <!-- Overlay градиент -->
-        <div class="section-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6));"></div>
-        
-        <div class="max-w-7xl mx-auto px-6" style="position: relative; z-index: 2;">
-            <div class="text-center mb-16 fade-up">
-                <h2 class="section-title" style="font-size: clamp(36px, 5vw, 52px); margin-bottom: 16px;">Наша студия</h2>
-                <p class="section-subtitle" style="color: var(--propellini-text-secondary); font-size: clamp(16px, 2vw, 20px); max-width: 700px; margin: 0 auto;">
-                    Премиальное пространство для вашего автомобиля
-                </p>
-=======
     <section class="section" id="showroom" style="background: #f8f9fa; color: #0a0a0a;">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-8 slide-up">
                 <div class="text-sm mb-2" style="color: #1a1a1a; text-transform: uppercase; letter-spacing: 0.02em; font-family: 'Montserrat', sans-serif; font-weight: 800;">Салон</div>
                 <h2 class="text-4xl font-light mb-4" style="color: #0a0a0a; font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 0.02em;">Комфортная зона ожидания</h2>
->>>>>>> master
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Изображение 1 - Зона ожидания с кожаными креслами Chesterfield и дисками -->
                 <div class="slide-up">
                     <div class="gallery-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #1a1a1a;">
-<<<<<<< HEAD
-                        <img src="https://propellini.ru/wp-content/uploads/2025/09/image_20_.webp" alt="Зона ожидания с кожаными креслами Chesterfield и дисками в витринах" style="width: 100%; height: 100%; object-fit: cover;">
-=======
                         <img src="https://propellini.ru/wp-content/uploads/2025/09/image_20_.webp" alt="Зона ожидания с кожаными креслами Chesterfield и дисками в витринах" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
->>>>>>> master
                     </div>
                 </div>
                 
                 <!-- Изображение 2 - Салон с видом на автомобили через стекло -->
                 <div class="slide-up" style="animation-delay: 0.1s;">
                     <div class="gallery-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #1a1a1a;">
-<<<<<<< HEAD
-                        <img src="https://propellini.ru/wp-content/uploads/2025/09/image_23_.webp" alt="Салон с темными кожаными креслами и видом на автомобили через стеклянную перегородку" style="width: 100%; height: 100%; object-fit: cover;">
-=======
                         <img src="https://propellini.ru/wp-content/uploads/2025/09/image_23_.webp" alt="Салон с темными кожаными креслами и видом на автомобили через стеклянную перегородку" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
->>>>>>> master
                     </div>
                 </div>
                 
                 <!-- Изображение 3 - Зона отдыха с телевизором и креслами -->
                 <div class="slide-up" style="animation-delay: 0.2s;">
                     <div class="gallery-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #1a1a1a;">
-<<<<<<< HEAD
-                        <img src="https://propellini.ru/wp-content/uploads/2025/09/image_22_.webp" alt="Зона отдыха с кожаными креслами, телевизором и дисками на стене" style="width: 100%; height: 100%; object-fit: cover;">
-=======
                         <img src="https://propellini.ru/wp-content/uploads/2025/09/image_22_.webp" alt="Зона отдыха с кожаными креслами, телевизором и дисками на стене" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
->>>>>>> master
                     </div>
                 </div>
                 
                 <!-- Изображение 4 - Ресепшн с кофемашиной и винохолодильником -->
                 <div class="slide-up" style="animation-delay: 0.3s;">
                     <div class="gallery-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #1a1a1a;">
-<<<<<<< HEAD
-                        <img src="https://propellini.ru/wp-content/uploads/2025/09/image2-1.png" alt="Ресепшн с кофемашиной, винохолодильником и темным интерьером" style="width: 100%; height: 100%; object-fit: cover;">
-=======
                         <img src="https://propellini.ru/wp-content/uploads/2025/09/image2-1.png" alt="Ресепшн с кофемашиной, винохолодильником и темным интерьером" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
->>>>>>> master
                     </div>
                 </div>
                 
                 <!-- Изображение 5 - Ванная комната -->
                 <div class="slide-up" style="animation-delay: 0.4s;">
                     <div class="gallery-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #1a1a1a;">
-<<<<<<< HEAD
-                        <img src="https://propellini.ru/wp-content/uploads/2025/09/5a7627dc3f7e0cf22e40e354b42f9b253f529b88.png" alt="Ванная комната с темными стенами и подсветкой зеркала" style="width: 100%; height: 100%; object-fit: cover;">
-=======
                         <img src="https://propellini.ru/wp-content/uploads/2025/09/5a7627dc3f7e0cf22e40e354b42f9b253f529b88.png" alt="Ванная комната с темными стенами и подсветкой зеркала" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
->>>>>>> master
                     </div>
                 </div>
                 
                 <!-- Изображение 6 - Логотип Propellini на стене -->
                 <div class="slide-up" style="animation-delay: 0.5s;">
                     <div class="gallery-item" style="aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; background: #1a1a1a;">
-<<<<<<< HEAD
-                        <img src="https://propellini.ru/wp-content/uploads/2025/09/image_19_.webp" alt="Логотип Propellini на темной стене с подсветкой" style="width: 100%; height: 100%; object-fit: cover;">
-=======
                         <img src="https://propellini.ru/wp-content/uploads/2025/09/image_19_.webp" alt="Логотип Propellini на темной стене с подсветкой" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
->>>>>>> master
                     </div>
                 </div>
             </div>
@@ -5416,27 +4038,14 @@
     </section>
 
     <!-- Контакты -->
-<<<<<<< HEAD
-    <section class="section" id="contacts" style="position: relative; background: var(--propellini-dark-secondary); overflow: hidden;">
-        <!-- Фоновое изображение -->
-        <div class="section-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2560'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll;"></div>
-        <!-- Overlay градиент для читаемости -->
-        <div class="section-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8));"></div>
-        <div class="max-w-6xl mx-auto px-6" style="position: relative; z-index: 2;">
-=======
     <section class="section" id="contacts" style="background: var(--propellini-dark-secondary);">
         <div class="max-w-6xl mx-auto px-6">
->>>>>>> master
             <div class="text-center mb-16 slide-up">
                 <h2 class="section-title">Контакты</h2>
                 <p class="section-subtitle max-w-3xl mx-auto">
                     Нет нерешаемых задач, есть разные подходы к их решению.
                 </p>
-<<<<<<< HEAD
-                <p class="mt-4" style="color: var(--propellini-text-secondary); font-size: 15px; font-weight: 400; line-height: 1.7;">
-=======
                 <p class="mt-4" style="color: var(--propellini-text-secondary);">
->>>>>>> master
                     Вы можете оставить заявку по форме обратной связи или связаться с нами любым другим удобным способом.
                 </p>
             </div>
@@ -5445,16 +4054,11 @@
                 <div class="slide-up">
                     <div class="mb-8">
                         <h3 class="text-2xl font-light mb-6" style="letter-spacing: 0.01em;">Центр оклейки защитной пленкой</h3>
-<<<<<<< HEAD
-                        <div class="text-xl mb-2" style="color: var(--propellini-primary);">Propellini</div>
-                        <div class="space-y-3" style="color: var(--propellini-text-secondary); font-size: 15px; font-weight: 400; line-height: 1.7;">
-=======
                         <div class="text-xl mb-2" style="color: var(--propellini-primary); display: inline-flex; align-items: center; gap: 6px;">
                             <img src="https://propellini.ru/wp-content/uploads/2025/10/cropped-chernaya-ikonka.png" alt="Propellini" style="height: 28px; width: auto; display: block; opacity: 1; filter: brightness(0) saturate(100%) invert(56%) sepia(88%) saturate(425%) hue-rotate(139deg) brightness(91%) contrast(87%); -webkit-filter: brightness(0) saturate(100%) invert(56%) sepia(88%) saturate(425%) hue-rotate(139deg) brightness(91%) contrast(87%);">
                             <span>Propellini</span>
                         </div>
                         <div class="space-y-3" style="color: var(--propellini-text-secondary);">
->>>>>>> master
                             <div><strong style="color: var(--propellini-text);">Адрес:</strong><br>Москва, ул. Авиационная, 79 к. 1</div>
                             <div><strong style="color: var(--propellini-text);">Режим работы:</strong><br>пн-вс: с 8:00 до 23:00</div>
                             <div><strong style="color: var(--propellini-text);">Телефон:</strong><br><a href="tel:+79919361489" style="color: var(--propellini-primary);">+7 (991) 936-14-89</a></div>
@@ -5494,11 +4098,7 @@
                         <input type="tel" class="form-input" placeholder="Ваш телефон *" required>
                         <textarea class="form-input" rows="5" placeholder="Сообщение (необязательно)"></textarea>
                         <button type="submit" class="btn-primary btn-shimmer w-full">Отправить</button>
-<<<<<<< HEAD
-                        <p class="text-xs text-center" style="color: var(--propellini-text-secondary); font-size: 13px; font-weight: 400; line-height: 1.6;">
-=======
                         <p class="text-xs text-center" style="color: var(--propellini-text-secondary);">
->>>>>>> master
                             Нажимая кнопку "отправить", вы соглашаетесь с политикой конфиденциальности.
                         </p>
                     </form>
@@ -5507,36 +4107,6 @@
             
         </div>
     </section>
-<<<<<<< HEAD
-
-    <!-- Бонусы -->
-    <section class="bonus-section">
-        <h2>БОНУСЫ</h2>
-        <h3>Забота о клиентах — наш приоритет</h3>
-
-        <div class="bonus-items">
-            <div class="bonus-card">Мойка в подарок</div>
-            <div class="bonus-card">Такси в обе стороны</div>
-            <div class="bonus-card">Сертификат на керамику</div>
-
-            <div class="bonus-card">Антидождь на все стёкла</div>
-            <div class="bonus-card">Премиальные материалы</div>
-            <div class="bonus-card">Угощаем ароматным кофе</div>
-
-            <div class="bonus-card">Бесплатная диагностика ЛКП</div>
-        </div>
-    </section>
-
-    <!-- Карта Яндекс с отзывами (полная ширина) -->
-    <section class="section" style="background: var(--propellini-dark-secondary); padding-top: 0; padding-bottom: 80px;">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-8">
-                <h3 class="text-2xl font-light mb-2 text-center" style="letter-spacing: 0.01em;">Мы на карте</h3>
-                <p class="text-center" style="color: var(--propellini-text-secondary); font-size: 15px; font-weight: 400; line-height: 1.7;">Москва, ул. Авиационная, 79 к. 1</p>
-            </div>
-            <iframe 
-                src="https://yandex.ru/map-widget/v1/?ll=37.5173,55.8020&z=16&pt=37.5173,55.8020,pm2rdm&l=map" 
-=======
     
     <!-- Карта Яндекс с отзывами (полная ширина) -->
     <section class="section" style="background: var(--propellini-dark-secondary); padding-top: 0; padding-bottom: 80px;">
@@ -5548,7 +4118,6 @@
             <iframe 
                 class="yandex-map-iframe"
                 src="https://yandex.ru/map-widget/v1/?text=Москва%2C%20ул.%20Авиационная%2C%2079%20к.%201&z=18&pt=37.5173,55.8020,pm2rdm&l=map" 
->>>>>>> master
                 width="100%" 
                 height="700" 
                 frameborder="0" 
@@ -5575,10 +4144,6 @@
         </div>
     </div>
 
-<<<<<<< HEAD
-    <!-- Плавающая кнопка "Рассчитать" -->
-    <a id="floatingCalculateBtn" class="floating-calculate-btn" href="calculator/index.html" aria-label="Рассчитать стоимость">
-=======
     <!-- Модальное окно с калькулятором -->
     <div class="modal-overlay" id="calculatorModal">
         <div class="modal-content calculator-modal-content">
@@ -5593,45 +4158,26 @@
 
     <!-- Плавающая кнопка "Рассчитать" -->
     <button id="floatingCalculateBtn" class="floating-calculate-btn" onclick="window.openCalculatorModal()" aria-label="Рассчитать стоимость">
->>>>>>> master
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="3" width="18" height="18" rx="2"/>
             <path d="M9 9h6v6H9z"/>
         </svg>
         <span>Рассчитать</span>
-<<<<<<< HEAD
-    </a>
-=======
     </button>
->>>>>>> master
 
     <!-- Футер -->
     <footer style="background: var(--propellini-dark); padding: 40px 0; border-top: 1px solid rgba(22, 132, 145, 0.1);">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div class="flex items-center gap-3">
-<<<<<<< HEAD
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--propellini-primary);">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-=======
                     <img src="https://propellini.ru/wp-content/uploads/2025/10/cropped-chernaya-ikonka.png" alt="Propellini" class="propellini-logo" style="height: 32px; width: auto; display: block; opacity: 1;">
->>>>>>> master
                     <div class="text-xl font-light tracking-widest" style="color: var(--propellini-text);">
                         Propellini
                     </div>
                 </div>
-<<<<<<< HEAD
-                <div class="flex flex-wrap justify-center gap-6 text-sm" style="color: var(--propellini-text-secondary); font-size: 15px; font-weight: 400; line-height: 1.7;">
-                    <a href="#services" class="hover:text-[var(--propellini-primary)] transition">Услуги</a>
-                    <a href="calculator/index.html" class="hover:text-[var(--propellini-primary)] transition">Калькулятор</a>
-=======
                 <div class="flex flex-wrap justify-center gap-6 text-sm" style="color: var(--propellini-text-secondary);">
                     <a href="#services" class="hover:text-[var(--propellini-primary)] transition">Услуги</a>
                     <a href="#calculator" class="hover:text-[var(--propellini-primary)] transition">Калькулятор</a>
->>>>>>> master
                     <a href="#gallery" class="hover:text-[var(--propellini-primary)] transition">Работы</a>
                     <a href="#offers" class="hover:text-[var(--propellini-primary)] transition">Акции</a>
                     <a href="#contacts" class="hover:text-[var(--propellini-primary)] transition">Контакты</a>
@@ -5792,11 +4338,7 @@
 
             // Изображения загружаются через picture элемент с правильными разрешениями
 
-<<<<<<< HEAD
-            // Multi-layer параллакс для hero секции - премиальный эффект
-=======
             // Параллакс эффект для hero секции - отключен на мобильных для производительности
->>>>>>> master
             if (window.innerWidth > 768) {
                 let lastScrollY = window.scrollY;
                 let ticking = false;
@@ -5804,28 +4346,8 @@
                 function updateParallax() {
                     const scrolled = window.pageYOffset;
                     if (heroBg) {
-<<<<<<< HEAD
-                        // Основной слой - медленный параллакс
-                        const parallaxSpeed1 = 0.15;
-                        heroBg.style.transform = `translateY(${scrolled * parallaxSpeed1}px)`;
-                        
-                        // Multi-layer параллакс для дополнительных слоёв
-                        const layer2 = heroBg.querySelector('.hero-bg-layer-2');
-                        const layer3 = heroBg.querySelector('.hero-bg-layer-3');
-                        
-                        if (layer2) {
-                            const parallaxSpeed2 = 0.25;
-                            layer2.style.transform = `translateY(${scrolled * parallaxSpeed2}px) scale(1.05)`;
-                        }
-                        
-                        if (layer3) {
-                            const parallaxSpeed3 = 0.35;
-                            layer3.style.transform = `translateY(${scrolled * parallaxSpeed3}px) scale(1.1)`;
-                        }
-=======
                         const parallaxSpeed = 0.3; // Уменьшена скорость для плавности
                         heroBg.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
->>>>>>> master
                     }
                     ticking = false;
                 }
@@ -5840,83 +4362,6 @@
                 window.addEventListener('scroll', requestTick, { passive: true });
             }
 
-<<<<<<< HEAD
-            // Премиальные scroll эффекты для всех секций
-            const scrollElements = document.querySelectorAll('.fade-up, .fade-left, .fade-right, .fade-scale, .slide-up');
-            
-            const elementInView = (el, offset = 0) => {
-                const elementTop = el.getBoundingClientRect().top;
-                return (
-                    elementTop <= ((window.innerHeight || document.documentElement.clientHeight) * 0.75) - offset
-                );
-            };
-
-            const displayScrollElement = (element) => {
-                element.classList.add('visible');
-            };
-
-            const hideScrollElement = (element) => {
-                element.classList.remove('visible');
-            };
-
-            const handleScrollAnimation = () => {
-                scrollElements.forEach((el) => {
-                    if (elementInView(el, 100)) {
-                        displayScrollElement(el);
-                    }
-                });
-            };
-
-            // Throttle для производительности
-            let scrollTimeout;
-            window.addEventListener('scroll', () => {
-                if (scrollTimeout) {
-                    window.cancelAnimationFrame(scrollTimeout);
-                }
-                scrollTimeout = window.requestAnimationFrame(() => {
-                    handleScrollAnimation();
-                });
-            }, { passive: true });
-
-            // Первичная проверка при загрузке
-            handleScrollAnimation();
-
-            // Scroll-switch эффект для Process секции
-            const processSection = document.getElementById('process');
-            const processBg1 = document.getElementById('process-bg-1');
-            const processBg2 = document.getElementById('process-bg-2');
-            
-            if (processSection && processBg1 && processBg2) {
-                const processObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const rect = entry.boundingClientRect;
-                            const scrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (rect.height + window.innerHeight)));
-                            
-                            // Переключение фонов при скролле
-                            if (scrollProgress < 0.5) {
-                                processBg1.style.opacity = '1';
-                                processBg2.style.opacity = '0';
-                            } else {
-                                processBg1.style.opacity = '0';
-                                processBg2.style.opacity = '1';
-                            }
-                            
-                            // Параллакс для фонов
-                            const parallaxOffset = scrollProgress * 50;
-                            processBg1.style.transform = `translateY(${parallaxOffset * 0.3}px)`;
-                            processBg2.style.transform = `translateY(${parallaxOffset * 0.3}px)`;
-                        }
-                    });
-                }, {
-                    threshold: [0, 0.25, 0.5, 0.75, 1]
-                });
-                
-                processObserver.observe(processSection);
-            }
-
-=======
->>>>>>> master
             // Изменение навигации при скролле с плавной анимацией и автоскрытием
             const navbar = document.getElementById('navbar');
             let lastScrollTop = 0;
@@ -6044,8 +4489,6 @@
                 }
             };
 
-<<<<<<< HEAD
-=======
             // Функции для работы с модальным окном калькулятора
             window.openCalculatorModal = function() {
                 const modal = document.getElementById('calculatorModal');
@@ -6131,7 +4574,6 @@
                     mobileStickyBtn.style.display = 'block';
                 }
             };
->>>>>>> master
 
             // Инициализация обработчиков модального окна
             function initModalHandlers() {
@@ -6153,9 +4595,6 @@
                     closeModalBtn.addEventListener('click', window.closeModal);
                 }
 
-<<<<<<< HEAD
-                // Кнопка открытия калькулятора заменена на ссылку /calculator/index.html
-=======
                 // Обработчики для модального окна калькулятора
                 const calculatorModal = document.getElementById('calculatorModal');
                 if (calculatorModal && !calculatorModal.dataset.initialized) {
@@ -6185,7 +4624,6 @@
                         return false;
                     }, true); // Используем capture phase для раннего перехвата
                 }
->>>>>>> master
             }
 
             // Закрытие модального окна по Escape (один раз на документе)
@@ -6193,18 +4631,12 @@
                 document.modalEscapeHandler = true;
                 document.addEventListener('keydown', function(e) {
                     if (e.key === 'Escape') {
-<<<<<<< HEAD
-                        const applicationModal = document.getElementById('applicationModal');
-                        
-                        if (applicationModal && applicationModal.classList.contains('active')) {
-=======
                         const calculatorModal = document.getElementById('calculatorModal');
                         const applicationModal = document.getElementById('applicationModal');
                         
                         if (calculatorModal && calculatorModal.classList.contains('active')) {
                             window.closeCalculatorModal();
                         } else if (applicationModal && applicationModal.classList.contains('active')) {
->>>>>>> master
                             window.closeModal();
                         }
                     }
@@ -6232,11 +4664,7 @@
                     }
                     
                     // Проверяем, что это кнопка с нужным классом и не submit, и не кнопка калькулятора
-<<<<<<< HEAD
-                    if (target.classList.contains('btn-primary') && target.type !== 'submit' && !target.disabled) {
-=======
                     if (target.classList.contains('btn-primary') && target.type !== 'submit' && !target.disabled && target.id !== 'openCalculatorBtn') {
->>>>>>> master
                         e.preventDefault();
                         e.stopPropagation();
                         e.stopImmediatePropagation();
@@ -6260,11 +4688,7 @@
                         target = target.closest('button.btn-primary');
                     }
                     
-<<<<<<< HEAD
-                    if (target && target.classList.contains('btn-primary') && target.type !== 'submit' && !target.disabled) {
-=======
                     if (target && target.classList.contains('btn-primary') && target.type !== 'submit' && !target.disabled && target.id !== 'openCalculatorBtn') {
->>>>>>> master
                         // Проверяем, не открыто ли уже модальное окно
                         const modal = document.getElementById('applicationModal');
                         if (!modal || !modal.classList.contains('active')) {
@@ -6283,17 +4707,12 @@
             
             // Дополнительная прямая инициализация всех кнопок после загрузки
             function initAllButtons() {
-<<<<<<< HEAD
-                const allButtons = document.querySelectorAll('button.btn-primary:not([type="submit"])');
-                allButtons.forEach(btn => {
-=======
                 const allButtons = document.querySelectorAll('button.btn-primary:not([type="submit"]):not(#openCalculatorBtn)');
                 allButtons.forEach(btn => {
                     // Пропускаем кнопку калькулятора
                     if (btn.id === 'openCalculatorBtn') {
                         return;
                     }
->>>>>>> master
                     
                     // Удаляем все старые обработчики
                     const newBtn = btn.cloneNode(true);
@@ -6559,15 +4978,7 @@
                 });
 
                 document.querySelectorAll('img[data-src], img:not([loading])').forEach(img => {
-<<<<<<< HEAD
-                    // Добавляем loading="lazy" ко всем изображениям без него (кроме hero и фоновых)
-                    document.querySelectorAll('img:not([loading]):not(#hero-bg-img):not(.section-bg img)').forEach(img => {
-                        img.setAttribute('loading', 'lazy');
-                        img.setAttribute('decoding', 'async');
-                    });
-=======
                     // Добавляем loading="lazy" ко всем изображениям без него (кроме hero)
->>>>>>> master
                     if (!img.hasAttribute('loading') && !img.closest('.hero-bg')) {
                         img.setAttribute('loading', 'lazy');
                         img.setAttribute('decoding', 'async');
@@ -6648,16 +5059,12 @@
                 });
 
                 filmsScroll.addEventListener('scroll', updateFilmsProgress, { passive: true });
-<<<<<<< HEAD
-                window.addEventListener('resize', updateFilmsProgress);
-=======
                 // Debounce resize для производительности на мобильных
                 let filmsResizeTimeout;
                 window.addEventListener('resize', () => {
                     clearTimeout(filmsResizeTimeout);
                     filmsResizeTimeout = setTimeout(updateFilmsProgress, 150);
                 }, { passive: true });
->>>>>>> master
                 setTimeout(updateFilmsProgress, 300);
 
                 // Autoplay
@@ -6737,11 +5144,7 @@
             transform: translateY(20px) scale(0.9);
             transition: opacity 0.3s ease, transform 0.3s ease;
             pointer-events: none;
-<<<<<<< HEAD
-            z-index: 998;
-=======
             z-index: 1001;
->>>>>>> master
             display: flex;
             align-items: center;
             gap: 10px;
@@ -6793,18 +5196,11 @@
         
         @media (max-width: 768px) {
             .floating-calculate-btn {
-<<<<<<< HEAD
-                bottom: 20px;
-                right: 20px;
-                padding: 14px 20px;
-                font-size: 14px;
-=======
                 bottom: 120px;
                 right: 20px;
                 padding: 14px 20px;
                 font-size: 14px;
                 z-index: 1001;
->>>>>>> master
             }
             
             .floating-calculate-btn span {
@@ -6822,22 +5218,7 @@
         
         @media (max-width: 768px) {
             .mobile-sticky-btn {
-<<<<<<< HEAD
-                display: flex;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                z-index: 999;
-                padding: 16px;
-                background: rgba(10, 10, 10, 0.95);
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-                border-top: 1px solid rgba(22, 132, 145, 0.3);
-                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
-=======
                 display: none !important;
->>>>>>> master
             }
             
             .mobile-sticky-btn button {
@@ -6860,24 +5241,12 @@
                 transform: scale(0.98);
                 box-shadow: 0 2px 8px rgba(22, 132, 145, 0.3);
             }
-<<<<<<< HEAD
-            
-            /* Отступ снизу для контента, чтобы не перекрывался sticky-кнопкой */
-            body {
-                padding-bottom: 90px;
-            }
-=======
->>>>>>> master
         }
     </style>
     
     <!-- Sticky кнопка "Рассчитать стоимость" на мобильной версии -->
     <div class="mobile-sticky-btn">
-<<<<<<< HEAD
-        <a href="calculator/index.html">Рассчитать стоимость</a>
-=======
         <button onclick="document.getElementById('openCalculatorBtn')?.click()">Рассчитать стоимость</button>
->>>>>>> master
     </div>
     
     <script>
@@ -6897,8 +5266,6 @@
                         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                         const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
                     
-<<<<<<< HEAD
-=======
                         // Проверяем, открыт ли калькулятор
                         const calcModal = document.getElementById('calculatorModal');
                         if (calcModal && calcModal.classList.contains('active')) {
@@ -6907,7 +5274,6 @@
                             return;
                         }
                     
->>>>>>> master
                         // Показываем кнопку только если прокрутили вниз больше 300px и не в самом низу
                         if (scrollTop > 300 && scrollTop < scrollHeight - 100) {
                             if (scrollTop > lastScrollTop) {
@@ -6940,10 +5306,6 @@
             floatingBtn.addEventListener('click', () => {
                 floatingBtn.classList.remove('visible');
             });
-<<<<<<< HEAD
-        })();
-
-=======
                     
             // Скрываем кнопку при открытии калькулятора
             const calcModal = document.getElementById('calculatorModal');
@@ -7146,7 +5508,6 @@
         window.addEventListener('resize', () => debounceResize(setMobileBackgrounds), { passive: true });
         window.addEventListener('load', setMobileBackgrounds);
         
->>>>>>> master
         // Проверка загрузки фонового изображения Hero
         document.addEventListener('DOMContentLoaded', function() {
             const heroImg = document.getElementById('hero-bg-img');
