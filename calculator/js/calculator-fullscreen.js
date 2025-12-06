@@ -1466,26 +1466,29 @@ ${selectedAdditionalServices.length > 0 ? additionalServicesNames.join(", ") : "
                     `;
                 }
                 
-                // Принудительно показываем форму
+                // Принудительно показываем форму через setProperty с important
                 modal.classList.add("active");
-                modal.style.display = "block !important";
-                modal.style.opacity = "1 !important";
-                modal.style.visibility = "visible !important";
-                modal.style.pointerEvents = "auto !important";
-                modal.style.zIndex = "10001 !important";
-                modal.style.position = "fixed !important";
-                modal.style.top = "0 !important";
-                modal.style.left = "0 !important";
-                modal.style.width = "100% !important";
-                modal.style.height = "100% !important";
+                modal.style.setProperty("display", "block", "important");
+                modal.style.setProperty("opacity", "1", "important");
+                modal.style.setProperty("visibility", "visible", "important");
+                modal.style.setProperty("pointer-events", "auto", "important");
+                modal.style.setProperty("z-index", "10001", "important");
+                modal.style.setProperty("position", "fixed", "important");
+                modal.style.setProperty("top", "0", "important");
+                modal.style.setProperty("left", "0", "important");
+                modal.style.setProperty("width", "100%", "important");
+                modal.style.setProperty("height", "100%", "important");
                 
                 // Убеждаемся, что booking-content тоже виден
                 const bookingContent = modal.querySelector(".booking-content");
                 if (bookingContent) {
-                    bookingContent.style.display = "block !important";
-                    bookingContent.style.opacity = "1 !important";
-                    bookingContent.style.visibility = "visible !important";
-                    bookingContent.style.pointerEvents = "auto !important";
+                    bookingContent.style.setProperty("display", "block", "important");
+                    bookingContent.style.setProperty("opacity", "1", "important");
+                    bookingContent.style.setProperty("visibility", "visible", "important");
+                    bookingContent.style.setProperty("pointer-events", "auto", "important");
+                    bookingContent.style.setProperty("z-index", "10002", "important");
+                } else {
+                    alert("Ошибка: .booking-content не найден!");
                 }
                 
                 document.body.style.overflow = "hidden";
