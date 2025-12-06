@@ -992,6 +992,28 @@ body {
     transform: translateY(0);
 }
 
+.popular-brand-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #1c1c1c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 16px;
+    margin: 6px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.25s ease;
+    user-select: none;
+}
+
+.popular-brand-chip:hover {
+    background: #0f7070;
+    border-color: rgba(0, 255, 255, 0.25);
+}
+}
+
 .popular-chip:active::after {
     background-size: 35% 60%, 100% 100%, 100%;
 }
