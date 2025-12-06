@@ -1470,31 +1470,50 @@ if (modelOverlay) {
 
 if (bookingClose) {
     bookingClose.addEventListener("click", () => {
-        if (bookingModal) {
-            bookingModal.classList.remove("active");
-            // Восстанавливаем overflow для body
-            document.body.style.overflow = "";
-            document.body.style.overflowX = "";
-            document.body.style.overflowY = "";
-            
-            // Если калькулятор был скрыт, возвращаемся на главную страницу
-            if (calculatorFullscreen && !calculatorFullscreen.classList.contains("active")) {
-                if (window.location.pathname.includes('/calculator/') || window.location.pathname.includes('/calculator')) {
-                    setTimeout(() => {
-                        try {
-                            if (document.referrer && document.referrer.includes(window.location.origin) && !document.referrer.includes('/calculator')) {
-                                window.history.back();
-                            } else {
-                                window.location.href = '../';
-                            }
-                        } catch (e) {
+        closeBookingModal();
+    });
+}
+
+// Функция закрытия модального окна формы заявки
+function closeBookingModal() {
+    if (bookingModal) {
+        // Принудительно скрываем модальное окно
+        bookingModal.classList.remove("active");
+        
+        // Принудительно убираем все стили, которые могут оставить серый фон
+        bookingModal.style.display = "none";
+        bookingModal.style.opacity = "0";
+        bookingModal.style.visibility = "hidden";
+        bookingModal.style.pointerEvents = "none";
+        
+        // Восстанавливаем overflow для body
+        document.body.style.overflow = "";
+        document.body.style.overflowX = "";
+        document.body.style.overflowY = "";
+        
+        // Убираем все inline стили с body, которые могли быть установлены
+        const bodyOverflow = document.body.style.overflow;
+        if (!bodyOverflow || bodyOverflow === "hidden") {
+            document.body.removeAttribute("style");
+        }
+        
+        // Если калькулятор был скрыт, возвращаемся на главную страницу
+        if (calculatorFullscreen && !calculatorFullscreen.classList.contains("active")) {
+            if (window.location.pathname.includes('/calculator/') || window.location.pathname.includes('/calculator')) {
+                setTimeout(() => {
+                    try {
+                        if (document.referrer && document.referrer.includes(window.location.origin) && !document.referrer.includes('/calculator')) {
+                            window.history.back();
+                        } else {
                             window.location.href = '../';
                         }
-                    }, 300);
-                }
+                    } catch (e) {
+                        window.location.href = '../';
+                    }
+                }, 300);
             }
         }
-    });
+    }
 }
 
 if (bookingModal) {
@@ -1504,28 +1523,7 @@ if (bookingModal) {
     if (bookingOverlay) {
         bookingOverlay.addEventListener("click", (e) => {
             if (e.target === bookingOverlay) {
-                bookingModal.classList.remove("active");
-                // Восстанавливаем overflow для body
-                document.body.style.overflow = "";
-                document.body.style.overflowX = "";
-                document.body.style.overflowY = "";
-                
-                // Если калькулятор был скрыт, возвращаемся на главную страницу
-                if (calculatorFullscreen && !calculatorFullscreen.classList.contains("active")) {
-                    if (window.location.pathname.includes('/calculator/') || window.location.pathname.includes('/calculator')) {
-                        setTimeout(() => {
-                            try {
-                                if (document.referrer && document.referrer.includes(window.location.origin) && !document.referrer.includes('/calculator')) {
-                                    window.history.back();
-                                } else {
-                                    window.location.href = '../';
-                                }
-                            } catch (e) {
-                                window.location.href = '../';
-                            }
-                        }, 300);
-                    }
-                }
+                closeBookingModal();
             }
         });
     }

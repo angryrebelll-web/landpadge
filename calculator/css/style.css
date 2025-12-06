@@ -2351,6 +2351,23 @@ body {
     pointer-events: auto;
 }
 
+/* Принудительное скрытие на мобильных при отсутствии класса active */
+@media (max-width: 768px) {
+    .booking-modal:not(.active) {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+    
+    .booking-modal.active {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+}
+
 .booking-overlay {
     position: absolute;
     top: 0;
