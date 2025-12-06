@@ -310,31 +310,7 @@
         });
     </script>
     
-    <!-- Scripts -->
-    <script src="./js/prices.js"></script>
-    <script src="./js/cars.js"></script>
-    <script src="./js/calculator-fullscreen.js"></script>
-    
-    <!-- Автоматическое открытие калькулятора при загрузке -->
-    <script>
-        // Функция будет вызвана из calculator-fullscreen.js после инициализации
-        // Дублируем на случай, если основной скрипт не загрузился
-        window.addEventListener("load", () => {
-            setTimeout(() => {
-                const calc = document.getElementById("calculatorFullscreen");
-                if (calc && !calc.classList.contains("active")) {
-                    if (typeof window.openCalculator === 'function') {
-                        window.openCalculator();
-                    } else {
-                        calc.classList.add("active");
-                        document.body.style.overflow = "hidden";
-                    }
-                }
-            }, 500);
-        });
-    </script>
-    
-    <!-- Request Form Modal - Модальное окно формы заявки -->
+    <!-- Request Form Modal - Модальное окно формы заявки (ПЕРЕД скриптами для доступности в DOM) -->
     <div id="requestModal" class="request-modal hidden">
         <div class="request-overlay"></div>
         <div class="request-content">
@@ -372,5 +348,29 @@
             </form>
         </div>
     </div>
+    
+    <!-- Scripts -->
+    <script src="./js/prices.js"></script>
+    <script src="./js/cars.js"></script>
+    <script src="./js/calculator-fullscreen.js"></script>
+    
+    <!-- Автоматическое открытие калькулятора при загрузке -->
+    <script>
+        // Функция будет вызвана из calculator-fullscreen.js после инициализации
+        // Дублируем на случай, если основной скрипт не загрузился
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                const calc = document.getElementById("calculatorFullscreen");
+                if (calc && !calc.classList.contains("active")) {
+                    if (typeof window.openCalculator === 'function') {
+                        window.openCalculator();
+                    } else {
+                        calc.classList.add("active");
+                        document.body.style.overflow = "hidden";
+                    }
+                }
+            }, 500);
+        });
+    </script>
 </body>
 </html>
