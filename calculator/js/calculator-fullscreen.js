@@ -1555,7 +1555,28 @@ function closeBookingModal() {
         globalOverlay.classList.remove("active");
     }
     
-    // 4. Убираем blur/filter с body и калькулятора
+    // 4. Отключаем все системные backdrop псевдоэлементы
+    // Ищем все dialog элементы и закрываем их
+    const dialogs = document.querySelectorAll("dialog");
+    dialogs.forEach(dialog => {
+        if (dialog.open) {
+            dialog.close();
+        }
+        dialog.style.display = "none";
+        dialog.style.backdropFilter = "none";
+        dialog.style.webkitBackdropFilter = "none";
+    });
+    
+    // Ищем все элементы с role="dialog"
+    const dialogElements = document.querySelectorAll('[role="dialog"], [role="alertdialog"], [role="alert"]');
+    dialogElements.forEach(element => {
+        element.style.display = "none";
+        element.style.backdropFilter = "none";
+        element.style.webkitBackdropFilter = "none";
+        element.removeAttribute("open");
+    });
+    
+    // 5. Убираем blur/filter с body и калькулятора
     document.body.style.filter = "none";
     document.body.style.backdropFilter = "none";
     document.body.style.webkitBackdropFilter = "none";
@@ -1565,17 +1586,26 @@ function closeBookingModal() {
         calculatorFullscreen.style.webkitBackdropFilter = "none";
     }
     
-    // 5. Полностью восстанавливаем body
+    // 6. Принудительно отключаем backdrop-filter для всех элементов
+    const allElements = document.querySelectorAll("*");
+    allElements.forEach(element => {
+        if (element.style.backdropFilter || element.style.webkitBackdropFilter) {
+            element.style.backdropFilter = "none";
+            element.style.webkitBackdropFilter = "none";
+        }
+    });
+    
+    // 7. Полностью восстанавливаем body
     document.body.style.overflow = "auto";
     document.body.style.overflowX = "auto";
     document.body.style.overflowY = "auto";
     document.body.style.height = "auto";
     document.body.style.position = "static";
     
-    // 6. Полностью очищаем все inline стили с body
+    // 8. Полностью очищаем все inline стили с body
     document.body.removeAttribute("style");
     
-    // 7. Всегда возвращаемся на главную страницу после закрытия формы
+    // 9. Всегда возвращаемся на главную страницу после закрытия формы
     // (так как калькулятор был скрыт при открытии формы)
     if (window.location.pathname.includes('/calculator/') || window.location.pathname.includes('/calculator')) {
         // Небольшая задержка для полного сброса overlay, затем возврат

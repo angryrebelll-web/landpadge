@@ -2,6 +2,43 @@
    PROPellini Calculator Fullscreen Styles
    =============================== */
 
+/* ===============================
+   ОТКЛЮЧЕНИЕ СИСТЕМНЫХ BACKDROP СЛОЁВ
+   =============================== */
+
+/* Отключение всех системных backdrop псевдоэлементов */
+::backdrop,
+dialog::backdrop,
+[role="dialog"]::backdrop,
+[role="alertdialog"]::backdrop,
+[role="alert"]::backdrop {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: transparent !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    display: none !important;
+}
+
+/* Глобальное отключение backdrop-filter для всех элементов */
+* {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Восстановление backdrop-filter только для нужных элементов */
+.calculator-overlay {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.calculator-overlay:not(.active) {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
 :root {
     --propellini-primary: #168491;
     --propellini-primary-darker: #0d5c60;
@@ -2353,9 +2390,23 @@ body {
 
 /* Принудительное скрытие на мобильных при отсутствии класса active */
 @media (max-width: 768px) {
+    /* Отключение всех backdrop на мобильных */
+    ::backdrop,
+    dialog::backdrop,
+    [role="dialog"]::backdrop {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: transparent !important;
+        pointer-events: none !important;
+        z-index: -1 !important;
+        display: none !important;
+    }
+    
     .booking-modal:not(.active),
     .calculator-overlay:not(.active),
-    .modal-overlay:not(.active) {
+    .modal-overlay:not(.active),
+    dialog:not([open]),
+    [role="dialog"]:not(.active) {
         display: none !important;
         opacity: 0 !important;
         visibility: hidden !important;
@@ -2388,6 +2439,18 @@ body {
         overflow: auto !important;
         position: static !important;
         height: auto !important;
+    }
+    
+    /* Принудительное отключение backdrop для всех элементов на мобильных */
+    * {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    /* Восстановление backdrop только для активного калькуляторного overlay */
+    .calculator-overlay.active {
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
     }
 }
 
