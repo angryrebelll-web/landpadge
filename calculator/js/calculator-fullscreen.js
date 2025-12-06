@@ -1468,12 +1468,6 @@ if (modelOverlay) {
     });
 }
 
-if (bookingClose) {
-    bookingClose.addEventListener("click", () => {
-        closeBookingModal();
-    });
-}
-
 // Функция закрытия модального окна формы заявки
 function closeBookingModal() {
     if (bookingModal) {
