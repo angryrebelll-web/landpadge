@@ -1689,6 +1689,15 @@ function closeBookingModal() {
 if (bookingModal) {
     const bookingContent = bookingModal.querySelector(".booking-content");
     
+    // Обработчик закрытия формы по крестику
+    if (bookingClose) {
+        bookingClose.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            closeBookingModal();
+        });
+    }
+    
     // Клик по калькуляторному overlay закрывает форму
     if (calculatorOverlay) {
         calculatorOverlay.addEventListener("click", (e) => {
