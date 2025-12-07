@@ -446,44 +446,75 @@ function openCalculator() {
     }
 }
 
-// Универсальное закрытие калькулятора (кнопка Х в правом верхнем углу)
+// Универсальное закрытие калькулятора (кнопка Х в правом верхнем углу) - ТОЧНАЯ КОПИЯ ИЗ ОРИГИНАЛА
 function closeCalculator() {
-    // Закрываем все модальные окна
-    if (modelModal) {
-        modelModal.classList.remove("active");
-        modelModal.style.display = 'none';
-    }
-    if (bookingModal) {
-        bookingModal.classList.remove("active");
-        bookingModal.style.display = 'none';
-    }
-    
-    // Закрываем форму заявки, если она открыта
-    const requestModal = document.getElementById('requestModal');
-    if (requestModal) {
-        requestModal.classList.add('hidden');
-        requestModal.style.display = 'none';
-    }
-    
-    // Убираем активный класс с калькулятора
     if (calculatorFullscreen) {
         calculatorFullscreen.classList.remove("active");
-        calculatorFullscreen.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = "";
     }
     
-    // Восстанавливаем скролл
-    document.body.style.overflow = "";
-    
-    // Сбрасываем калькулятор
     resetCalculator();
     
-    // Возврат на главную страницу сайта
+    // Возврат на главную страницу сайта (добавлено для нашего проекта)
     setTimeout(() => {
         window.location.href = '/landpadge/';
     }, 100);
 }
 
-// Обработчики будут привязаны в DOMContentLoaded, чтобы гарантировать, что элементы существуют
+// Обработчики закрытия - ТОЧНАЯ КОПИЯ ИЗ ОРИГИНАЛА
+if (calculatorClose) {
+    calculatorClose.addEventListener("click", closeCalculator);
+}
+
+if (calculatorOverlay) {
+    calculatorOverlay.addEventListener("click", (e) => {
+        if (e.target === calculatorOverlay) {
+            closeCalculator();
+        }
+    });
+}
+
+// Навигация по шагам - ТОЧНАЯ КОПИЯ ИЗ ОРИГИНАЛА
+if (btnBack) {
+    btnBack.addEventListener("click", () => {
+        if (currentStep > 1) {
+            goToStep(currentStep - 1);
+        }
+    });
+}
+
+if (btnNext) {
+    btnNext.addEventListener("click", () => {
+        if (canProceedToNextStep() && currentStep < totalSteps) {
+            goToStep(currentStep + 1);
+        } else {
+            alert("Заполните все обязательные поля!");
+        }
+    });
+}
+
+// Кнопка "Записаться" - ТОЧНАЯ КОПИЯ ИЗ ОРИГИНАЛА (адаптировано под requestModal)
+if (btnBook) {
+    btnBook.addEventListener("click", () => {
+        if (totalPrice <= 0) {
+            alert("Сначала выберите автомобиль и услуги!");
+            return;
+        }
+
+        // Открываем форму заявки через openRequestForm
+        if (typeof window.openRequestForm === 'function') {
+            window.openRequestForm();
+        } else {
+            // Fallback: открываем requestModal напрямую
+            const requestModal = document.getElementById('requestModal');
+            if (requestModal) {
+                requestModal.classList.remove('hidden');
+                requestModal.style.display = 'flex';
+                document.body.style.overflow = "hidden";
+            }
+        }
+    });
+}
 
 /* =============================
    1) ВЫБОР ТИПА АВТО
@@ -1672,40 +1703,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateNavigationButtons();
     updateStepsIndicator();
     
-    // Обработчики уже привязаны в глобальной области выше
-    // Дополнительная проверка на случай если элементы еще не загружены
-    setTimeout(() => {
-        if (btnBack && !btnBack.onclick) {
-            btnBack.addEventListener("click", () => {
-                if (currentStep > 1) {
-                    goToStep(currentStep - 1);
-                }
-            });
-        }
-        if (btnNext && !btnNext.onclick) {
-            btnNext.addEventListener("click", () => {
-                if (canProceedToNextStep() && currentStep < totalSteps) {
-                    goToStep(currentStep + 1);
-                } else {
-                    alert("Заполните все обязательные поля!");
-                }
-            });
-        }
-        if (btnBook && !btnBook.onclick) {
-            btnBook.addEventListener("click", () => {
-                if (totalPrice <= 0) {
-                    alert("Сначала выберите автомобиль и услуги!");
-                    return;
-                }
-                if (typeof window.openRequestForm === 'function') {
-                    window.openRequestForm();
-                }
-            });
-        }
-        if (calculatorClose && !calculatorClose.onclick) {
-            calculatorClose.addEventListener("click", closeCalculator);
-        }
-    }, 100);
+    // Обработчики уже привязаны в глобальной области выше (как в оригинале)
     
     // Инициализация новой формы заявки
     const requestCloseBtn = document.getElementById('requestCloseBtn');
