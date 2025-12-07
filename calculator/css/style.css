@@ -194,10 +194,20 @@ body {
 
 .calculator-content {
     flex: 1;
-    display: flex;
+    display: flex !important;
     overflow: hidden;
     padding-top: 20px;
     padding-bottom: 120px;
+    z-index: 10002 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.calculator-fullscreen.active .calculator-content {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 10002 !important;
 }
 
 @media (min-width: 1024px) {
