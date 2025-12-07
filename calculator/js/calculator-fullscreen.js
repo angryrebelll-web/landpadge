@@ -189,13 +189,14 @@ function goToStep(step) {
         return;
     }
     
-    // Проверка возможности перехода вперед
+    // Проверка возможности перехода вперед (только при переходе ВПЕРЕД)
     if (step > currentStep) {
         if (!canProceedToNextStep()) {
             alert("Заполните все обязательные поля для перехода на следующий шаг!");
             return;
         }
     }
+    // При переходе НАЗАД - всегда разрешаем
     
     const prevStep = currentStep;
     currentStep = step;
@@ -464,6 +465,9 @@ function closeCalculator() {
         requestModal.style.display = 'none';
     }
     
+    // Скрываем все overlay
+    hideAllOverlays();
+    
     // Убираем активный класс с калькулятора и принудительно скрываем
     if (calculatorFullscreen) {
         calculatorFullscreen.classList.remove("active");
@@ -475,16 +479,19 @@ function closeCalculator() {
         calculatorFullscreen.style.setProperty('background', 'transparent', 'important');
     }
     
-    // Скрываем все overlay
-    hideAllOverlays();
+    // Восстанавливаем скролл
+    document.body.style.overflow = '';
+    document.body.style.height = '';
+    document.body.style.position = '';
+    document.documentElement.style.overflow = '';
     
-    // Сбрасываем калькулятор
+    // Сбрасываем калькулятор ПЕРЕД редиректом
     resetCalculator();
     
     // Возврат на главную страницу сайта
     setTimeout(() => {
         window.location.href = '/landpadge/';
-    }, 50);
+    }, 100);
 }
 
 // Обработчики будут привязаны в DOMContentLoaded, чтобы гарантировать, что элементы существуют
@@ -1741,8 +1748,7 @@ document.addEventListener("DOMContentLoaded", () => {
             calculatorCloseEl.onclick = function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                closeCalculator();
-                resetCalculator();
+                closeCalculator(); // resetCalculator() уже вызывается внутри closeCalculator()
             };
         }
         
