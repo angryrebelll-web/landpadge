@@ -1599,8 +1599,8 @@ document.addEventListener("DOMContentLoaded", () => {
     updateStepsIndicator();
     
     // КРИТИЧЕСКИ ВАЖНО: Привязка всех обработчиков кнопок
-    // Используем setTimeout чтобы гарантировать, что все элементы точно загружены
-    setTimeout(() => {
+    // Используем несколько попыток чтобы гарантировать, что элементы загружены
+    function attachHandlers() {
         const btnBackEl = document.getElementById("btnBack");
         const btnNextEl = document.getElementById("btnNext");
         const calculatorCloseEl = document.getElementById("calculatorClose");
@@ -1608,66 +1608,94 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Обработчик кнопки "Назад"
         if (btnBackEl) {
-            // Удаляем старые обработчики если есть
-            const newBtnBack = btnBackEl.cloneNode(true);
-            btnBackEl.parentNode.replaceChild(newBtnBack, btnBackEl);
+            // Удаляем все старые обработчики
+            btnBackEl.onclick = null;
+            btnBackEl.removeEventListener("click", arguments.callee);
             
-            newBtnBack.addEventListener("click", function(e) {
-                e.preventDefault();
-                e.stopPropagation();
+            btnBackEl.onclick = function(e) {
+                e = e || window.event;
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
                 if (currentStep > 1) {
                     goToStep(currentStep - 1);
                 }
-            });
+                return false;
+            };
         } else {
             console.error("btnBack не найден!");
+            return false;
         }
         
         // Обработчик кнопки "Далее"
         if (btnNextEl) {
-            // Удаляем старые обработчики если есть
-            const newBtnNext = btnNextEl.cloneNode(true);
-            btnNextEl.parentNode.replaceChild(newBtnNext, btnNextEl);
+            // Удаляем все старые обработчики
+            btnNextEl.onclick = null;
+            btnNextEl.removeEventListener("click", arguments.callee);
             
-            newBtnNext.addEventListener("click", function(e) {
-                e.preventDefault();
-                e.stopPropagation();
+            btnNextEl.onclick = function(e) {
+                e = e || window.event;
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
                 if (canProceedToNextStep() && currentStep < totalSteps) {
                     goToStep(currentStep + 1);
                 } else {
                     alert("Заполните все обязательные поля!");
                 }
-            });
+                return false;
+            };
         } else {
             console.error("btnNext не найден!");
+            return false;
         }
         
         // Обработчик крестика закрытия калькулятора
         if (calculatorCloseEl) {
-            // Удаляем старые обработчики если есть
-            const newCalculatorClose = calculatorCloseEl.cloneNode(true);
-            calculatorCloseEl.parentNode.replaceChild(newCalculatorClose, calculatorCloseEl);
+            // Удаляем все старые обработчики
+            calculatorCloseEl.onclick = null;
+            calculatorCloseEl.removeEventListener("click", arguments.callee);
             
-            newCalculatorClose.addEventListener("click", function(e) {
-                e.preventDefault();
-                e.stopPropagation();
+            calculatorCloseEl.onclick = function(e) {
+                e = e || window.event;
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
                 closeCalculator();
-            });
+                return false;
+            };
         } else {
             console.error("calculatorClose не найден!");
+            return false;
         }
         
         // Обработчик клика на overlay для закрытия калькулятора
         if (calculatorOverlayEl) {
-            calculatorOverlayEl.addEventListener("click", function(e) {
-                if (e.target === calculatorOverlayEl) {
+            calculatorOverlayEl.onclick = function(e) {
+                e = e || window.event;
+                if (e && e.target === calculatorOverlayEl) {
                     e.preventDefault();
                     e.stopPropagation();
                     closeCalculator();
+                    return false;
                 }
-            });
+            };
         }
-    }, 100);
+        
+        return true;
+    }
+    
+    // Пробуем привязать обработчики несколько раз
+    if (!attachHandlers()) {
+        setTimeout(() => {
+            if (!attachHandlers()) {
+                setTimeout(attachHandlers, 200);
+            }
+        }, 50);
+    }
     
     // Инициализация новой формы заявки
     const requestCloseBtn = document.getElementById('requestCloseBtn');
