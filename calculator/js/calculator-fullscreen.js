@@ -346,20 +346,41 @@ function openCalculator() {
     
     if (calculatorFullscreen) {
         calculatorFullscreen.classList.add("active");
-        calculatorFullscreen.style.display = "block";
-        calculatorFullscreen.style.opacity = "1";
-        calculatorFullscreen.style.visibility = "visible";
-        calculatorFullscreen.style.pointerEvents = "auto";
-        calculatorFullscreen.style.zIndex = "9999";
+        calculatorFullscreen.style.setProperty('display', 'block', 'important');
+        calculatorFullscreen.style.setProperty('opacity', '1', 'important');
+        calculatorFullscreen.style.setProperty('visibility', 'visible', 'important');
+        calculatorFullscreen.style.setProperty('pointer-events', 'auto', 'important');
+        calculatorFullscreen.style.setProperty('z-index', '9999', 'important');
         document.body.style.overflow = "hidden";
         
         // Показываем overlay калькулятора
         if (calculatorOverlay) {
-            calculatorOverlay.style.display = "block";
-            calculatorOverlay.style.opacity = "0.5";
-            calculatorOverlay.style.visibility = "visible";
-            calculatorOverlay.style.pointerEvents = "auto";
+            calculatorOverlay.style.setProperty('display', 'block', 'important');
+            calculatorOverlay.style.setProperty('opacity', '0.5', 'important');
+            calculatorOverlay.style.setProperty('visibility', 'visible', 'important');
+            calculatorOverlay.style.setProperty('pointer-events', 'auto', 'important');
+            calculatorOverlay.style.setProperty('z-index', '10000', 'important');
             calculatorOverlay.classList.add("active");
+        }
+        
+        // КРИТИЧЕСКИ ВАЖНО: Показываем calculator-modal
+        const calculatorModal = calculatorFullscreen.querySelector('.calculator-modal');
+        if (calculatorModal) {
+            calculatorModal.style.setProperty('display', 'flex', 'important');
+            calculatorModal.style.setProperty('opacity', '1', 'important');
+            calculatorModal.style.setProperty('visibility', 'visible', 'important');
+            calculatorModal.style.setProperty('pointer-events', 'auto', 'important');
+            calculatorModal.style.setProperty('z-index', '10001', 'important');
+            calculatorModal.style.setProperty('position', 'relative', 'important');
+        }
+        
+        // Показываем calculator-content
+        const calculatorContent = calculatorFullscreen.querySelector('.calculator-content');
+        if (calculatorContent) {
+            calculatorContent.style.setProperty('display', 'flex', 'important');
+            calculatorContent.style.setProperty('opacity', '1', 'important');
+            calculatorContent.style.setProperty('visibility', 'visible', 'important');
+            calculatorContent.style.setProperty('z-index', '10002', 'important');
         }
     }
 }
