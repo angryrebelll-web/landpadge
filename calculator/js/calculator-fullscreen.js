@@ -346,7 +346,21 @@ function openCalculator() {
     
     if (calculatorFullscreen) {
         calculatorFullscreen.classList.add("active");
+        calculatorFullscreen.style.display = "block";
+        calculatorFullscreen.style.opacity = "1";
+        calculatorFullscreen.style.visibility = "visible";
+        calculatorFullscreen.style.pointerEvents = "auto";
+        calculatorFullscreen.style.zIndex = "9999";
         document.body.style.overflow = "hidden";
+        
+        // Показываем overlay калькулятора
+        if (calculatorOverlay) {
+            calculatorOverlay.style.display = "block";
+            calculatorOverlay.style.opacity = "0.5";
+            calculatorOverlay.style.visibility = "visible";
+            calculatorOverlay.style.pointerEvents = "auto";
+            calculatorOverlay.classList.add("active");
+        }
     }
 }
 

@@ -3,6 +3,10 @@
 // ===============================
 
 function hideAllOverlays() {
+    // НЕ скрываем calculator-overlay если калькулятор активен
+    const calculatorFullscreen = document.getElementById('calculatorFullscreen');
+    const isCalculatorActive = calculatorFullscreen && calculatorFullscreen.classList.contains('active');
+    
     const overlays = document.querySelectorAll(`
         .overlay,
         .modal-overlay,
@@ -13,10 +17,19 @@ function hideAllOverlays() {
         .modal-bg
     `);
 
-    overlays.forEach(el => el.style.display = 'none');
+    overlays.forEach(el => {
+        // Пропускаем calculator-overlay если калькулятор активен
+        if (isCalculatorActive && el.classList.contains('calculator-overlay')) {
+            return;
+        }
+        el.style.display = 'none';
+    });
 
-    document.body.style.overflow = '';
-    document.documentElement.style.overflow = '';
+    // Восстанавливаем скролл только если калькулятор не активен
+    if (!isCalculatorActive) {
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+    }
 }
 
 function closeRequestForm() {
@@ -74,7 +87,8 @@ function attachCloseHandlers() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    hideAllOverlays();
+    // НЕ вызываем hideAllOverlays() при загрузке - это скрывает калькулятор
+    // hideAllOverlays() вызывается только при закрытии
     attachCloseHandlers();
 });
 
