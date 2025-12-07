@@ -168,6 +168,21 @@ function resetCalculator() {
    НАВИГАЦИЯ ПО ШАГАМ
    ============================= */
 
+// Функции навигации по шагам
+function nextStep() {
+    if (canProceedToNextStep() && currentStep < totalSteps) {
+        goToStep(currentStep + 1);
+    } else {
+        alert("Заполните все обязательные поля!");
+    }
+}
+
+function prevStep() {
+    if (currentStep > 1) {
+        goToStep(currentStep - 1);
+    }
+}
+
 function goToStep(step) {
     // Валидация шага
     if (step < 1 || step > totalSteps) {
@@ -1665,15 +1680,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 e.stopPropagation();
                 
                 if (target.id === 'btnBack') {
-                    if (currentStep > 1) {
-                        goToStep(currentStep - 1);
-                    }
+                    prevStep();
                 } else if (target.id === 'btnNext') {
-                    if (canProceedToNextStep() && currentStep < totalSteps) {
-                        goToStep(currentStep + 1);
-                    } else {
-                        alert("Заполните все обязательные поля!");
-                    }
+                    nextStep();
                 } else if (target.id === 'btnBook') {
                     if (typeof window.openRequestForm === 'function') {
                         window.openRequestForm();
@@ -1687,9 +1696,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btnBackEl.onclick = function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                if (currentStep > 1) {
-                    goToStep(currentStep - 1);
-                }
+                prevStep();
             };
         }
         
@@ -1698,11 +1705,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btnNextEl.onclick = function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                if (canProceedToNextStep() && currentStep < totalSteps) {
-                    goToStep(currentStep + 1);
-                } else {
-                    alert("Заполните все обязательные поля!");
-                }
+                nextStep();
             };
         }
         
@@ -1723,6 +1726,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 e.preventDefault();
                 e.stopPropagation();
                 closeCalculator();
+                resetCalculator();
             };
         }
         

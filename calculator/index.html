@@ -367,6 +367,11 @@
                     if (typeof window.openCalculator === 'function') {
                         window.openCalculator();
                     }
+                    
+                    // Сбрасываем калькулятор при открытии
+                    if (typeof window.resetCalculator === 'function') {
+                        window.resetCalculator();
+                    }
                 }
             }, 300);
         });
