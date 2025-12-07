@@ -51,29 +51,8 @@ function closeRequestForm() {
     }, 80);
 }
 
-function closeCalculator() {
-    // Используем правильный селектор для калькулятора
-    const calc = document.getElementById('calculatorFullscreen');
-
-    if (calc) {
-        calc.classList.remove("active");
-        calc.style.setProperty('display', 'none', 'important');
-        calc.style.setProperty('opacity', '0', 'important');
-        calc.style.setProperty('visibility', 'hidden', 'important');
-        calc.style.setProperty('pointer-events', 'none', 'important');
-        calc.style.setProperty('z-index', '-1', 'important');
-    }
-
-    hideAllOverlays();
-
-    // Восстанавливаем скролл
-    document.body.style.overflow = '';
-    document.documentElement.style.overflow = '';
-
-    setTimeout(() => {
-        window.location.href = '/landpadge/';
-    }, 80);
-}
+// closeCalculator() определена в calculator-fullscreen.js и доступна через window.closeCalculator
+// Не дублируем её здесь, чтобы избежать конфликтов
 
 function attachCloseHandlers() {
     // НЕ привязываем обработчики к calculator-close и request-close - они уже обрабатываются в calculator-fullscreen.js
@@ -91,13 +70,21 @@ function attachCloseHandlers() {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 closeRequestForm();
-                closeCalculator();
+                // Используем функцию из calculator-fullscreen.js
+                if (typeof window.closeCalculator === 'function') {
+                    window.closeCalculator();
+                }
             });
         }
     });
 
     window.closeForm = closeRequestForm;
-    window.closeCalc = closeCalculator;
+    // window.closeCalc использует window.closeCalculator из calculator-fullscreen.js
+    window.closeCalc = function() {
+        if (typeof window.closeCalculator === 'function') {
+            window.closeCalculator();
+        }
+    };
 }
 
 document.addEventListener('DOMContentLoaded', () => {
