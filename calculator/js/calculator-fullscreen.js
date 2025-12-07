@@ -1111,6 +1111,13 @@ function renderPackages() {
             }
 
             calculateTotal();
+            
+            // Автоматический переход на следующий шаг после выбора пакета
+            setTimeout(() => {
+                if (currentStep === 3 && selectedPackage !== null) {
+                    goToStep(4);
+                }
+            }, 500);
         };
 
         packageList.appendChild(div);
