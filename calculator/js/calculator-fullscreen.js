@@ -1214,10 +1214,10 @@ function renderAdditionalServices() {
             
             // Автоматический переход на следующий шаг после выбора дополнительной услуги
             setTimeout(() => {
-                if (canProceedToNextStep() && currentStep === 3 && selectedAdditionalServices.length > 0) {
+                if (currentStep === 3 && selectedAdditionalServices.length > 0) {
                     goToStep(4);
                 }
-            }, 300);
+            }, 500);
         });
 
         additionalServicesContainer.appendChild(label);
@@ -1298,10 +1298,10 @@ function renderRiskZones() {
             
             // Автоматический переход на следующий шаг после выбора зоны риска
             setTimeout(() => {
-                if (canProceedToNextStep() && currentStep === 3 && selectedRiskZones.length > 0) {
+                if (currentStep === 3 && selectedRiskZones.length > 0) {
                     goToStep(4);
                 }
-            }, 300);
+            }, 500);
         });
         
         // Сохранить ссылку на label для подсветки
