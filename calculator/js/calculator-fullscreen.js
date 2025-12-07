@@ -1598,35 +1598,58 @@ document.addEventListener("DOMContentLoaded", () => {
     updateNavigationButtons();
     updateStepsIndicator();
     
-    // КРИТИЧЕСКИ ВАЖНО: Переинициализация обработчиков кнопок навигации
-    // на случай, если они не были привязаны при первой загрузке
+    // КРИТИЧЕСКИ ВАЖНО: Привязка всех обработчиков кнопок
     const btnBackEl = document.getElementById("btnBack");
     const btnNextEl = document.getElementById("btnNext");
+    const calculatorCloseEl = document.getElementById("calculatorClose");
+    const calculatorOverlayEl = document.querySelector(".calculator-overlay");
     
+    // Обработчик кнопки "Назад"
     if (btnBackEl) {
-        // Удаляем все старые обработчики через клонирование
-        btnBackEl.replaceWith(btnBackEl.cloneNode(true));
-        const newBtnBack = document.getElementById("btnBack");
-        newBtnBack.addEventListener("click", (e) => {
+        btnBackEl.addEventListener("click", (e) => {
             e.preventDefault();
             e.stopPropagation();
             if (currentStep > 1) {
                 goToStep(currentStep - 1);
             }
         });
+    } else {
+        console.error("btnBack не найден!");
     }
     
+    // Обработчик кнопки "Далее"
     if (btnNextEl) {
-        // Удаляем все старые обработчики через клонирование
-        btnNextEl.replaceWith(btnNextEl.cloneNode(true));
-        const newBtnNext = document.getElementById("btnNext");
-        newBtnNext.addEventListener("click", (e) => {
+        btnNextEl.addEventListener("click", (e) => {
             e.preventDefault();
             e.stopPropagation();
             if (canProceedToNextStep() && currentStep < totalSteps) {
                 goToStep(currentStep + 1);
             } else {
                 alert("Заполните все обязательные поля!");
+            }
+        });
+    } else {
+        console.error("btnNext не найден!");
+    }
+    
+    // Обработчик крестика закрытия калькулятора
+    if (calculatorCloseEl) {
+        calculatorCloseEl.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            closeCalculator();
+        });
+    } else {
+        console.error("calculatorClose не найден!");
+    }
+    
+    // Обработчик клика на overlay для закрытия калькулятора
+    if (calculatorOverlayEl) {
+        calculatorOverlayEl.addEventListener("click", (e) => {
+            if (e.target === calculatorOverlayEl) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeCalculator();
             }
         });
     }
