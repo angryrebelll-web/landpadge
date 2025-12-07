@@ -403,6 +403,7 @@ function hideAllOverlays() {
    ============================= */
 
 function openCalculator() {
+    // ВАЖНО: Сбрасываем калькулятор при открытии
     resetCalculator();
     
     if (calculatorFullscreen) {
@@ -412,7 +413,12 @@ function openCalculator() {
         calculatorFullscreen.style.setProperty('visibility', 'visible', 'important');
         calculatorFullscreen.style.setProperty('pointer-events', 'auto', 'important');
         calculatorFullscreen.style.setProperty('z-index', '9999', 'important');
+        
+        // Блокируем скролл фона (для мобильных и десктопа)
         document.body.style.overflow = "hidden";
+        document.body.style.position = "fixed";
+        document.body.style.width = "100%";
+        document.documentElement.style.overflow = "hidden";
         
         // Показываем overlay калькулятора
         if (calculatorOverlay) {
@@ -442,6 +448,13 @@ function openCalculator() {
             calculatorContent.style.setProperty('opacity', '1', 'important');
             calculatorContent.style.setProperty('visibility', 'visible', 'important');
             calculatorContent.style.setProperty('z-index', '10002', 'important');
+            calculatorContent.style.setProperty('pointer-events', 'auto', 'important');
+        }
+        
+        // Убеждаемся что кнопка закрытия кликабельна
+        if (calculatorClose) {
+            calculatorClose.style.setProperty('z-index', '10003', 'important');
+            calculatorClose.style.setProperty('pointer-events', 'auto', 'important');
         }
     }
 }
@@ -450,9 +463,20 @@ function openCalculator() {
 function closeCalculator() {
     if (calculatorFullscreen) {
         calculatorFullscreen.classList.remove("active");
-        document.body.style.overflow = "";
+        calculatorFullscreen.style.setProperty('display', 'none', 'important');
+        calculatorFullscreen.style.setProperty('opacity', '0', 'important');
+        calculatorFullscreen.style.setProperty('visibility', 'hidden', 'important');
+        calculatorFullscreen.style.setProperty('pointer-events', 'none', 'important');
+        calculatorFullscreen.style.setProperty('z-index', '-1', 'important');
     }
     
+    // Восстанавливаем скролл фона
+    document.body.style.overflow = "";
+    document.body.style.position = "";
+    document.body.style.width = "";
+    document.documentElement.style.overflow = "";
+    
+    // ВАЖНО: Сбрасываем калькулятор при закрытии
     resetCalculator();
     
     // Возврат на главную страницу сайта (добавлено для нашего проекта)
@@ -461,60 +485,92 @@ function closeCalculator() {
     }, 100);
 }
 
-// Обработчики закрытия - ТОЧНАЯ КОПИЯ ИЗ ОРИГИНАЛА
-if (calculatorClose) {
-    calculatorClose.addEventListener("click", closeCalculator);
-}
-
-if (calculatorOverlay) {
-    calculatorOverlay.addEventListener("click", (e) => {
-        if (e.target === calculatorOverlay) {
+// Функция для привязки всех обработчиков кнопок
+function attachButtonHandlers() {
+    // Обработчики закрытия - ТОЧНАЯ КОПИЯ ИЗ ОРИГИНАЛА
+    const calcClose = document.getElementById("calculatorClose");
+    if (calcClose) {
+        // Удаляем старые обработчики
+        const newClose = calcClose.cloneNode(true);
+        calcClose.parentNode.replaceChild(newClose, calcClose);
+        newClose.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             closeCalculator();
-        }
-    });
-}
+        });
+    }
 
-// Навигация по шагам - ТОЧНАЯ КОПИЯ ИЗ ОРИГИНАЛА
-if (btnBack) {
-    btnBack.addEventListener("click", () => {
-        if (currentStep > 1) {
-            goToStep(currentStep - 1);
-        }
-    });
-}
-
-if (btnNext) {
-    btnNext.addEventListener("click", () => {
-        if (canProceedToNextStep() && currentStep < totalSteps) {
-            goToStep(currentStep + 1);
-        } else {
-            alert("Заполните все обязательные поля!");
-        }
-    });
-}
-
-// Кнопка "Записаться" - ТОЧНАЯ КОПИЯ ИЗ ОРИГИНАЛА (адаптировано под requestModal)
-if (btnBook) {
-    btnBook.addEventListener("click", () => {
-        if (totalPrice <= 0) {
-            alert("Сначала выберите автомобиль и услуги!");
-            return;
-        }
-
-        // Открываем форму заявки через openRequestForm
-        if (typeof window.openRequestForm === 'function') {
-            window.openRequestForm();
-        } else {
-            // Fallback: открываем requestModal напрямую
-            const requestModal = document.getElementById('requestModal');
-            if (requestModal) {
-                requestModal.classList.remove('hidden');
-                requestModal.style.display = 'flex';
-                document.body.style.overflow = "hidden";
+    const calcOverlay = document.querySelector(".calculator-overlay");
+    if (calcOverlay) {
+        calcOverlay.addEventListener("click", (e) => {
+            if (e.target === calcOverlay) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeCalculator();
             }
-        }
-    });
+        });
+    }
+
+    // Навигация по шагам - ТОЧНАЯ КОПИЯ ИЗ ОРИГИНАЛА
+    const backBtn = document.getElementById("btnBack");
+    if (backBtn) {
+        const newBack = backBtn.cloneNode(true);
+        backBtn.parentNode.replaceChild(newBack, backBtn);
+        newBack.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (currentStep > 1) {
+                goToStep(currentStep - 1);
+            }
+        });
+    }
+
+    const nextBtn = document.getElementById("btnNext");
+    if (nextBtn) {
+        const newNext = nextBtn.cloneNode(true);
+        nextBtn.parentNode.replaceChild(newNext, nextBtn);
+        newNext.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (canProceedToNextStep() && currentStep < totalSteps) {
+                goToStep(currentStep + 1);
+            } else {
+                alert("Заполните все обязательные поля!");
+            }
+        });
+    }
+
+    // Кнопка "Записаться" - ТОЧНАЯ КОПИЯ ИЗ ОРИГИНАЛА (адаптировано под requestModal)
+    const bookBtn = document.getElementById("btnBook");
+    if (bookBtn) {
+        const newBook = bookBtn.cloneNode(true);
+        bookBtn.parentNode.replaceChild(newBook, bookBtn);
+        newBook.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (totalPrice <= 0) {
+                alert("Сначала выберите автомобиль и услуги!");
+                return;
+            }
+
+            // Открываем форму заявки через openRequestForm
+            if (typeof window.openRequestForm === 'function') {
+                window.openRequestForm();
+            } else {
+                // Fallback: открываем requestModal напрямую
+                const requestModal = document.getElementById('requestModal');
+                if (requestModal) {
+                    requestModal.classList.remove('hidden');
+                    requestModal.style.display = 'flex';
+                    document.body.style.overflow = "hidden";
+                }
+            }
+        });
+    }
 }
+
+// Привязываем обработчики сразу (если элементы уже загружены)
+attachButtonHandlers();
 
 /* =============================
    1) ВЫБОР ТИПА АВТО
@@ -1703,7 +1759,8 @@ document.addEventListener("DOMContentLoaded", () => {
     updateNavigationButtons();
     updateStepsIndicator();
     
-    // Обработчики уже привязаны в глобальной области выше (как в оригинале)
+    // Перепривязываем обработчики на случай если элементы загрузились позже
+    attachButtonHandlers();
     
     // Инициализация новой формы заявки
     const requestCloseBtn = document.getElementById('requestCloseBtn');
