@@ -1140,7 +1140,6 @@ body {
     background: #0f7070;
     border-color: rgba(0, 255, 255, 0.25);
 }
-}
 
 .popular-chip:active::after {
     background-size: 35% 60%, 100% 100%, 100%;
@@ -1994,8 +1993,9 @@ body {
     -webkit-backdrop-filter: none !important;
     border-top: 1px solid rgba(22, 132, 145, 0.3);
     padding: 20px;
-    z-index: 10000;
+    z-index: 10000 !important;
     box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
+    pointer-events: auto !important;
 }
 
 .bottom-panel-content {
@@ -2028,7 +2028,19 @@ body {
     display: flex;
     gap: 12px;
     pointer-events: auto !important;
-    z-index: 10001 !important;
+    z-index: 10002 !important;
+    position: relative;
+}
+
+.bottom-actions * {
+    pointer-events: auto !important;
+    z-index: inherit;
+}
+
+.bottom-actions button {
+    pointer-events: auto !important;
+    z-index: 10002 !important;
+    position: relative;
 }
 
 .btn-primary,
@@ -2048,8 +2060,10 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     pointer-events: auto !important;
-    z-index: 1000 !important;
+    z-index: 10002 !important;
     user-select: none;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .btn-primary .button-outer,

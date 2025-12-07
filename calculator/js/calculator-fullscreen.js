@@ -320,12 +320,16 @@ function updateNavigationButtons() {
     // Кнопка "Назад"
     if (btnBackEl) {
         if (currentStep === 1) {
-            btnBackEl.style.display = "none";
+            btnBackEl.style.setProperty("display", "none", "important");
         } else {
-            btnBackEl.style.display = "flex";
-            btnBackEl.style.pointerEvents = "auto";
-            btnBackEl.style.cursor = "pointer";
-            btnBackEl.style.zIndex = "1000";
+            btnBackEl.style.setProperty("display", "flex", "important");
+            btnBackEl.style.setProperty("pointer-events", "auto", "important");
+            btnBackEl.style.setProperty("cursor", "pointer", "important");
+            btnBackEl.style.setProperty("z-index", "10002", "important");
+            btnBackEl.style.setProperty("position", "relative", "important");
+            // Убираем любые блокирующие стили
+            btnBackEl.style.opacity = "1";
+            btnBackEl.style.visibility = "visible";
         }
     }
     
@@ -333,22 +337,28 @@ function updateNavigationButtons() {
     if (btnNextEl && btnBookEl) {
         if (currentStep === totalSteps) {
             // На последнем шаге (шаг 4) скрываем "Далее" и показываем "Записаться"
-            btnNextEl.style.display = "none";
+            btnNextEl.style.setProperty("display", "none", "important");
             if (totalPrice > 0) {
-                btnBookEl.style.display = "flex";
-                btnBookEl.style.pointerEvents = "auto";
-                btnBookEl.style.cursor = "pointer";
-                btnBookEl.style.zIndex = "1000";
+                btnBookEl.style.setProperty("display", "flex", "important");
+                btnBookEl.style.setProperty("pointer-events", "auto", "important");
+                btnBookEl.style.setProperty("cursor", "pointer", "important");
+                btnBookEl.style.setProperty("z-index", "10002", "important");
+                btnBookEl.style.setProperty("position", "relative", "important");
+                btnBookEl.style.opacity = "1";
+                btnBookEl.style.visibility = "visible";
             } else {
-                btnBookEl.style.display = "none";
+                btnBookEl.style.setProperty("display", "none", "important");
             }
         } else {
             // На других шагах показываем "Далее" и скрываем "Записаться"
-            btnNextEl.style.display = "flex";
-            btnNextEl.style.pointerEvents = "auto";
-            btnNextEl.style.cursor = "pointer";
-            btnNextEl.style.zIndex = "1000";
-            btnBookEl.style.display = "none";
+            btnNextEl.style.setProperty("display", "flex", "important");
+            btnNextEl.style.setProperty("pointer-events", "auto", "important");
+            btnNextEl.style.setProperty("cursor", "pointer", "important");
+            btnNextEl.style.setProperty("z-index", "10002", "important");
+            btnNextEl.style.setProperty("position", "relative", "important");
+            btnNextEl.style.opacity = "1";
+            btnNextEl.style.visibility = "visible";
+            btnBookEl.style.setProperty("display", "none", "important");
         }
     }
 }
@@ -360,7 +370,8 @@ function canProceedToNextStep() {
         case 2:
             return selectedBrand !== null && selectedModel !== null && selectedClass !== null;
         case 3:
-            return selectedPackage !== null || selectedRiskZones.length > 0;
+            // Можно перейти, если выбран пакет, зоны риска или дополнительные услуги
+            return selectedPackage !== null || selectedRiskZones.length > 0 || selectedAdditionalServices.length > 0;
         case 4:
             return true;
         default:
@@ -528,10 +539,20 @@ function attachButtonHandlers() {
         backBtn.addEventListener("click", (e) => {
             e.preventDefault();
             e.stopPropagation();
+            e.stopImmediatePropagation();
+            console.log("Кнопка 'Назад' нажата, текущий шаг:", currentStep);
             if (currentStep > 1) {
                 goToStep(currentStep - 1);
             }
         });
+        // Дополнительная защита - обработчик на touchstart для мобильных
+        backBtn.addEventListener("touchstart", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (currentStep > 1) {
+                goToStep(currentStep - 1);
+            }
+        }, { passive: false });
     }
 
     const nextBtn = document.getElementById("btnNext");
@@ -540,12 +561,24 @@ function attachButtonHandlers() {
         nextBtn.addEventListener("click", (e) => {
             e.preventDefault();
             e.stopPropagation();
+            e.stopImmediatePropagation();
+            console.log("Кнопка 'Далее' нажата, текущий шаг:", currentStep, "canProceed:", canProceedToNextStep());
             if (canProceedToNextStep() && currentStep < totalSteps) {
                 goToStep(currentStep + 1);
             } else {
                 alert("Заполните все обязательные поля!");
             }
         });
+        // Дополнительная защита - обработчик на touchstart для мобильных
+        nextBtn.addEventListener("touchstart", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (canProceedToNextStep() && currentStep < totalSteps) {
+                goToStep(currentStep + 1);
+            } else {
+                alert("Заполните все обязательные поля!");
+            }
+        }, { passive: false });
     }
 
     // Кнопка "Записаться" - открывает форму заявки
@@ -555,6 +588,8 @@ function attachButtonHandlers() {
         bookBtn.addEventListener("click", (e) => {
             e.preventDefault();
             e.stopPropagation();
+            e.stopImmediatePropagation();
+            console.log("Кнопка 'Записаться' нажата, текущий шаг:", currentStep, "totalPrice:", totalPrice);
             
             // Проверяем что мы на последнем шаге и есть выбранные услуги
             if (currentStep !== totalSteps) {
@@ -585,6 +620,16 @@ function attachButtonHandlers() {
                 }
             }
         });
+        // Дополнительная защита - обработчик на touchstart для мобильных
+        bookBtn.addEventListener("touchstart", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (currentStep === totalSteps && totalPrice > 0) {
+                if (typeof window.openRequestForm === 'function') {
+                    window.openRequestForm();
+                }
+            }
+        }, { passive: false });
     }
 }
 
@@ -1289,7 +1334,33 @@ function renderPackages() {
                 removePackageZonesHighlight();
             }
 
+            // КРИТИЧЕСКИ ВАЖНО: Обновляем кнопки навигации после выбора пакета
             calculateTotal();
+            
+            // Небольшая задержка для гарантии обновления DOM
+            setTimeout(() => {
+                updateNavigationButtons();
+                
+                // Дополнительно убеждаемся что кнопки кликабельны
+                const btnNextEl = document.getElementById("btnNext");
+                const btnBackEl = document.getElementById("btnBack");
+                if (btnNextEl) {
+                    btnNextEl.style.setProperty("pointer-events", "auto", "important");
+                    btnNextEl.style.setProperty("cursor", "pointer", "important");
+                    btnNextEl.style.setProperty("z-index", "10002", "important");
+                    btnNextEl.style.setProperty("position", "relative", "important");
+                    btnNextEl.style.opacity = "1";
+                    btnNextEl.style.visibility = "visible";
+                }
+                if (btnBackEl && currentStep > 1) {
+                    btnBackEl.style.setProperty("pointer-events", "auto", "important");
+                    btnBackEl.style.setProperty("cursor", "pointer", "important");
+                    btnBackEl.style.setProperty("z-index", "10002", "important");
+                    btnBackEl.style.setProperty("position", "relative", "important");
+                    btnBackEl.style.opacity = "1";
+                    btnBackEl.style.visibility = "visible";
+                }
+            }, 50);
         };
 
         packageList.appendChild(div);
@@ -1393,6 +1464,11 @@ function renderAdditionalServices() {
             }
 
             calculateTotal();
+            
+            // Обновляем кнопки навигации после изменения дополнительных услуг
+            setTimeout(() => {
+                updateNavigationButtons();
+            }, 50);
         });
 
         additionalServicesContainer.appendChild(label);
@@ -1470,6 +1546,11 @@ function renderRiskZones() {
             }
 
             calculateTotal();
+            
+            // Обновляем кнопки навигации после изменения зон
+            setTimeout(() => {
+                updateNavigationButtons();
+            }, 50);
         });
         
         // Сохранить ссылку на label для подсветки
@@ -1535,8 +1616,10 @@ function calculateTotal() {
     // Обновить итоговый шаг
     updateSummaryStep();
     
-    // Обновить кнопки навигации
-    updateNavigationButtons();
+    // Обновить кнопки навигации с небольшой задержкой для гарантии
+    setTimeout(() => {
+        updateNavigationButtons();
+    }, 10);
 }
 
 function updateSummaryStep() {
