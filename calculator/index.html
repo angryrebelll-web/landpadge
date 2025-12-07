@@ -286,31 +286,7 @@
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="./js/prices.js"></script>
-    <script src="./js/cars.js"></script>
-    <script src="./js/calculator-fullscreen.js"></script>
-    
-    <!-- Автоматическое открытие калькулятора при загрузке -->
-    <script>
-        // Функция будет вызвана из calculator-fullscreen.js после инициализации
-        // Дублируем на случай, если основной скрипт не загрузился
-        window.addEventListener("load", () => {
-            setTimeout(() => {
-                const calc = document.getElementById("calculatorFullscreen");
-                if (calc && !calc.classList.contains("active")) {
-                    if (typeof window.openCalculator === 'function') {
-                        window.openCalculator();
-                    } else {
-                        calc.classList.add("active");
-                        document.body.style.overflow = "hidden";
-                    }
-                }
-            }, 500);
-        });
-    </script>
-    
-    <!-- Request Form Modal - Модальное окно формы заявки (ПЕРЕД скриптами для доступности в DOM) -->
+    <!-- Request Form Modal - Модальное окно формы заявки -->
     <div id="requestModal" class="request-modal hidden">
         <div class="request-overlay"></div>
         <div class="request-content">
@@ -350,30 +326,33 @@
     </div>
     
     <!-- Scripts -->
-    <script src="./js/prices.js"></script>
-    <script src="./js/cars.js"></script>
-    <script src="./js/calculator-fullscreen.js"></script>
+    <script src="/landpadge/calculator/js/prices.js"></script>
+    <script src="/landpadge/calculator/js/cars.js"></script>
+    <script src="/landpadge/calculator/js/calculator-fullscreen.js"></script>
     
     <!-- Автоматическое открытие калькулятора при загрузке -->
     <script>
         // Функция будет вызвана из calculator-fullscreen.js после инициализации
-        // Дублируем на случай, если основной скрипт не загрузился
-        window.addEventListener("load", () => {
+        window.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 const calc = document.getElementById("calculatorFullscreen");
-                if (calc && !calc.classList.contains("active")) {
+                if (calc) {
                     if (typeof window.openCalculator === 'function') {
                         window.openCalculator();
                     } else {
                         calc.classList.add("active");
+                        calc.style.display = "block";
+                        calc.style.opacity = "1";
+                        calc.style.visibility = "visible";
+                        calc.style.pointerEvents = "auto";
                         document.body.style.overflow = "hidden";
                     }
                 }
-            }, 500);
+            }, 200);
         });
     </script>
     
     <!-- FIX для калькулятора и формы заявки -->
-    <script src="./fix-calculator.js"></script>
+    <script src="/landpadge/calculator/fix-calculator.js"></script>
 </body>
 </html>

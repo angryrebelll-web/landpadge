@@ -105,10 +105,12 @@ body {
 }
 
 .calculator-fullscreen.active {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    z-index: 9999 !important;
+    background: transparent !important;
 }
 
 .calculator-overlay {
