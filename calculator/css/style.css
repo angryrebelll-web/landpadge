@@ -1997,6 +1997,8 @@ body {
 .bottom-actions {
     display: flex;
     gap: 12px;
+    pointer-events: auto !important;
+    z-index: 10001 !important;
 }
 
 .btn-primary,
@@ -2027,11 +2029,15 @@ body {
     border-radius: inherit;
     transition: box-shadow 300ms ease;
     will-change: box-shadow;
+    pointer-events: auto !important;
+    cursor: pointer !important;
 }
 
 .btn-primary .button-inner,
 .btn-secondary .button-inner {
     --inset: 0.035em;
+    pointer-events: auto !important;
+    cursor: pointer !important;
     position: relative;
     z-index: 1;
     border-radius: inherit;
