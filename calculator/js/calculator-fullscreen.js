@@ -1114,10 +1114,11 @@ function renderPackages() {
             
             // Автоматический переход на следующий шаг после выбора пакета
             setTimeout(() => {
+                // Проверяем, что мы на шаге 3 и пакет выбран
                 if (currentStep === 3 && selectedPackage !== null) {
                     goToStep(4);
                 }
-            }, 500);
+            }, 600);
         };
 
         packageList.appendChild(div);
@@ -1221,10 +1222,11 @@ function renderAdditionalServices() {
             
             // Автоматический переход на следующий шаг после выбора дополнительной услуги
             setTimeout(() => {
+                // Проверяем, что мы на шаге 3 и выбрана хотя бы одна услуга
                 if (currentStep === 3 && selectedAdditionalServices.length > 0) {
                     goToStep(4);
                 }
-            }, 500);
+            }, 600);
         });
 
         additionalServicesContainer.appendChild(label);
@@ -1305,10 +1307,11 @@ function renderRiskZones() {
             
             // Автоматический переход на следующий шаг после выбора зоны риска
             setTimeout(() => {
+                // Проверяем, что мы на шаге 3 и выбрана хотя бы одна зона
                 if (currentStep === 3 && selectedRiskZones.length > 0) {
                     goToStep(4);
                 }
-            }, 500);
+            }, 600);
         });
         
         // Сохранить ссылку на label для подсветки
