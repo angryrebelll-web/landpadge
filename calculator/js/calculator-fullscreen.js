@@ -1525,14 +1525,7 @@ window.closeRequestForm = function() {
     }
 };
 
-// Обработчик кнопки "Записаться"
-if (btnBook) {
-    btnBook.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        openRequestForm();
-    });
-}
+// Обработчик кнопки "Записаться" - перенесен в DOMContentLoaded для надежности
 
 // Обработчики закрытия модального окна выбора модели
 if (modelClose) {
