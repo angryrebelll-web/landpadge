@@ -1606,13 +1606,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const calculatorCloseEl = document.getElementById("calculatorClose");
         const calculatorOverlayEl = document.querySelector(".calculator-overlay");
         
+        let allFound = true;
+        
         // Обработчик кнопки "Назад"
         if (btnBackEl) {
-            // Удаляем все старые обработчики
-            btnBackEl.onclick = null;
-            btnBackEl.removeEventListener("click", arguments.callee);
+            // Удаляем все старые обработчики через клонирование
+            const newBtnBack = btnBackEl.cloneNode(true);
+            btnBackEl.parentNode.replaceChild(newBtnBack, btnBackEl);
             
-            btnBackEl.onclick = function(e) {
+            newBtnBack.onclick = function(e) {
                 e = e || window.event;
                 if (e) {
                     e.preventDefault();
@@ -1625,16 +1627,16 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         } else {
             console.error("btnBack не найден!");
-            return false;
+            allFound = false;
         }
         
         // Обработчик кнопки "Далее"
         if (btnNextEl) {
-            // Удаляем все старые обработчики
-            btnNextEl.onclick = null;
-            btnNextEl.removeEventListener("click", arguments.callee);
+            // Удаляем все старые обработчики через клонирование
+            const newBtnNext = btnNextEl.cloneNode(true);
+            btnNextEl.parentNode.replaceChild(newBtnNext, btnNextEl);
             
-            btnNextEl.onclick = function(e) {
+            newBtnNext.onclick = function(e) {
                 e = e || window.event;
                 if (e) {
                     e.preventDefault();
@@ -1649,16 +1651,16 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         } else {
             console.error("btnNext не найден!");
-            return false;
+            allFound = false;
         }
         
         // Обработчик крестика закрытия калькулятора
         if (calculatorCloseEl) {
-            // Удаляем все старые обработчики
-            calculatorCloseEl.onclick = null;
-            calculatorCloseEl.removeEventListener("click", arguments.callee);
+            // Удаляем все старые обработчики через клонирование
+            const newCalculatorClose = calculatorCloseEl.cloneNode(true);
+            calculatorCloseEl.parentNode.replaceChild(newCalculatorClose, calculatorCloseEl);
             
-            calculatorCloseEl.onclick = function(e) {
+            newCalculatorClose.onclick = function(e) {
                 e = e || window.event;
                 if (e) {
                     e.preventDefault();
@@ -1669,7 +1671,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         } else {
             console.error("calculatorClose не найден!");
-            return false;
+            allFound = false;
         }
         
         // Обработчик клика на overlay для закрытия калькулятора
@@ -1685,7 +1687,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         }
         
-        return true;
+        return allFound;
     }
     
     // Пробуем привязать обработчики несколько раз
