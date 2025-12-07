@@ -498,16 +498,9 @@ function closeCalculator() {
     }, 100);
 }
 
-// Флаг для предотвращения дублирования обработчиков
-let handlersAttached = false;
-
 // Функция для привязки всех обработчиков кнопок
 function attachButtonHandlers() {
-    // Предотвращаем дублирование обработчиков
-    if (handlersAttached) {
-        return;
-    }
-    handlersAttached = true;
+    // Всегда перепривязываем обработчики для надежности
 
     // Обработчики закрытия
     const calcClose = document.getElementById("calculatorClose");
@@ -532,76 +525,106 @@ function attachButtonHandlers() {
         });
     }
 
-    // Навигация по шагам - используем делегирование событий для надежности
-    const bottomActions = document.querySelector(".bottom-actions");
-    if (bottomActions && !bottomActions.dataset.handlerAttached) {
-        bottomActions.dataset.handlerAttached = 'true';
-        bottomActions.addEventListener("click", (e) => {
-            const target = e.target.closest("#btnBack, #btnNext, #btnBook");
-            if (!target) return;
-            
+    // Навигация по шагам - прямые обработчики на кнопки
+    const backBtn = document.getElementById("btnBack");
+    if (backBtn && !backBtn.dataset.clickHandler) {
+        backBtn.dataset.clickHandler = 'true';
+        backBtn.onclick = function(e) {
             e.preventDefault();
             e.stopPropagation();
             e.stopImmediatePropagation();
-            
-            if (target.id === "btnBack") {
-                console.log("Кнопка 'Назад' нажата, текущий шаг:", currentStep);
-                if (currentStep > 1) {
-                    goToStep(currentStep - 1);
-                }
-            } else if (target.id === "btnNext") {
-                console.log("Кнопка 'Далее' нажата, текущий шаг:", currentStep, "canProceed:", canProceedToNextStep());
-                if (canProceedToNextStep() && currentStep < totalSteps) {
-                    goToStep(currentStep + 1);
-                } else {
-                    alert("Заполните все обязательные поля!");
-                }
-            } else if (target.id === "btnBook") {
-                console.log("Кнопка 'Записаться' нажата, текущий шаг:", currentStep, "totalPrice:", totalPrice);
-                if (currentStep !== totalSteps) {
-                    console.warn("Кнопка 'Записаться' нажата не на последнем шаге!");
-                    return;
-                }
-                if (totalPrice <= 0) {
-                    alert("Сначала выберите автомобиль и услуги!");
-                    return;
-                }
-                if (typeof window.openRequestForm === 'function') {
-                    window.openRequestForm();
-                } else {
-                    console.error("Функция openRequestForm не найдена!");
-                    const requestModal = document.getElementById('requestModal');
-                    if (requestModal) {
-                        requestModal.classList.remove('hidden');
-                        requestModal.style.display = 'flex';
-                        requestModal.style.opacity = '1';
-                        requestModal.style.visibility = 'visible';
-                        requestModal.style.pointerEvents = 'auto';
-                        requestModal.style.zIndex = '999999';
-                        document.body.style.overflow = "hidden";
-                    }
-                }
+            console.log("Кнопка 'Назад' нажата, текущий шаг:", currentStep);
+            if (currentStep > 1) {
+                goToStep(currentStep - 1);
             }
-        }, true);
+            return false;
+        };
         
-        // Touch события для мобильных
-        bottomActions.addEventListener("touchend", (e) => {
-            const target = e.target.closest("#btnBack, #btnNext, #btnBook");
-            if (!target) return;
-            
+        backBtn.ontouchend = function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
-            if (target.id === "btnBack" && currentStep > 1) {
+            if (currentStep > 1) {
                 goToStep(currentStep - 1);
-            } else if (target.id === "btnNext" && canProceedToNextStep() && currentStep < totalSteps) {
+            }
+            return false;
+        };
+    }
+
+    const nextBtn = document.getElementById("btnNext");
+    if (nextBtn && !nextBtn.dataset.clickHandler) {
+        nextBtn.dataset.clickHandler = 'true';
+        nextBtn.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            console.log("Кнопка 'Далее' нажата, текущий шаг:", currentStep, "canProceed:", canProceedToNextStep());
+            if (canProceedToNextStep() && currentStep < totalSteps) {
                 goToStep(currentStep + 1);
-            } else if (target.id === "btnBook" && currentStep === totalSteps && totalPrice > 0) {
+            } else {
+                alert("Заполните все обязательные поля!");
+            }
+            return false;
+        };
+        
+        nextBtn.ontouchend = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (canProceedToNextStep() && currentStep < totalSteps) {
+                goToStep(currentStep + 1);
+            } else {
+                alert("Заполните все обязательные поля!");
+            }
+            return false;
+        };
+    }
+
+    const bookBtn = document.getElementById("btnBook");
+    if (bookBtn && !bookBtn.dataset.clickHandler) {
+        bookBtn.dataset.clickHandler = 'true';
+        bookBtn.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            console.log("Кнопка 'Записаться' нажата, текущий шаг:", currentStep, "totalPrice:", totalPrice);
+            
+            if (currentStep !== totalSteps) {
+                console.warn("Кнопка 'Записаться' нажата не на последнем шаге!");
+                return false;
+            }
+            
+            if (totalPrice <= 0) {
+                alert("Сначала выберите автомобиль и услуги!");
+                return false;
+            }
+
+            if (typeof window.openRequestForm === 'function') {
+                window.openRequestForm();
+            } else {
+                console.error("Функция openRequestForm не найдена!");
+                const requestModal = document.getElementById('requestModal');
+                if (requestModal) {
+                    requestModal.classList.remove('hidden');
+                    requestModal.style.display = 'flex';
+                    requestModal.style.opacity = '1';
+                    requestModal.style.visibility = 'visible';
+                    requestModal.style.pointerEvents = 'auto';
+                    requestModal.style.zIndex = '999999';
+                    document.body.style.overflow = "hidden";
+                }
+            }
+            return false;
+        };
+        
+        bookBtn.ontouchend = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (currentStep === totalSteps && totalPrice > 0) {
                 if (typeof window.openRequestForm === 'function') {
                     window.openRequestForm();
                 }
             }
-        }, { passive: false });
+            return false;
+        };
     }
 
 }
@@ -1851,6 +1874,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Привязываем обработчики (если еще не привязаны)
     attachButtonHandlers();
+    
+    // Дополнительная привязка обработчиков после небольшой задержки для гарантии
+    setTimeout(() => {
+        attachButtonHandlers();
+    }, 200);
     
     // Инициализация новой формы заявки
     const requestCloseBtn = document.getElementById('requestCloseBtn');
