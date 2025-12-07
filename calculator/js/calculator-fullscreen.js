@@ -1495,19 +1495,22 @@ window.openRequestForm = function() {
         };
         const additionalServicesNames = selectedAdditionalServices.map(id => serviceNamesMap[id] || id);
         
+        // Формируем информацию о пакете или зонах
+        let packageOrZonesInfo = "—";
+        if (selectedPackage) {
+            packageOrZonesInfo = selectedPackage.name;
+        } else if (selectedRiskZones.length > 0) {
+            packageOrZonesInfo = "Выбранные зоны: " + selectedRiskZones.join(", ");
+        }
+        
         summaryDataEl.textContent = `
 Марка: ${selectedBrand || "—"}
 Модель: ${selectedModel || "—"}
 Класс: ${selectedClass || "—"}
 
-Пакет: ${selectedPackage ? selectedPackage.name : "—"}
+${selectedPackage ? "Пакет:" : "Зоны/Услуги:"} ${packageOrZonesInfo}
 
-Зоны риска:
-${selectedRiskZones.length > 0 ? selectedRiskZones.join(", ") : "—"}
-
-Дополнительные услуги:
-${selectedAdditionalServices.length > 0 ? additionalServicesNames.join(", ") : "—"}
-
+${selectedAdditionalServices.length > 0 ? "Дополнительные услуги:\n" + additionalServicesNames.join(", ") + "\n" : ""}
 ИТОГО: ${totalPrice.toLocaleString("ru-RU")} ₽
         `;
         
