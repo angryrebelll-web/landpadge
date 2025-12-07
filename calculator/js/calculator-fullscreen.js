@@ -1528,8 +1528,14 @@ ${selectedAdditionalServices.length > 0 ? "Дополнительные услу
         }
     }
 
-    // Открываем модалку
+    // Открываем модалку - убираем hidden и показываем явно
     modal.classList.remove('hidden');
+    modal.style.display = 'flex';
+    modal.style.opacity = '1';
+    modal.style.visibility = 'visible';
+    modal.style.pointerEvents = 'auto';
+    modal.style.zIndex = '999999';
+    
     document.body.style.overflow = 'hidden';
     
     // Фокус на первое поле
