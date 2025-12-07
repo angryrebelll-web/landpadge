@@ -441,22 +441,31 @@ if (calculatorOverlay) {
 }
 
 // Навигация по шагам
+// Обработчики кнопок навигации
 if (btnBack) {
-    btnBack.addEventListener("click", () => {
+    btnBack.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         if (currentStep > 1) {
             goToStep(currentStep - 1);
         }
     });
+} else {
+    console.error("btnBack не найден!");
 }
 
 if (btnNext) {
-    btnNext.addEventListener("click", () => {
+    btnNext.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         if (canProceedToNextStep() && currentStep < totalSteps) {
             goToStep(currentStep + 1);
         } else {
             alert("Заполните все обязательные поля!");
         }
     });
+} else {
+    console.error("btnNext не найден!");
 }
 
 /* =============================
