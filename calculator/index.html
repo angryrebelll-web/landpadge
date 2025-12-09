@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propellini — Калькулятор оклейки авто (Fullscreen)</title>
+    
+    <!-- Preload критичных ресурсов -->
+    <link rel="preload" as="style" href="/landpadge/calculator/css/style.css">
+    <link rel="preload" as="script" href="/landpadge/calculator/js/prices.js">
+    <link rel="preload" as="script" href="/landpadge/calculator/js/cars.js">
+    <link rel="preload" as="script" href="/landpadge/calculator/js/calculator-fullscreen.js">
+    <link rel="preload" as="image" href="./img/icons/sedan.svg">
+    <link rel="preload" as="image" href="./img/icons/suv.svg">
+    <link rel="preload" as="image" href="./img/icons/pickup.svg">
+    
     <link rel="stylesheet" href="/landpadge/calculator/css/style.css">
 </head>
 <body>
+    <!-- Skip link для доступности -->
+    <a href="#calculatorFullscreen" class="skip-link">Перейти к калькулятору</a>
+    
     <!-- Fullscreen Modal Overlay -->
-    <div class="calculator-fullscreen" id="calculatorFullscreen">
+    <div class="calculator-fullscreen" id="calculatorFullscreen" role="dialog" aria-modal="true" aria-labelledby="calculator-title">
         <div class="calculator-overlay"></div>
         
         
@@ -49,14 +62,14 @@
                     <!-- Step 1: Тип авто -->
                     <div class="calculator-step active" data-step="1" id="step1">
                         <div class="step-header">
-                            <h2 class="step-title">Выберите тип автомобиля</h2>
+                            <h2 class="step-title" id="calculator-title">Выберите тип автомобиля</h2>
                             <p class="step-subtitle">Это поможет определить базовую стоимость</p>
                         </div>
                         <div class="step-content">
                             <div class="chips" id="carTypeSelect">
                                 <div class="chip" data-type="sedan">
                                     <div class="chip-icon">
-                                        <img src="./img/icons/sedan.svg" alt="Седаны" width="48" height="48">
+                                        <img src="./img/icons/sedan.svg" alt="Седаны" width="48" height="48" loading="eager">
                                     </div>
                                     <div class="chip-text">
                                         <strong>Седаны</strong>
@@ -65,7 +78,7 @@
                                 </div>
                                 <div class="chip" data-type="hatchback">
                                     <div class="chip-icon">
-                                        <img src="./img/icons/hatch.svg" alt="Хэтчбеки" width="48" height="48">
+                                        <img src="./img/icons/hatch.svg" alt="Хэтчбеки" width="48" height="48" loading="eager">
                                     </div>
                                     <div class="chip-text">
                                         <strong>Хэтчбеки</strong>
@@ -74,7 +87,7 @@
                                 </div>
                                 <div class="chip" data-type="suv">
                                     <div class="chip-icon">
-                                        <img src="./img/icons/suv.svg" alt="SUV / Кроссоверы" width="48" height="48">
+                                        <img src="./img/icons/suv.svg" alt="SUV / Кроссоверы" width="48" height="48" loading="eager">
                                     </div>
                                     <div class="chip-text">
                                         <strong>SUV / Кроссоверы</strong>
@@ -83,7 +96,7 @@
                                 </div>
                                 <div class="chip" data-type="coupe">
                                     <div class="chip-icon">
-                                        <img src="./img/icons/coupe.svg" alt="Купе / Спорткары" width="48" height="48">
+                                        <img src="./img/icons/coupe.svg" alt="Купе / Спорткары" width="48" height="48" loading="eager">
                                     </div>
                                     <div class="chip-text">
                                         <strong>Купе / Спорткары</strong>
@@ -92,7 +105,7 @@
                                 </div>
                                 <div class="chip" data-type="pickup">
                                     <div class="chip-icon">
-                                        <img src="./img/icons/pickup.svg" alt="Пикапы" width="48" height="48">
+                                        <img src="./img/icons/pickup.svg" alt="Пикапы" width="48" height="48" loading="eager">
                                     </div>
                                     <div class="chip-text">
                                         <strong>Пикапы</strong>
@@ -101,7 +114,7 @@
                                 </div>
                                 <div class="chip" data-type="minivan">
                                     <div class="chip-icon">
-                                        <img src="./img/icons/minivan.svg" alt="Минивэны" width="48" height="48">
+                                        <img src="./img/icons/minivan.svg" alt="Минивэны" width="48" height="48" loading="eager">
                                     </div>
                                     <div class="chip-text">
                                         <strong>Минивэны</strong>
@@ -110,7 +123,7 @@
                                 </div>
                                 <div class="chip" data-type="minibus">
                                     <div class="chip-icon">
-                                        <img src="./img/icons/microbus.svg" alt="Микроавтобусы" width="48" height="48">
+                                        <img src="./img/icons/microbus.svg" alt="Микроавтобусы" width="48" height="48" loading="eager">
                                     </div>
                                     <div class="chip-text">
                                         <strong>Микроавтобусы</strong>
@@ -276,7 +289,7 @@
                 </svg>
             </button>
             <div class="model-header">
-                <h2 class="model-title">Выберите модель</h2>
+                <h2 class="model-title" id="model-title">Выберите модель</h2>
                 <p class="model-subtitle" id="modelBrandName">—</p>
             </div>
             <div class="model-body">
@@ -287,12 +300,12 @@
     </div>
 
     <!-- Request Form Modal - Модальное окно формы заявки -->
-    <div id="requestModal" class="request-modal hidden">
+    <div id="requestModal" class="request-modal hidden" role="dialog" aria-modal="true" aria-labelledby="request-title">
         <div class="request-overlay"></div>
         <div class="request-content">
-            <button class="request-close" id="requestCloseBtn">×</button>
+            <button class="request-close" id="requestCloseBtn" aria-label="Закрыть форму">×</button>
             
-            <h2 class="request-title">Оставьте заявку</h2>
+            <h2 class="request-title" id="request-title">Оставьте заявку</h2>
             
             <form id="requestForm">
                 <div class="form-group">
@@ -377,7 +390,5 @@
         });
     </script>
     
-    <!-- FIX для калькулятора и формы заявки -->
-    <script src="./fix-calculator.js"></script>
 </body>
 </html>

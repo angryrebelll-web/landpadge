@@ -1,3 +1,5 @@
+'use strict';
+
 /* =============================
    PROPellini Calculator Fullscreen Logic
    ============================= */
@@ -385,8 +387,16 @@ function canProceedToNextStep() {
 
 // Универсальное скрытие всех overlay, модалок и блокировок
 function hideAllOverlays() {
-    const overlays = document.querySelectorAll('.overlay, .modal-overlay, .request-overlay, .calculator-overlay, .model-overlay, .dark-bg, .blur-bg');
+    // НЕ скрываем calculator-overlay если калькулятор активен
+    const calculatorFullscreen = document.getElementById('calculatorFullscreen');
+    const isCalculatorActive = calculatorFullscreen && calculatorFullscreen.classList.contains('active');
+    
+    const overlays = document.querySelectorAll('.overlay, .modal-overlay, .request-overlay, .calculator-overlay, .model-overlay, .dark-bg, .blur-bg, .backdrop, .modal-bg');
     overlays.forEach(el => {
+        // Пропускаем calculator-overlay если калькулятор активен
+        if (isCalculatorActive && el.classList.contains('calculator-overlay')) {
+            return;
+        }
         el.style.display = 'none';
         el.style.opacity = '0';
         el.style.visibility = 'hidden';
@@ -395,29 +405,97 @@ function hideAllOverlays() {
         el.classList.remove('active');
     });
     
-    // Восстанавливаем скролл
-    document.body.style.overflow = '';
-    document.body.style.overflowX = '';
-    document.body.style.overflowY = '';
-    document.body.style.height = '';
-    document.body.style.position = '';
-    document.body.style.background = '';
-    document.body.style.backgroundColor = '';
-    document.documentElement.style.overflow = '';
-    document.documentElement.style.background = '';
-    document.documentElement.style.backgroundColor = '';
-    
-    // Убираем все inline стили
-    document.body.removeAttribute("style");
+    // Восстанавливаем скролл только если калькулятор не активен
+    if (!isCalculatorActive) {
+        document.body.style.overflow = '';
+        document.body.style.overflowX = '';
+        document.body.style.overflowY = '';
+        document.body.style.height = '';
+        document.body.style.position = '';
+        document.body.style.background = '';
+        document.body.style.backgroundColor = '';
+        document.documentElement.style.overflow = '';
+        document.documentElement.style.background = '';
+        document.documentElement.style.backgroundColor = '';
+        
+        // Убираем все inline стили
+        document.body.removeAttribute("style");
+    }
 }
 
 /* =============================
    ОТКРЫТИЕ/ЗАКРЫТИЕ КАЛЬКУЛЯТОРА
    ============================= */
 
+// Переменные для ловушек фокуса
+let previousActiveElement = null;
+let focusableElements = null;
+
+// Функция для получения фокусируемых элементов
+function getFocusableElements(container) {
+    const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    return Array.from(container.querySelectorAll(focusableSelectors)).filter(el => {
+        return !el.disabled && el.offsetParent !== null;
+    });
+}
+
+// Функция для установки ловушки фокуса
+function trapFocus(container) {
+    focusableElements = getFocusableElements(container);
+    if (focusableElements.length === 0) return;
+    
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+    
+    // Фокусируем первый элемент
+    firstElement.focus();
+    
+    // Обработчик для Tab
+    const handleTab = (e) => {
+        if (e.key !== 'Tab') return;
+        
+        if (e.shiftKey) {
+            // Shift + Tab
+            if (document.activeElement === firstElement) {
+                e.preventDefault();
+                lastElement.focus();
+            }
+        } else {
+            // Tab
+            if (document.activeElement === lastElement) {
+                e.preventDefault();
+                firstElement.focus();
+            }
+        }
+    };
+    
+    // Сохраняем обработчик для последующего удаления
+    container._focusTrapHandler = handleTab;
+    container.addEventListener('keydown', handleTab);
+    container.dataset.focusTrapHandler = 'true';
+}
+
+// Функция для снятия ловушки фокуса
+function releaseFocus(container) {
+    // Удаляем обработчик с контейнера
+    if (container._focusTrapHandler) {
+        container.removeEventListener('keydown', container._focusTrapHandler);
+        delete container._focusTrapHandler;
+        delete container.dataset.focusTrapHandler;
+    }
+    
+    // Возвращаем фокус на предыдущий элемент
+    if (previousActiveElement && previousActiveElement.focus) {
+        previousActiveElement.focus();
+    }
+}
+
 function openCalculator() {
     // ВАЖНО: Сбрасываем калькулятор при открытии
     resetCalculator();
+    
+    // Сохраняем текущий активный элемент
+    previousActiveElement = document.activeElement;
     
     if (calculatorFullscreen) {
         calculatorFullscreen.classList.add("active");
@@ -469,11 +547,21 @@ function openCalculator() {
             calculatorClose.style.setProperty('z-index', '10003', 'important');
             calculatorClose.style.setProperty('pointer-events', 'auto', 'important');
         }
+        
+        // Устанавливаем ловушку фокуса
+        setTimeout(() => {
+            trapFocus(calculatorFullscreen);
+        }, 100);
     }
 }
 
 // Универсальное закрытие калькулятора (кнопка Х в правом верхнем углу) - ТОЧНАЯ КОПИЯ ИЗ ОРИГИНАЛА
 function closeCalculator() {
+    // Снимаем ловушку фокуса
+    if (calculatorFullscreen) {
+        releaseFocus(calculatorFullscreen);
+    }
+    
     if (calculatorFullscreen) {
         calculatorFullscreen.classList.remove("active");
         calculatorFullscreen.style.setProperty('display', 'none', 'important');
@@ -533,7 +621,6 @@ function attachButtonHandlers() {
             e.preventDefault();
             e.stopPropagation();
             e.stopImmediatePropagation();
-            console.log("Кнопка 'Назад' нажата, текущий шаг:", currentStep);
             if (currentStep > 1) {
                 goToStep(currentStep - 1);
             }
@@ -557,7 +644,6 @@ function attachButtonHandlers() {
             e.preventDefault();
             e.stopPropagation();
             e.stopImmediatePropagation();
-            console.log("Кнопка 'Далее' нажата, текущий шаг:", currentStep, "canProceed:", canProceedToNextStep());
             if (canProceedToNextStep() && currentStep < totalSteps) {
                 goToStep(currentStep + 1);
             } else {
@@ -585,10 +671,7 @@ function attachButtonHandlers() {
             e.preventDefault();
             e.stopPropagation();
             e.stopImmediatePropagation();
-            console.log("Кнопка 'Записаться' нажата, текущий шаг:", currentStep, "totalPrice:", totalPrice);
-            
             if (currentStep !== totalSteps) {
-                console.warn("Кнопка 'Записаться' нажата не на последнем шаге!");
                 return false;
             }
             
@@ -930,6 +1013,9 @@ function openModelModal(brand) {
         return;
     }
     
+    // Сохраняем текущий активный элемент
+    previousActiveElement = document.activeElement;
+    
     // Сначала открываем модальное окно для мгновенного отображения
     modelModal.classList.add("active");
     document.body.style.overflow = "hidden";
@@ -941,11 +1027,20 @@ function openModelModal(brand) {
     // Используем requestAnimationFrame для плавности
     requestAnimationFrame(() => {
         renderModelsModal(brand);
+        
+        // Устанавливаем ловушку фокуса
+        setTimeout(() => {
+            trapFocus(modelModal);
+        }, 100);
     });
 }
 
 function closeModelModal() {
     if (!modelModal) return;
+    
+    // Снимаем ловушку фокуса
+    releaseFocus(modelModal);
+    
     modelModal.classList.remove("active");
     document.body.style.overflow = "";
 }
@@ -1669,7 +1764,6 @@ function updateSummaryStep() {
 window.openRequestForm = function() {
     // Проверяем что мы на последнем шаге
     if (currentStep !== totalSteps) {
-        console.warn("Попытка открыть форму заявки не на последнем шаге!");
         // Переходим на последний шаг если не на нем
         goToStep(totalSteps);
         return;
@@ -1749,10 +1843,19 @@ ${selectedAdditionalServices.length > 0 ? "Дополнительные услу
 
 // Функция закрытия формы заявки
 window.closeRequestForm = function() {
-    const modal = document.getElementById('requestModal');
+    const modal = document.getElementById('requestModal') ||
+        document.querySelector('.request-modal') ||
+        document.querySelector('[data-modal="request"]') ||
+        document.querySelector('.modal-request');
+    
+    // Снимаем ловушку фокуса
     if (modal) {
+        releaseFocus(modal);
+        modal.style.display = 'none';
         modal.classList.add('hidden');
     }
+    
+    hideAllOverlays();
     
     document.body.style.overflow = '';
     
@@ -1767,6 +1870,42 @@ window.closeRequestForm = function() {
         if (calculatorModal) {
             calculatorModal.style.display = "";
         }
+    }
+};
+
+// Функция для привязки обработчиков закрытия (для обратной совместимости)
+function attachCloseHandlers() {
+    // Привязываем только к общим кнопкам закрытия, которые не имеют своих обработчиков
+    document.querySelectorAll(`
+        .close-btn:not(.calculator-close):not(.request-close),
+        .close:not(.calculator-close):not(.request-close),
+        .modal-close:not(.calculator-close):not(.request-close),
+        .btn-close:not(.calculator-close):not(.request-close),
+        .close-icon:not(.calculator-close):not(.request-close),
+        .x-btn:not(.calculator-close):not(.request-close)
+    `).forEach(btn => {
+        // Проверяем, что это не кнопка навигации и обработчик еще не привязан
+        if (btn.id !== 'btnNext' && btn.id !== 'btnBack' && 
+            !btn.classList.contains('btn-primary') && 
+            !btn.classList.contains('btn-secondary') &&
+            !btn.dataset.closeHandlerAttached) {
+            btn.dataset.closeHandlerAttached = 'true';
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                window.closeRequestForm();
+                if (typeof window.closeCalculator === 'function') {
+                    window.closeCalculator();
+                }
+            });
+        }
+    });
+}
+
+// Глобальные функции для обратной совместимости
+window.closeForm = window.closeRequestForm;
+window.closeCalc = function() {
+    if (typeof window.closeCalculator === 'function') {
+        window.closeCalculator();
     }
 };
 
@@ -1875,10 +2014,50 @@ document.addEventListener("DOMContentLoaded", () => {
     // Привязываем обработчики (если еще не привязаны)
     attachButtonHandlers();
     
+    // Привязываем обработчики закрытия
+    attachCloseHandlers();
+    
     // Дополнительная привязка обработчиков после небольшой задержки для гарантии
     setTimeout(() => {
         attachButtonHandlers();
+        attachCloseHandlers();
+        
+        // Убеждаемся, что калькулятор открывается правильно
+        const calc = document.getElementById('calculatorFullscreen');
+        if (calc && calc.classList.contains('active')) {
+            const overlay = calc.querySelector('.calculator-overlay');
+            if (overlay) {
+                overlay.style.display = 'block';
+                overlay.style.opacity = '0.5';
+                overlay.style.visibility = 'visible';
+            }
+        }
     }, 200);
+    
+    // Обработка Escape для закрытия модальных окон
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' || e.keyCode === 27) {
+            // Закрываем форму заявки если открыта
+            const requestModal = document.getElementById('requestModal');
+            if (requestModal && !requestModal.classList.contains('hidden')) {
+                window.closeRequestForm();
+                return;
+            }
+            
+            // Закрываем модальное окно выбора модели если открыто
+            const modelModal = document.getElementById('modelModal');
+            if (modelModal && modelModal.classList.contains('active')) {
+                closeModelModal();
+                return;
+            }
+            
+            // Закрываем калькулятор если открыт
+            const calculator = document.getElementById('calculatorFullscreen');
+            if (calculator && calculator.classList.contains('active')) {
+                closeCalculator();
+            }
+        }
+    });
     
     // Инициализация новой формы заявки
     const requestCloseBtn = document.getElementById('requestCloseBtn');

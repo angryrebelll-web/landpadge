@@ -2,6 +2,25 @@
    PROPellini Calculator Fullscreen Styles
    =============================== */
 
+/* Skip links для доступности */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    z-index: 999999;
+    padding: 8px 16px;
+    background: var(--propellini-primary);
+    color: var(--propellini-text);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.skip-link:focus {
+    left: 20px;
+    top: 20px;
+    position: fixed;
+}
+
 /* ===============================
    ОТКЛЮЧЕНИЕ СИСТЕМНЫХ BACKDROP СЛОЁВ
    =============================== */
