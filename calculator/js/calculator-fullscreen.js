@@ -582,7 +582,7 @@ function closeCalculator() {
     
     // Возврат на главную страницу сайта (добавлено для нашего проекта)
     setTimeout(() => {
-        window.location.href = '/landpadge/';
+        window.location.href = '../index.html';
     }, 100);
 }
 
