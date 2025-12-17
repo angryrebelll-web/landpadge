@@ -227,57 +227,6 @@
         }
         
         /* КРИТИЧЕСКИ ВАЖНО: показываем ВСЕ элементы по умолчанию */
-        /* Fallback: показываем hero элементы даже без JavaScript */
-        .hero-title,
-        .hero-prices,
-        .hero-offer,
-        .hero-content .btn-primary,
-        .hero-content * {
-            opacity: 1 !important;
-            transform: translateY(0) translateX(0) !important;
-            visibility: visible !important;
-            display: block !important;
-        }
-        
-        .hero-prices {
-            display: flex !important;
-        }
-        
-        .hero-content .btn-primary {
-            display: inline-block !important;
-        }
-        
-        @keyframes fadeInFallback {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1 !important;
-                transform: translateY(0) translateX(0) !important;
-            }
-        }
-        
-        /* Дополнительный fallback для всех анимируемых элементов */
-        .slide-up,
-        .fade-up,
-        .fade-in,
-        .section,
-        .section > *,
-        .section > * > * {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-            visibility: visible !important;
-        }
-        
-        /* Fallback для слов в заголовке - всегда видимы */
-        .word-animate,
-        .hero-title .word-animate,
-        .hero-title span {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-            visibility: visible !important;
-            display: inline-block !important;
-        }
         
         .hero-title {
             font-family: 'Unbounded', sans-serif !important;
@@ -506,7 +455,7 @@
             z-index: 0;
             overflow: hidden;
             background: #0a0a0a;
-            background-image: url('images/hero-desktop.webp'), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2500');
+            background-image: url('https://images.hdqwalls.com/download/mercedes-amg-gt-63-pro-4matic-motorsport-collectors-edition-0j-1920x1080.jpg');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -525,7 +474,7 @@
         /* Десктоп версии (1024px и выше) */
         @media (min-width: 1024px) {
             .hero-bg {
-                background-image: url('images/hero-desktop.webp'), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2500');
+                background-image: url('https://images.hdqwalls.com/download/mercedes-amg-gt-63-pro-4matic-motorsport-collectors-edition-0j-1920x1080.jpg');
                 background-attachment: fixed;
                 background-size: cover;
             }
@@ -539,7 +488,7 @@
         /* Планшет версии (768px - 1023px) */
         @media (min-width: 768px) and (max-width: 1023px) {
             .hero-bg {
-                background-image: url('images/hero-desktop.webp'), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2500');
+                background-image: url('https://images.hdqwalls.com/download/mercedes-amg-gt-63-pro-4matic-motorsport-collectors-edition-0j-1920x1080.jpg');
                 background-attachment: scroll;
                 background-size: cover;
             }
@@ -553,7 +502,7 @@
         /* Мобильные версии (до 767px) - оптимизированные изображения */
         @media (max-width: 767px) {
             .hero-bg {
-                background-image: url('images/hero-mobile.webp'), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1100&h=800&fit=crop');
+                background-image: url('https://images.hdqwalls.com/download/mercedes-amg-gt2-pro-0o-1080x1920.jpg');
                 background-attachment: scroll;
                 background-size: cover;
                 background-position: center center;
@@ -3013,23 +2962,22 @@
         <!-- Параллакс фон с picture для разных разрешений -->
         <div class="hero-bg" id="hero-bg">
             <picture>
-                <!-- Мобильная версия: 1100px ширина -->
-                <source srcset="images/hero-mobile.webp, https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1100&h=800&fit=crop" media="(max-width: 600px)" type="image/webp">
+                <!-- Мобильная версия: Mercedes AMG GT2 -->
+                <source srcset="https://images.hdqwalls.com/download/mercedes-amg-gt2-pro-0o-1080x1920.jpg" media="(max-width: 600px)" type="image/jpeg">
                 <!-- Планшетная версия: 1600px ширина -->
-                <source srcset="images/hero-tablet.webp, https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1600" media="(max-width: 1024px)" type="image/webp">
-                <!-- Десктопная версия: 2500px ширина -->
-                <source srcset="images/hero-desktop.webp, https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2500" type="image/webp">
-                <!-- Fallback JPG -->
+                <source srcset="./images/hero-tablet.webp" media="(max-width: 1024px)" type="image/webp">
+                <!-- Десктопная версия: Mercedes AMG GT 63 -->
+                <source srcset="https://images.hdqwalls.com/download/mercedes-amg-gt-63-pro-4matic-motorsport-collectors-edition-0j-1920x1080.jpg" media="(min-width: 1025px)" type="image/jpeg">
+                <!-- Fallback -->
                 <img id="hero-bg-img" 
-                     src="images/hero-desktop.jpg"
-                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2500';" 
+                     src="https://images.hdqwalls.com/download/mercedes-amg-gt-63-pro-4matic-motorsport-collectors-edition-0j-1920x1080.jpg" 
                      alt="Propellini - Профессиональная оклейка защитной пленкой в Москве" 
-                     loading="lazy" 
+                     loading="eager" 
+                     fetchpriority="high" 
                      decoding="async"
                      sizes="100vw"
                      style="width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; top: 0; left: 0;"
-                     onload="this.style.opacity='1';"
-                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2500';">
+                     onload="this.style.opacity='1';">
             </picture>
         </div>
         <div class="hero-overlay"></div>
@@ -3037,24 +2985,24 @@
         <div class="hero-content">
             <div class="max-w-5xl mx-auto" style="text-align: center;">
                 <!-- Главный заголовок - появляется первым -->
-                <h1 class="hero-title" id="heroTitle" style="opacity: 1; transform: translateY(0) translateX(0); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); font-size: 60px; line-height: 60px; font-weight: 400; letter-spacing: 0; margin-bottom: 2rem; font-family: 'Unbounded', sans-serif; text-align: center; margin-left: auto; margin-right: auto; display: block; width: 100%; color: #FFFFFF; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;">
+                <h1 class="hero-title" id="heroTitle" style="opacity: 0; transform: translateY(30px) translateX(-40px); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); font-size: 60px; line-height: 60px; font-weight: 400; letter-spacing: 0; margin-bottom: 2rem; font-family: 'Unbounded', sans-serif; text-align: center; margin-left: auto; margin-right: auto; display: block; width: 100%; color: #FFFFFF; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;">
                     <span class="word-animate">Профессиональная</span> <span class="word-animate">оклейка</span> <span class="word-animate">защитной</span> <span class="word-animate">пленкой</span> <span class="word-animate">в</span> <span class="word-animate">Москве</span>
                 </h1>
                 
                 <!-- Цены - появляются вторыми -->
-                <div class="hero-prices" style="opacity: 1; transform: translateY(0); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); margin-bottom: 2rem; display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;">
-                    <button class="price-card-shimmer" onclick="window.openModal()" style="background: var(--propellini-primary); border: 1px solid rgba(22, 132, 145, 0.5); border-radius: 12px; padding: 24px 48px; position: relative; min-width: 260px;">
-                        <div style="position: relative; z-index: 2; font-family: 'Roboto', sans-serif; font-size: 18px; color: rgba(255, 255, 255, 0.9); margin-bottom: 8px;">Оклейка зон риска</div>
-                        <div style="position: relative; z-index: 2; font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 800; color: white;">от 25 000 ₽</div>
+                <div class="hero-prices" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); margin-bottom: 2rem; display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;">
+                    <button class="price-card-shimmer" onclick="window.openModal()" style="background: var(--propellini-primary); border: 1px solid rgba(22, 132, 145, 0.5); border-radius: 8px; padding: 12px 20px; position: relative; min-width: 140px;">
+                        <div style="position: relative; z-index: 2; font-family: 'Roboto', sans-serif; font-size: 11px; color: rgba(255, 255, 255, 0.9); margin-bottom: 8px;">Оклейка зон риска</div>
+                        <div style="position: relative; z-index: 2; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; color: white;">от 25 000 ₽</div>
                     </button>
-                    <button class="price-card-shimmer" onclick="window.openModal()" style="background: var(--propellini-primary); border: 1px solid rgba(22, 132, 145, 0.5); border-radius: 12px; padding: 24px 48px; position: relative; min-width: 260px;">
-                        <div style="position: relative; z-index: 2; font-family: 'Roboto', sans-serif; font-size: 18px; color: rgba(255, 255, 255, 0.9); margin-bottom: 8px;">Полная оклейка кузова</div>
-                        <div style="position: relative; z-index: 2; font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 800; color: white;">от 180 000 ₽</div>
+                    <button class="price-card-shimmer" onclick="window.openModal()" style="background: var(--propellini-primary); border: 1px solid rgba(22, 132, 145, 0.5); border-radius: 8px; padding: 12px 20px; position: relative; min-width: 140px;">
+                        <div style="position: relative; z-index: 2; font-family: 'Roboto', sans-serif; font-size: 11px; color: rgba(255, 255, 255, 0.9); margin-bottom: 8px;">Полная оклейка кузова</div>
+                        <div style="position: relative; z-index: 2; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; color: white;">от 180 000 ₽</div>
                     </button>
                 </div>
                 
                 <!-- Акция - появляется третьей, более заметная -->
-                <div class="hero-offer offer-card-shimmer" style="opacity: 1; transform: translateY(0); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); margin-bottom: 2rem; background: linear-gradient(135deg, rgba(22, 132, 145, 0.2), rgba(22, 132, 145, 0.1)); border: 2px solid rgba(22, 132, 145, 0.4); border-radius: 16px; padding: 20px 32px; backdrop-filter: none; box-shadow: 0 8px 32px rgba(22, 132, 145, 0.3); position: relative;">
+                <div class="hero-offer offer-card-shimmer" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); margin-bottom: 2rem; background: linear-gradient(135deg, rgba(22, 132, 145, 0.2), rgba(22, 132, 145, 0.1)); border: 2px solid rgba(22, 132, 145, 0.4); border-radius: 16px; padding: 20px 32px; backdrop-filter: none; box-shadow: 0 8px 32px rgba(22, 132, 145, 0.3); position: relative;">
                     <p class="text-xl md:text-2xl" style="position: relative; z-index: 2; color: var(--propellini-text); font-weight: 800; letter-spacing: 0.01em; font-family: 'Montserrat', sans-serif; margin: 0; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
                             <!-- Коробка подарка -->
@@ -3069,15 +3017,15 @@
                             <path d="M9 8L8 10" stroke="#168491" stroke-width="1.5" stroke-linecap="round"/>
                             <path d="M15 8L16 10" stroke="#168491" stroke-width="1.5" stroke-linecap="round"/>
                         </svg>
-                        <span>Акция месяца: получите скидку <span style="color: var(--propellini-primary); font-size: 1.2em;">10%</span> на мойку 2-х авто</span>
+                        <span>При полной оклейке кузова тонировка или эвакуатор в подарок</span>
                     </p>
                 </div>
                 
                 <!-- Кнопка - появляется последней, более анимированная -->
-                <button class="btn-primary btn-shimmer hero-btn-animated" style="opacity: 1; transform: translateY(0); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Roboto', sans-serif; font-size: 18px; padding: 18px 48px; font-weight: 500; margin-bottom: 24px;">Получить скидку</button>
+                <button class="btn-primary btn-shimmer hero-btn-animated" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Roboto', sans-serif; font-size: 15px; padding: 12px 32px; font-weight: 500;">Получить скидку</button>
                 
-                <!-- Кнопка с телефоном и соцсети -->
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; margin-top: 16px;">
+                <!-- Кнопка с телефоном и соцсети - появляются последними -->
+                <div class="hero-social-block" style="display: flex; flex-direction: column; align-items: center; gap: 16px; margin-top: 16px; opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);">
                     <a href="tel:+79919361489" class="phone-btn" style="opacity: 1; transform: translateY(0);">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
@@ -3264,7 +3212,7 @@
     <!-- Преимущества -->
     <section class="section" id="advantages" style="position: relative; background: var(--propellini-dark-secondary); overflow: hidden;">
         <!-- Фоновое изображение -->
-        <div class="section-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/advantages-desktop.webp'), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1920'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll;"></div>
+        <div class="section-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('https://images.hdqwalls.com/download/mercedes-amg-gt2-pro-2023-5k-td-1920x1080.jpg'); background-size: cover !important; background-position: center !important; background-repeat: no-repeat !important; background-attachment: scroll; opacity: 0.8;"></div>
         <!-- Overlay градиент для читаемости -->
         <div class="section-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8));"></div>
         
@@ -3321,6 +3269,10 @@
 
     <!-- 4. Service Packages - Base / Premium / Lux / Risk Zones -->
     <section class="section" id="services" style="position: relative; background: var(--propellini-dark); padding-top: 120px; padding-bottom: 120px; overflow: hidden;">
+        <!-- Фоновое изображение -->
+        <div class="services-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('https://images.hdqwalls.com/download/mercedes-amg-gt2-pro-2023-yk-1920x1080.jpg'); background-size: cover !important; background-position: center !important; background-repeat: no-repeat !important; background-attachment: scroll; opacity: 0.8; min-height: 600px;"></div>
+        <!-- Затемнение для читаемости -->
+        <div class="services-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(135deg, rgba(17, 17, 17, 0.4) 0%, rgba(17, 17, 17, 0.3) 100%);"></div>
         <div class="max-w-7xl mx-auto px-6" style="position: relative; z-index: 2;">
             <div class="text-center mb-16 fade-up">
                 <h2 class="section-title" style="font-size: clamp(36px, 5vw, 52px); margin-bottom: 16px;">Пакеты услуг</h2>
@@ -4085,11 +4037,13 @@
                 <div class="slide-up">
                     <div class="mb-8">
                         <h3 class="text-2xl font-light mb-6" style="letter-spacing: 0.01em;">Центр оклейки защитной пленкой</h3>
-                        <div class="text-xl mb-2" style="color: var(--propellini-primary);">Propellini</div>
+                        <div class="logo-block" style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                            <img src="https://propellini.ru/wp-content/uploads/2025/10/cropped-chernaya-ikonka.png" alt="Propellini" class="contact-logo" style="height: 30px; margin-right: 8px; filter: brightness(0) invert(1); -webkit-filter: brightness(0) invert(1);">
+                            <span class="text-xl" style="color: var(--propellini-primary); font-weight: 600;">Propellini</span>
+                        </div>
                         <div class="space-y-3" style="color: var(--propellini-text-secondary); font-size: 15px; font-weight: 400; line-height: 1.7;">
                             <div><strong style="color: var(--propellini-text);">Адрес:</strong><br>Москва, ул. Авиационная, 79 к. 1</div>
                             <div><strong style="color: var(--propellini-text);">Режим работы:</strong><br>пн-вс: с 8:00 до 23:00</div>
-                            <div><strong style="color: var(--propellini-text);">Телефон:</strong><br><a href="tel:+79919361489" style="color: var(--propellini-primary);">+7 (991) 936-14-89</a></div>
                             <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 24px;">
                                 <a href="tel:+79919361489" class="phone-btn">
                                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -4392,6 +4346,12 @@
             }
             showElement(heroOffer, 1000);     // Акция появляется третьей (более заметная)
             showElement(heroButton, 1200);    // Кнопка появляется последней (более анимированная)
+            
+            // Анимация для кнопок соцсетей
+            const heroSocialBlock = document.querySelector('.hero-social-block');
+            if (heroSocialBlock) {
+                showElement(heroSocialBlock, 1400);    // Кнопки соцсетей появляются после кнопки
+            }
             
             // Fallback: гарантированно показываем элементы через 2 секунды, если они не появились
             setTimeout(() => {
