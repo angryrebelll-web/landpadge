@@ -226,12 +226,25 @@
             text-rendering: optimizeLegibility;
         }
         
+        /* КРИТИЧЕСКИ ВАЖНО: показываем ВСЕ элементы по умолчанию */
         /* Fallback: показываем hero элементы даже без JavaScript */
         .hero-title,
         .hero-prices,
         .hero-offer,
+        .hero-content .btn-primary,
+        .hero-content * {
+            opacity: 1 !important;
+            transform: translateY(0) translateX(0) !important;
+            visibility: visible !important;
+            display: block !important;
+        }
+        
+        .hero-prices {
+            display: flex !important;
+        }
+        
         .hero-content .btn-primary {
-            animation: fadeInFallback 0.5s ease-out 0.1s forwards;
+            display: inline-block !important;
         }
         
         @keyframes fadeInFallback {
@@ -247,29 +260,23 @@
         /* Дополнительный fallback для всех анимируемых элементов */
         .slide-up,
         .fade-up,
-        .fade-in {
-            animation: fadeInFallback 0.6s ease-out 0.2s forwards;
-            /* Гарантируем видимость даже без анимации */
+        .fade-in,
+        .section,
+        .section > *,
+        .section > * > * {
             opacity: 1 !important;
             transform: translateY(0) !important;
-        }
-        
-        /* Переопределяем только если JavaScript явно установил opacity: 0 */
-        .slide-up[style*="opacity: 0"],
-        .fade-up[style*="opacity: 0"],
-        .fade-in[style*="opacity: 0"] {
-            animation: fadeInFallback 0.6s ease-out 0.2s forwards;
+            visibility: visible !important;
         }
         
         /* Fallback для слов в заголовке - всегда видимы */
-        .word-animate {
+        .word-animate,
+        .hero-title .word-animate,
+        .hero-title span {
             opacity: 1 !important;
             transform: translateY(0) !important;
-        }
-        
-        .hero-title .word-animate {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
+            visibility: visible !important;
+            display: inline-block !important;
         }
         
         .hero-title {
