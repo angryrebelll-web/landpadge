@@ -506,7 +506,7 @@
             z-index: 0;
             overflow: hidden;
             background: #0a0a0a;
-            background-image: url('images/hero-desktop.webp');
+            background-image: url('images/hero-desktop.webp'), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2500');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -525,7 +525,7 @@
         /* Десктоп версии (1024px и выше) */
         @media (min-width: 1024px) {
             .hero-bg {
-                background-image: url('images/hero-desktop.webp');
+                background-image: url('images/hero-desktop.webp'), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2500');
                 background-attachment: fixed;
                 background-size: cover;
             }
@@ -539,7 +539,7 @@
         /* Планшет версии (768px - 1023px) */
         @media (min-width: 768px) and (max-width: 1023px) {
             .hero-bg {
-                background-image: url('images/hero-desktop.webp');
+                background-image: url('images/hero-desktop.webp'), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2500');
                 background-attachment: scroll;
                 background-size: cover;
             }
@@ -553,7 +553,7 @@
         /* Мобильные версии (до 767px) - оптимизированные изображения */
         @media (max-width: 767px) {
             .hero-bg {
-                background-image: url('images/hero-mobile.webp');
+                background-image: url('images/hero-mobile.webp'), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1100&h=800&fit=crop');
                 background-attachment: scroll;
                 background-size: cover;
                 background-position: center center;
@@ -561,25 +561,25 @@
             
             #about .section-bg,
             #studio .section-bg {
-                background-image: url('images/studio-mobile.webp');
+                background-image: url('images/studio-mobile.webp'), url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1100&h=800&fit=crop');
                 background-size: cover;
                 background-position: center center;
             }
             
             #advantages .section-bg {
-                background-image: url('images/advantages-mobile.webp');
+                background-image: url('images/advantages-mobile.webp'), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1100&h=800&fit=crop');
                 background-size: cover;
                 background-position: center center;
             }
             
             #services .section-bg {
-                background-image: url('images/services-mobile.webp');
+                background-image: url('images/services-mobile.webp'), url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1100&h=800&fit=crop');
                 background-size: cover;
                 background-position: center center;
             }
             
             #process .section-bg {
-                background-image: url('images/process1-mobile.webp');
+                background-image: url('images/process1-mobile.webp'), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1100&h=800&fit=crop');
                 background-size: cover;
                 background-position: center center;
             }
@@ -2943,21 +2943,22 @@
         <div class="hero-bg" id="hero-bg">
             <picture>
                 <!-- Мобильная версия: 1100px ширина -->
-                <source srcset="images/hero-mobile.webp" media="(max-width: 600px)" type="image/webp">
+                <source srcset="images/hero-mobile.webp, https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1100&h=800&fit=crop" media="(max-width: 600px)" type="image/webp">
                 <!-- Планшетная версия: 1600px ширина -->
-                <source srcset="images/hero-tablet.webp" media="(max-width: 1024px)" type="image/webp">
+                <source srcset="images/hero-tablet.webp, https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1600" media="(max-width: 1024px)" type="image/webp">
                 <!-- Десктопная версия: 2500px ширина -->
-                <source srcset="images/hero-desktop.webp" type="image/webp">
+                <source srcset="images/hero-desktop.webp, https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2500" type="image/webp">
                 <!-- Fallback JPG -->
                 <img id="hero-bg-img" 
-                     src="images/hero-desktop.jpg" 
+                     src="images/hero-desktop.jpg"
+                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2500';" 
                      alt="Propellini - Профессиональная оклейка защитной пленкой в Москве" 
                      loading="lazy" 
                      decoding="async"
                      sizes="100vw"
                      style="width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; top: 0; left: 0;"
                      onload="this.style.opacity='1';"
-                     onerror="this.onerror=null; this.src='images/hero-desktop.webp';">
+                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2500';">
             </picture>
         </div>
         <div class="hero-overlay"></div>
@@ -3115,7 +3116,7 @@
     <!-- 3. О Propellini - bokeh background + parallax -->
     <section class="section parallax-section" id="about" style="position: relative; background: var(--propellini-dark-secondary); padding-top: 120px; padding-bottom: 120px; overflow: hidden;">
         <!-- Bokeh background с параллаксом -->
-        <div class="section-bg parallax-bg-slow" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/studio-desktop.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll; filter: blur(2px);"></div>
+        <div class="section-bg parallax-bg-slow" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/studio-desktop.webp'), url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1920'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll; filter: blur(2px);"></div>
         <!-- Overlay градиент для читаемости -->
         <div class="section-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.65));"></div>
         
@@ -3165,7 +3166,7 @@
     <!-- Преимущества -->
     <section class="section" id="advantages" style="position: relative; background: var(--propellini-dark-secondary); overflow: hidden;">
         <!-- Фоновое изображение -->
-        <div class="section-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/advantages-desktop.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll;"></div>
+        <div class="section-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/advantages-desktop.webp'), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1920'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll;"></div>
         <!-- Overlay градиент для читаемости -->
         <div class="section-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8));"></div>
         
@@ -3488,7 +3489,7 @@
             <video autoplay muted loop playsinline style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 100%; min-height: 100%; width: auto; height: auto; object-fit: cover; z-index: 0;">
                 <source src="videos/teaser.mp4" type="video/mp4">
                 <!-- Fallback изображение -->
-                <img src="images/teaser-fallback.webp" alt="Propellini" style="width: 100%; height: 100%; object-fit: cover;">
+                <img src="images/teaser-fallback.webp" alt="Propellini" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1920';">
             </video>
             <!-- Затемнение 60% -->
             <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
@@ -3586,8 +3587,8 @@
     <!-- 7. Process - 6 шагов с reveal animation -->
     <section class="section parallax-section" id="process" style="position: relative; background: var(--propellini-dark); padding-top: 120px; padding-bottom: 120px; overflow: hidden;">
         <!-- Фоновое изображение с scroll-switch эффектом -->
-        <div class="section-bg parallax-bg-slow" id="process-bg-1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/process1-desktop.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll; opacity: 1; transition: opacity 0.8s ease;"></div>
-        <div class="section-bg parallax-bg-slow" id="process-bg-2" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/process2-desktop.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll; opacity: 0; transition: opacity 0.8s ease;"></div>
+        <div class="section-bg parallax-bg-slow" id="process-bg-1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/process1-desktop.webp'), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1920'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll; opacity: 1; transition: opacity 0.8s ease;"></div>
+        <div class="section-bg parallax-bg-slow" id="process-bg-2" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/process2-desktop.webp'), url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1920'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll; opacity: 0; transition: opacity 0.8s ease;"></div>
         <!-- Overlay градиент -->
         <div class="section-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6));"></div>
         
@@ -3907,7 +3908,7 @@
     <!-- 11. Studio - inside box parallax layers -->
     <section class="section parallax-section" id="studio" style="position: relative; background: var(--propellini-dark-secondary); padding-top: 120px; padding-bottom: 120px; overflow: hidden;">
         <!-- Фоновое изображение с параллаксом -->
-        <div class="section-bg parallax-bg-slow" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/studio-desktop.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll;"></div>
+        <div class="section-bg parallax-bg-slow" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('images/studio-desktop.webp'), url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1920'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll;"></div>
         <!-- Overlay градиент -->
         <div class="section-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6));"></div>
         
