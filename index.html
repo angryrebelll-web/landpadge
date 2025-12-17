@@ -249,6 +249,27 @@
         .fade-up,
         .fade-in {
             animation: fadeInFallback 0.6s ease-out 0.2s forwards;
+            /* Гарантируем видимость даже без анимации */
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        /* Переопределяем только если JavaScript явно установил opacity: 0 */
+        .slide-up[style*="opacity: 0"],
+        .fade-up[style*="opacity: 0"],
+        .fade-in[style*="opacity: 0"] {
+            animation: fadeInFallback 0.6s ease-out 0.2s forwards;
+        }
+        
+        /* Fallback для слов в заголовке - всегда видимы */
+        .word-animate {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        .hero-title .word-animate {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
         
         .hero-title {
@@ -442,8 +463,8 @@
         /* Анимация появления слов */
         .word-animate {
             display: inline-block;
-            opacity: 0;
-            transform: translateY(20px);
+            opacity: 1;
+            transform: translateY(0);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
@@ -4176,6 +4197,15 @@
             function animateWords(container, delay = 0) {
                 if (!container) return;
                 const words = container.querySelectorAll('.word-animate');
+                // Если слова уже видны (opacity: 1), не скрываем их
+                const firstWordOpacity = words[0] ? getComputedStyle(words[0]).opacity : '1';
+                if (firstWordOpacity === '1') {
+                    // Слова уже видны, просто добавляем плавную анимацию
+                    words.forEach((word, index) => {
+                        word.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                    });
+                    return;
+                }
                 words.forEach((word, index) => {
                     word.style.opacity = '0';
                     word.style.transform = 'translateY(20px)';
