@@ -4262,11 +4262,23 @@
 
             // Запускаем анимацию сразу при загрузке с правильными задержками
             // Анимация заголовка по словам
+            // НЕ скрываем элементы, если они уже видны
             setTimeout(() => {
                 if (heroTitle) {
-                    heroTitle.style.opacity = '1';
-                    heroTitle.style.transform = 'translateY(0) translateX(0)';
-                    animateWords(heroTitle, 100);
+                    // Проверяем текущее состояние
+                    const currentOpacity = getComputedStyle(heroTitle).opacity;
+                    if (currentOpacity !== '1') {
+                        heroTitle.style.opacity = '1';
+                        heroTitle.style.transform = 'translateY(0) translateX(0)';
+                    }
+                    // Анимируем слова только если они скрыты
+                    const words = heroTitle.querySelectorAll('.word-animate');
+                    if (words.length > 0) {
+                        const firstWordOpacity = getComputedStyle(words[0]).opacity;
+                        if (firstWordOpacity !== '1') {
+                            animateWords(heroTitle, 100);
+                        }
+                    }
                 }
             }, 50);
             
