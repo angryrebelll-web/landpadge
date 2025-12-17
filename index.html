@@ -1205,6 +1205,77 @@
             box-shadow: 0 0 10px rgba(22, 132, 145, 0.4);
         }
 
+        /* Кнопки соцсетей - круглые */
+        .social-buttons {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--propellini-primary);
+            background: rgba(18, 18, 18, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-btn:hover {
+            background: var(--propellini-primary);
+            border-color: var(--propellini-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(22, 132, 145, 0.4);
+        }
+
+        .social-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Кнопка с телефоном */
+        .phone-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: rgba(18, 18, 18, 0.9);
+            border: 2px solid var(--propellini-primary);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .phone-btn:hover {
+            background: var(--propellini-primary);
+            border-color: var(--propellini-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(22, 132, 145, 0.4);
+        }
+
+        .phone-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--propellini-primary);
+        }
+
+        .phone-btn:hover svg {
+            fill: white;
+        }
+
         /* Hover-glow эффект для всех кнопок в цвете #168491 */
         .btn-primary,
         .price-card-shimmer,
@@ -3003,7 +3074,34 @@
                 </div>
                 
                 <!-- Кнопка - появляется последней, более анимированная -->
-                <button class="btn-primary btn-shimmer hero-btn-animated" style="opacity: 1; transform: translateY(0); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Roboto', sans-serif; font-size: 18px; padding: 18px 48px; font-weight: 500;">Получить скидку</button>
+                <button class="btn-primary btn-shimmer hero-btn-animated" style="opacity: 1; transform: translateY(0); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Roboto', sans-serif; font-size: 18px; padding: 18px 48px; font-weight: 500; margin-bottom: 24px;">Получить скидку</button>
+                
+                <!-- Кнопка с телефоном и соцсети -->
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; margin-top: 16px;">
+                    <a href="tel:+79919361489" class="phone-btn" style="opacity: 1; transform: translateY(0);">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
+                        </svg>
+                        +7 (991) 936-14-89
+                    </a>
+                    <div class="social-buttons" style="opacity: 1; transform: translateY(0);">
+                        <a href="https://t.me/propellini_detailing" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Telegram">
+                            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.13-.31-1.09-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                            </svg>
+                        </a>
+                        <a href="https://vk.com/propellini" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="ВКонтакте">
+                            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.785 16.241s.336-.041.51-.25c.158-.192.153-.554.153-.554s-.023-1.526.687-1.754c.703-.221 1.604.981 2.562 1.416.724.329 1.274.256 1.274.256l2.559-.038s1.334-.085.7-1.139c-.052-.083-.373-.8-1.916-2.263-1.62-1.534-1.404-1.285.55-3.94.378-.516 1.059-1.354 1.059-1.354s.596-1.129.321-1.631c-.306-.568-.902-.619-.902-.619l-2.476.015s-.549.016-.896.344c-.182.176-.297.439-.297.439s-.534 1.422-1.24 2.633c-1.493 2.493-2.092 2.625-2.336 2.478-.569-.347-.427-1.394-.427-2.139 0-2.325.356-3.297-.695-3.547-.348-.084-.604-.14-1.496-.149-1.143-.012-2.106.004-2.654.28-.377.19-.668.614-.492.638.22.03.718.133.981.483.345.46.332 1.492.332 1.492s.198 2.93-.462 3.289c-.453.247-1.078-.257-2.423-2.633-.688-1.189-1.208-2.5-1.208-2.5s-.1-.32-.279-.492c-.216-.208-.517-.274-.517-.274l-2.345.015s-.78.035-1.067.335c-.257.267-.02.824-.02.824s3.293 7.743 7.014 11.656c3.415 3.607 7.307 3.367 7.307 3.367h1.741z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/79919361489" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -3991,30 +4089,28 @@
                         <div class="space-y-3" style="color: var(--propellini-text-secondary); font-size: 15px; font-weight: 400; line-height: 1.7;">
                             <div><strong style="color: var(--propellini-text);">Адрес:</strong><br>Москва, ул. Авиационная, 79 к. 1</div>
                             <div><strong style="color: var(--propellini-text);">Режим работы:</strong><br>пн-вс: с 8:00 до 23:00</div>
-                            <div><strong style="color: var(--propellini-text);">Телефон:</strong><br><a href="tel:+79919361489" style="color: var(--propellini-primary);">+7 (991) 936-14-89</a></div>
-                            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 16px;">
-                                <div>
-                                    <a href="https://t.me/propellini_detailing" target="_blank" rel="noopener noreferrer" style="color: var(--propellini-primary); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 24px;">
+                                <a href="tel:+79919361489" class="phone-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
+                                    </svg>
+                                    +7 (991) 936-14-89
+                                </a>
+                                <div class="social-buttons">
+                                    <a href="https://t.me/propellini_detailing" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Telegram">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.13-.31-1.09-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
                                         </svg>
-                                        Telegram
                                     </a>
-                                </div>
-                                <div>
-                                    <a href="https://vk.com/propellini" target="_blank" rel="noopener noreferrer" style="color: var(--propellini-primary); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <a href="https://vk.com/propellini" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="ВКонтакте">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M12.785 16.241s.336-.041.51-.25c.158-.192.153-.554.153-.554s-.023-1.526.687-1.754c.703-.221 1.604.981 2.562 1.416.724.329 1.274.256 1.274.256l2.559-.038s1.334-.085.7-1.139c-.052-.083-.373-.8-1.916-2.263-1.62-1.534-1.404-1.285.55-3.94.378-.516 1.059-1.354 1.059-1.354s.596-1.129.321-1.631c-.306-.568-.902-.619-.902-.619l-2.476.015s-.549.016-.896.344c-.182.176-.297.439-.297.439s-.534 1.422-1.24 2.633c-1.493 2.493-2.092 2.625-2.336 2.478-.569-.347-.427-1.394-.427-2.139 0-2.325.356-3.297-.695-3.547-.348-.084-.604-.14-1.496-.149-1.143-.012-2.106.004-2.654.28-.377.19-.668.614-.492.638.22.03.718.133.981.483.345.46.332 1.492.332 1.492s.198 2.93-.462 3.289c-.453.247-1.078-.257-2.423-2.633-.688-1.189-1.208-2.5-1.208-2.5s-.1-.32-.279-.492c-.216-.208-.517-.274-.517-.274l-2.345.015s-.78.035-1.067.335c-.257.267-.02.824-.02.824s3.293 7.743 7.014 11.656c3.415 3.607 7.307 3.367 7.307 3.367h1.741z"/>
                                         </svg>
-                                        ВКонтакте
                                     </a>
-                                </div>
-                                <div>
-                                    <a href="https://wa.me/79686648888" target="_blank" rel="noopener noreferrer" style="color: var(--propellini-primary); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <a href="https://wa.me/79919361489" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                                         </svg>
-                                        WhatsApp: +7 968 664-88-88
                                     </a>
                                 </div>
                             </div>
