@@ -499,6 +499,47 @@
             }
         }
 
+        /* Fallback: показываем hero элементы через небольшую задержку, если JavaScript не сработал */
+        @keyframes fadeInHero {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Применяем анимацию через небольшую задержку для всех hero элементов */
+        .hero-title,
+        .hero-prices,
+        .hero-offer,
+        .hero-btn-animated,
+        .hero-social-block {
+            animation: fadeInHero 0.6s ease-out 0.5s forwards;
+        }
+
+        .hero-title {
+            animation-delay: 0.1s;
+        }
+
+        .hero-prices {
+            animation-delay: 0.3s;
+        }
+
+        .hero-offer {
+            animation-delay: 0.5s;
+        }
+
+        .hero-btn-animated {
+            animation-delay: 0.7s;
+        }
+
+        .hero-social-block {
+            animation-delay: 0.9s;
+        }
+
         /* Мобильные версии (до 767px) - оптимизированные изображения */
         @media (max-width: 767px) {
             .hero-bg {
@@ -4250,7 +4291,7 @@
             const heroTitle = document.querySelector('.hero-title');
             const heroPrices = document.querySelector('.hero-prices');
             const heroOffer = document.querySelector('.hero-offer');
-            const heroButton = document.querySelector('.hero-content .btn-primary');
+            const heroButton = document.querySelector('.hero-btn-animated') || document.querySelector('.hero-content .btn-primary');
 
             // Функция для анимации появления слов
             function animateWords(container, delay = 0) {
@@ -4294,6 +4335,32 @@
             // Проверка на мобильное устройство
             const isMobile = window.innerWidth <= 768;
 
+            // СРАЗУ показываем hero элементы, чтобы они были видны
+            if (heroTitle) {
+                heroTitle.style.opacity = '1';
+                heroTitle.style.transform = 'translateY(0) translateX(0)';
+                // Анимируем слова
+                animateWords(heroTitle, 100);
+            }
+            if (heroPrices) {
+                heroPrices.style.opacity = '1';
+                heroPrices.style.transform = 'translateY(0)';
+                heroPrices.style.display = 'flex';
+            }
+            if (heroOffer) {
+                heroOffer.style.opacity = '1';
+                heroOffer.style.transform = 'translateY(0)';
+            }
+            if (heroButton) {
+                heroButton.style.opacity = '1';
+                heroButton.style.transform = 'translateY(0)';
+            }
+            const heroSocialBlock = document.querySelector('.hero-social-block');
+            if (heroSocialBlock) {
+                heroSocialBlock.style.opacity = '1';
+                heroSocialBlock.style.transform = 'translateY(0)';
+            }
+
             // Функция для показа цен на мобильных
             const showPricesOnMobile = () => {
                 if (heroPrices) {
@@ -4321,23 +4388,20 @@
 
             // Запускаем анимацию сразу при загрузке с правильными задержками
             // Анимация заголовка по словам
-            // НЕ скрываем элементы, если они уже видны
+            // Показываем элементы сразу, чтобы они были видны
+            if (heroTitle) {
+                heroTitle.style.opacity = '1';
+                heroTitle.style.transform = 'translateY(0) translateX(0)';
+                // Анимируем слова
+                animateWords(heroTitle, 100);
+            }
+            
+            // Показываем остальные элементы с задержкой
             setTimeout(() => {
-                if (heroTitle) {
-                    // Проверяем текущее состояние
-                    const currentOpacity = getComputedStyle(heroTitle).opacity;
-                    if (currentOpacity !== '1') {
-                        heroTitle.style.opacity = '1';
-                        heroTitle.style.transform = 'translateY(0) translateX(0)';
-                    }
-                    // Анимируем слова только если они скрыты
-                    const words = heroTitle.querySelectorAll('.word-animate');
-                    if (words.length > 0) {
-                        const firstWordOpacity = getComputedStyle(words[0]).opacity;
-                        if (firstWordOpacity !== '1') {
-                            animateWords(heroTitle, 100);
-                        }
-                    }
+                if (heroTitle && getComputedStyle(heroTitle).opacity !== '1') {
+                    heroTitle.style.opacity = '1';
+                    heroTitle.style.transform = 'translateY(0) translateX(0)';
+                    animateWords(heroTitle, 100);
                 }
             }, 50);
             
